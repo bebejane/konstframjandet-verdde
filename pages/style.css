@@ -30,16 +30,18 @@ to this section's matching END comment to see page-specific styles.
 * {
   box-sizing: border-box;
 }
+
 [hidden] {
   display: none !important;
 }
 
 
 img {
-    width: 70vw;
+  width: 70vw;
+
   @media (min-width:600px) {
-  width: 70vh;
-    }
+    width: 70vh;
+  }
 }
 
 .wrapper {
@@ -51,8 +53,9 @@ img {
   flex-direction: column;
   text-align: center;
   font-size: 15px;
-    @media (min-width:600px) {
-  font-size: 21px;
+
+  @media (min-width:600px) {
+    font-size: 21px;
 
   }
 }
@@ -60,14 +63,14 @@ img {
 .text {
   padding-top: 3rem;
   font-family: "roc-grotesk", sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .intro {
   font-family: "tuppence", serif;
-font-weight: 400;
-font-style: normal;
+  font-weight: 400;
+  font-style: normal;
   font-size: 2rem;
   padding-bottom: .5em;
   display: block;

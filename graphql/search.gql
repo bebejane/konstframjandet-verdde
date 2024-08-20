@@ -1,0 +1,80 @@
+#import "./fragments/ImageThumbnailFragment"
+
+query SiteSearch(
+	$aboutIds: [ItemId]
+	$newsIds: [ItemId]
+	$programIds: [ItemId]
+	$participantIds: [ItemId]
+	$locationIds: [ItemId]
+	$partnerIds: [ItemId]
+	$first: IntType = 100
+	$skip: IntType = 0
+) {
+	abouts: allAbouts(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $aboutIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	news: allNews(first: $first, skip: $skip, filter: { id: { in: $newsIds } }) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	programs: allPrograms(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $programIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+
+	participants: allParticipants(
+		first: $first
+		skip: $skip
+		filter: { id: { in: $participantIds } }
+	) {
+		__typename
+		_modelApiKey
+		title: name
+		text: intro(markdown: false)
+		slug
+	}
+	locations: allLocations(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $locationIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	partners: allPartners(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $partnerIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+}

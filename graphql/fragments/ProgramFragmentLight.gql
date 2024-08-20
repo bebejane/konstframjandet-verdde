@@ -1,0 +1,18 @@
+#import "./ImageFragment.gql"
+#import "./VideoFragment.gql"
+
+fragment ProgramFragmentLight on ProgramRecord {
+	__typename
+	_modelApiKey
+	id
+	title
+	startDate
+	endDate
+	intro(markdown: false)
+	time
+	image {
+		...ImageThumbnailFragment
+	}
+
+	slug
+}

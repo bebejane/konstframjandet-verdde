@@ -1,0 +1,14 @@
+query AllPartners {
+	partners: allPartners(first: 100) {
+		...PartnerFragmentLight
+	}
+	pagination: _allPartnersMeta {
+		count
+	}
+}
+
+query Partner($slug: String!) {
+	partner(filter: { slug: { eq: $slug } }) {
+		...PartnerFragment
+	}
+}

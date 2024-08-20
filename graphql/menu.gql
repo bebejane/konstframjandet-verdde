@@ -1,0 +1,22 @@
+query Menu($yearId: ItemId) {
+	abouts: allAbouts(first: 100) {
+		id
+		title
+		slug
+	}
+	aboutMeta: _allAboutsMeta {
+		count
+	}
+	programMeta: _allProgramsMeta {
+		count
+	}
+	participantsMeta: _allParticipantsMeta {
+		count
+	}
+	partnersMeta: _allPartnersMeta {
+		count
+	}
+	locationsMeta: _allLocationsMeta(filter: { year: { eq: $yearId } }) {
+		count
+	}
+}

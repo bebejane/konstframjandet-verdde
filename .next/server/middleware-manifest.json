@@ -1,6 +1,78 @@
 {
   "version": 3,
   "middleware": {},
-  "functions": {},
+  "functions": {
+    "/api/backup": {
+      "files": [
+        "prerender-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/162.js",
+        "server/edge-chunks/870.js",
+        "server/pages/api/backup.js"
+      ],
+      "name": "pages/api/backup",
+      "page": "/api/backup",
+      "matchers": [
+        {
+          "regexp": "^/api/backup$",
+          "originalSource": "/api/backup"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "environments": {
+        "previewModeId": "f86e8a42790d7b661f9f807ecad393ab",
+        "previewModeSigningKey": "b3751b0ab3c6239f229b7f33b393911e40e87b45ce5adb088ef8126b1f87d8f5",
+        "previewModeEncryptionKey": "680d3bd57790402295322022ae31dce8799aa9a98dc413dbe2a83713ef9aca6d"
+      }
+    },
+    "/api/web-previews": {
+      "files": [
+        "prerender-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/162.js",
+        "server/edge-chunks/870.js",
+        "server/pages/api/web-previews.js"
+      ],
+      "name": "pages/api/web-previews",
+      "page": "/api/web-previews",
+      "matchers": [
+        {
+          "regexp": "^/api/web\\-previews$",
+          "originalSource": "/api/web-previews"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "environments": {
+        "previewModeId": "f86e8a42790d7b661f9f807ecad393ab",
+        "previewModeSigningKey": "b3751b0ab3c6239f229b7f33b393911e40e87b45ce5adb088ef8126b1f87d8f5",
+        "previewModeEncryptionKey": "680d3bd57790402295322022ae31dce8799aa9a98dc413dbe2a83713ef9aca6d"
+      }
+    },
+    "/api/search": {
+      "files": [
+        "prerender-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/162.js",
+        "server/pages/api/search.js"
+      ],
+      "name": "pages/api/search",
+      "page": "/api/search",
+      "matchers": [
+        {
+          "regexp": "^/api/search$",
+          "originalSource": "/api/search"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "environments": {
+        "previewModeId": "f86e8a42790d7b661f9f807ecad393ab",
+        "previewModeSigningKey": "b3751b0ab3c6239f229b7f33b393911e40e87b45ce5adb088ef8126b1f87d8f5",
+        "previewModeEncryptionKey": "680d3bd57790402295322022ae31dce8799aa9a98dc413dbe2a83713ef9aca6d"
+      }
+    }
+  },
   "sortedMiddleware": []
 }

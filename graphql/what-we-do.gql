@@ -1,0 +1,38 @@
+query AllParters($first: IntType = 100, $skip: IntType = 0) {
+	partners: allPartners(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+		...PartnerFragmentLight
+	}
+	pagination: _allPartnersMeta {
+		count
+	}
+}
+
+query AllParticipants($first: IntType = 100, $skip: IntType = 0) {
+	participants: allParticipants(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+		...ParticipantFragmentLight
+	}
+	pagination: _allParticipantsMeta {
+		count
+	}
+}
+
+query AllPrograms($first: IntType = 100, $skip: IntType = 0) {
+	programs: allPrograms(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+		...ProgramFragmentLight
+	}
+	pagination: _allProgramsMeta {
+		count
+	}
+}
+
+query WhatWeDo($slug: String) {
+	program(filter: { slug: { eq: $slug } }) {
+		...ProgramFragment
+	}
+	participant(filter: { slug: { eq: $slug } }) {
+		...ParticipantFragment
+	}
+	partner(filter: { slug: { eq: $slug } }) {
+		...PartnerFragment
+	}
+}

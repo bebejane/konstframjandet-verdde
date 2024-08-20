@@ -3,7 +3,7 @@ import { MenuDocument } from "/graphql";
 
 const base: Menu = [
   { id: 'home', label: 'Hem', slug: '/', general: true },
-  { id: 'what-we-do', label: 'Vad vi gör', slug: '/vad-vi-gor' },
+  { id: 'what', label: 'Vad vi gör', slug: '/vad-vi-gor' },
   { id: 'about', label: 'Detta är Verdde', slug: '/om', virtual: true, sub: [] },
   { id: 'news', label: 'På gång', slug: '/pa-gang', virtual: true, sub: [] },
   { id: 'contact', label: 'Kontakt', slug: '/kontakt', general: true }
@@ -13,8 +13,11 @@ export const buildMenu = async () => {
 
   const res = await apiQuery(MenuDocument)
 
-  const menu = base.map(item => {
+  base.forEach((item, idx) => {
+    base[idx].altLabel = res.general[`${item.id}Smi`] ?? item.label
+  })
 
+  const menu = base.map(item => {
     let sub: MenuItem[];
 
     switch (item.id) {
@@ -55,6 +58,7 @@ export type MenuQueryResponse = {
 export type MenuItem = {
   id: SectionId
   label: string
+  altLabel?: string
   slug?: string
   sub?: MenuItem[]
   count?: number

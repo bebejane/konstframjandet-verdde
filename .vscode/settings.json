@@ -1,7 +1,7 @@
 {
   "files.exclude": {
-    ".next": false,
-    "node_modules": false,
-    ".vscode": false
+    ".next": true,
+    "node_modules": true,
+    ".vscode": true
   }
 }

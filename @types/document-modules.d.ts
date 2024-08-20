@@ -200,25 +200,6 @@ declare module '*/global.gql' {
 }
     
 
-declare module '*/inenglish.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const InEnglish: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/location.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const AllLocations: DocumentNode;
-export const Location: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/menu.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -267,7 +248,7 @@ export const StartData: DocumentNode;
 }
     
 
-declare module '*/what-we-do.gql' {
+declare module '*/what.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const AllParters: DocumentNode;

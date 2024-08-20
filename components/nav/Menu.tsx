@@ -8,7 +8,6 @@ import useStore from '/lib/store'
 import { useScrollInfo } from 'dato-nextjs-utils/hooks'
 import { useWindowSize } from 'usehooks-ts'
 import useDevice from '/lib/hooks/useDevice'
-import Logo from '../layout/Logo'
 
 export type MenuProps = { items: Menu }
 
@@ -51,6 +50,7 @@ export default function MenuMobile({ items }: MenuProps) {
 				<ul ref={menuRef}>
 					{items.slice(1).map((item, idx) =>
 						<li key={idx}>
+							<span>{item.altLabel}</span><br />
 							<Link href={item.slug}>
 								{item.label}
 							</Link>

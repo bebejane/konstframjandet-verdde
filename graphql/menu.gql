@@ -1,4 +1,4 @@
-query Menu($yearId: ItemId) {
+query Menu {
 	abouts: allAbouts(first: 100) {
 		id
 		title
@@ -16,7 +16,15 @@ query Menu($yearId: ItemId) {
 	partnersMeta: _allPartnersMeta {
 		count
 	}
-	locationsMeta: _allLocationsMeta(filter: { year: { eq: $yearId } }) {
-		count
+
+	general {
+		whatSmi
+		whatSv
+		newsSv
+		newsSmi
+		contactSv
+		contactSmi
+		aboutSv
+		aboutSmi
 	}
 }

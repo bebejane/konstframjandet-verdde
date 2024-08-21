@@ -8,7 +8,7 @@ import { usePage } from '/lib/context/page'
 import useStore from '/lib/store'
 
 import Logo from '/public/images/logo-text.svg'
-import { translatePath } from '/lib/utils'
+
 
 export type SectionHeaderProps = {
   menu: MenuItem[]
@@ -45,7 +45,6 @@ export default function SectionHeader() {
 
   return (
     <>
-      <Link href="/" className={s.logo}><Logo /></Link>
       <header className={cn(s.header, !showMenu && s.full, isHome && s.home)}>
         {parentPath && asPath !== parentPath && parent ?
           <Link href={parentPath} transformHref={false}>

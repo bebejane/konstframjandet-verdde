@@ -46,12 +46,13 @@ export default function MenuMobile({ items }: MenuProps) {
 	return (
 		<>
 			<nav className={s.menu}>
-				<img className={s.logo} src="/images/logo.png" />
+				<Link href={'/'}>
+					<img className={s.logo} src="/images/logo.png" />
+				</Link>
 				<ul ref={menuRef}>
 					{items.slice(1).map((item, idx) =>
 						<li key={idx}>
 							<Link href={item.slug}>
-
 								<span>{item.altLabel}</span><br />
 								{item.label}
 							</Link>

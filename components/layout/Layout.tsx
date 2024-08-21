@@ -4,6 +4,7 @@ import { Content, Footer, Grid, MenuMobile, Menu, FullscreenGallery } from '/com
 import type { MenuItem } from '/lib/menu'
 import { buildMenu } from '/lib/menu'
 import { useStore } from '/lib/store'
+import { useRouter } from 'next/router'
 
 export type LayoutProps = {
 	children: React.ReactNode,
@@ -14,12 +15,18 @@ export type LayoutProps = {
 
 export default function Layout({ children, menu: menuFromProps, footer, title }: LayoutProps) {
 
+	const router = useRouter()
 	const [menu, setMenu] = useState(menuFromProps)
 	const [images, imageId, setImageId] = useStore((state) => [state.images, state.imageId, state.setImageId])
 
 	useEffect(() => { // Refresh menu on load.
 		buildMenu().then(res => setMenu(res)).catch(err => console.error(err))
 	}, [])
+
+	useEffect(() => {
+		const sectionId = router.asPath.split('/')?.[1]
+		document.body.style.backgroundImage = sectionId ? `url(/images/sections/${sectionId}.svg)` : 'none'
+	}, [router.asPath])
 
 	if (!menuFromProps || !footer) return null
 

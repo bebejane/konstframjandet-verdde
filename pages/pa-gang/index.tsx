@@ -6,17 +6,19 @@ import { DatoMarkdown as Markdown } from "dato-nextjs-utils/components";
 import format from "date-fns/format";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
-import { Button } from "/components";
+import { Button, PageHeader } from "/components";
 
 export type Props = {
   news: (NewsRecord & ThumbnailImage)[]
+  general: GeneralRecord
 }
 
-export default function News({ news }: Props) {
+export default function News({ news, general }: Props) {
 
   return (
     <>
       <DatoSEO title={'På gång'} />
+      <PageHeader header={general.newsSv} headerSmi={general.newsSmi} content={'Intro text...'} />
       <section className={s.news}>
         <ul>
           {news.map(({ id, image, thumb, title, intro, _createdAt, slug }) =>

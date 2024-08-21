@@ -10,7 +10,6 @@ import setDefaultOptions from 'date-fns/setDefaultOptions';
 
 setDefaultOptions({ locale: sv })
 
-
 function App({ Component, pageProps, router }) {
 
   const page = pageProps.page || {} as PageProps
@@ -26,7 +25,12 @@ function App({ Component, pageProps, router }) {
     <>
       <DefaultDatoSEO siteTitle={siteTitle} site={pageProps.site} path={asPath} />
       <PageProvider value={{ ...page, year: pageProps.year, isHome }}>
-        <Layout title={siteTitle} menu={pageProps.menu || []} footer={pageProps.footer}>
+        <Layout
+          title={siteTitle}
+          menu={pageProps.menu || []}
+          footer={pageProps.footer}
+          general={pageProps.general}
+        >
           <Component {...pageProps} />
         </Layout>
       </PageProvider>

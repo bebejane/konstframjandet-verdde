@@ -11,9 +11,10 @@ export type LayoutProps = {
 	menu: MenuItem[],
 	footer: GeneralRecord
 	title: string
+	general: GeneralRecord
 }
 
-export default function Layout({ children, menu: menuFromProps, footer, title }: LayoutProps) {
+export default function Layout({ children, menu: menuFromProps, footer, title, general }: LayoutProps) {
 
 	const router = useRouter()
 	const [menu, setMenu] = useState(menuFromProps)

@@ -1,17 +1,19 @@
 import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
 import { AllPartersDocument, AllParticipantsDocument, AllProgramsDocument } from "/graphql";
-import { CardContainer, Card, Thumbnail } from "/components";
+import { CardContainer, Card, Thumbnail, PageHeader } from "/components";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { apiQueryAll } from "dato-nextjs-utils/api";
 import { useState } from "react";
+import { routes } from '/lib/routes'
 
 export type Props = {
   participants: ParticipantRecord[]
   programs: ProgramRecord[]
   partners: PartnerRecord[]
+  general: GeneralRecord
 }
 
 const categories = [{
@@ -32,22 +34,16 @@ const categories = [{
 }]
 
 
-export default function WhatWeDo({ participants = [], programs = [], partners = [] }: Props) {
+export default function WhatWeDo({ participants = [], programs = [], partners = [], general }: Props) {
 
   const { asPath } = useRouter()
   const [filter, setFilter] = useState({ participants: true, programs: true, partners: true })
   const posts = [...participants, ...programs, ...partners]
 
-  const filterPosts = (post: ParticipantRecord | ProgramRecord | PartnerRecord) => {
-    if (post.__typename === 'ParticipantRecord') return filter.participants
-    if (post.__typename === 'ProgramRecord') return filter.programs
-    if (post.__typename === 'PartnerRecord') return filter.partners
-    return false
-  }
-
   return (
     <>
       <DatoSEO title={'Vad vi gör'} />
+      <PageHeader header={general.whatSv} headerSmi={general.whatSmi} content={'Intro text...'} />
       <ul className={s.filter}>
         {categories.map(({ id, title, slug }) =>
           <li

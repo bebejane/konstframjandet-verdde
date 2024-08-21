@@ -2,4 +2,14 @@ query Global {
 	site: _site {
 		...SiteFragment
 	}
+	general {
+		whatSmi
+		whatSv
+		newsSv
+		newsSmi
+		contactSv
+		contactSmi
+		aboutSv
+		aboutSmi
+	}
 }

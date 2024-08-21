@@ -21,11 +21,12 @@ export default function News({ news, general }: Props) {
       <DatoSEO title={'Vad vi gör'} />
       <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={'Intro text...'} />
       <CardContainer key={asPath}>
-        {news.map(({ id, title, _publishedAt, image, slug }) =>
+        {news.map(({ id, title, _publishedAt, image, slug, intro }) =>
           <Card key={id}>
             <Thumbnail
               title={title}
               image={image}
+              intro={intro}
               date={_publishedAt}
               titleRows={1}
               slug={`/pa-gang/${slug}`}

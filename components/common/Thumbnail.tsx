@@ -5,6 +5,7 @@ import { Image } from 'react-datocms/image'
 import Link from 'next/link'
 import { truncateWords } from '/lib/utils'
 import { format } from 'date-fns'
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components'
 
 
 export type Props = {
@@ -12,12 +13,13 @@ export type Props = {
   slug: string
   date?: string
   title: string
+  intro?: string
   category?: string
   titleLength?: number
   titleRows?: number
 }
 
-export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date }: Props) {
+export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, intro }: Props) {
 
   const [loaded, setLoaded] = useState(false);
 
@@ -42,6 +44,7 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
           </>
         </div>
       }
+      <Markdown className={s.intro}>{intro}</Markdown>
     </Link>
   )
 }

@@ -32,10 +32,8 @@ export default function WhatWeDo({ post }: Props) {
 }
 
 export async function getStaticPaths() {
-  const { participants } = await apiQueryAll(AllParticipantsDocument)
-  const { programs } = await apiQueryAll(AllProgramsDocument)
-  const { partners } = await apiQueryAll(AllPartersDocument)
 
+  const [{ participants }, { programs }, { partners }] = await Promise.all([apiQueryAll(AllParticipantsDocument), apiQueryAll(AllProgramsDocument), apiQueryAll(AllPartersDocument)])
   const paths = [...participants, ...programs, ...partners].map(({ slug }) => ({ params: { slug } }))
 
   return {

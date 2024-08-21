@@ -1,0 +1,17 @@
+.filter {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  li {
+    cursor: pointer;
+
+    &.active {
+      background-color: var(--black);
+      color: white;
+    }
+  }
+}

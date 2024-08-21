@@ -12,7 +12,7 @@ export type Props = {
   slug: string
   date?: string
   title: string
-  category: string
+  category?: string
   titleLength?: number
   titleRows?: number
 }

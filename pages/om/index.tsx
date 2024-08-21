@@ -1,25 +1,52 @@
 import s from './[about].module.scss'
 import withGlobalProps from "/lib/withGlobalProps";
-import { apiQuery } from 'dato-nextjs-utils/api';
-import { MainAboutDocument } from "/graphql";
+import { apiQueryAll } from 'dato-nextjs-utils/api';
+import { AllAboutsDocument, MainAboutDocument } from "/graphql";
+import { DatoSEO } from 'dato-nextjs-utils/components';
+import { Card, CardContainer, PageHeader, Thumbnail } from '../../components';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-export { default } from './[about]'
+export type Props = {
+  abouts: AboutRecord[]
+  general: GeneralRecord
+}
+
+export default function Abouts({ abouts, general }: Props) {
+
+  const { asPath } = useRouter()
+
+  return (
+    <>
+      <DatoSEO title={'Vad vi gör'} />
+      <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={'Intro text...'} />
+      <CardContainer key={asPath}>
+        {abouts.map(({ id, title, _publishedAt, image, slug }) =>
+          <Card key={id}>
+            <Thumbnail
+              title={title}
+              image={image}
+              titleRows={1}
+              slug={`/om/${slug}`}
+            />
+          </Card>
+        )}
+      </CardContainer>
+    </>
+  );
+}
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const { abouts } = await apiQuery(MainAboutDocument, { variables: {}, preview: context.preview })
-  const about = abouts[0] ?? null
-
-  if (!about)
-    return { notFound: true }
+  const { abouts } = await apiQueryAll(AllAboutsDocument, { variables: {}, preview: context.preview })
 
   return {
     props: {
       ...props,
-      about,
+      abouts,
       page: {
         section: 'about',
-        title: about.title,
+        title: 'Detta är Verdde',
       } as PageProps
     },
     revalidate

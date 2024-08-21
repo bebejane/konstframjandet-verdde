@@ -28,9 +28,6 @@ export const buildMenu = async () => {
           label: el.title,
           slug: `/om/${el.slug}`
         }))
-        if (res.abouts.length) {
-          item.slug = `/om/${res.abouts[0].slug}`
-        }
         break;
       default:
         break;

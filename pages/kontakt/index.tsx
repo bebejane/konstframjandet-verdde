@@ -1,19 +1,21 @@
 import withGlobalProps from "/lib/withGlobalProps";
 import { ContactDocument } from "/graphql";
-import { Article } from "/components";
+import { Article, PageHeader } from "/components";
 import { apiQuery } from "dato-nextjs-utils/api";
 import { pageSlugs } from "/lib/i18n";
 import { DatoSEO } from "dato-nextjs-utils/components";
 
 export type Props = {
   contact: ContactRecord
+  general: GeneralRecord
 }
 
-export default function Contact({ contact: { id, title, image, intro, content, _seoMetaTags } }: Props) {
+export default function Contact({ contact: { id, title, image, intro, content, _seoMetaTags }, general }: Props) {
 
   return (
     <>
       <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
+      <PageHeader header={general.contactSv} headerSmi={general.contactSmi} content={'Intro text...'} />
       <Article
         id={id}
         key={id}

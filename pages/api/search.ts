@@ -2,7 +2,8 @@ import type { NextRequest, NextResponse } from 'next/server'
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { buildClient } from '@datocms/cma-client';
 import { SiteSearchDocument } from '/graphql';
-import { truncateParagraph, truncateWords, isEmptyObject, recordToSlug } from '/lib/utils';
+import { truncateWords, isEmptyObject } from '/lib/utils';
+import { recordToSlug } from '/lib/routes'
 
 export const config = {
   runtime: 'edge',
@@ -10,7 +11,7 @@ export const config = {
 
 export type SearchResult = {
   [index: string]: {
-    __typename: 'AboutRecord' | 'ParticipantRecord' | 'PartnerRecord' | 'NewsRecord' | 'ExhibitionRecord' | 'LocationRecord' | 'ProgramRecord',
+    __typename: 'AboutRecord' | 'ParticipantRecord' | 'PartnerRecord' | 'NewsRecord' | 'ProgramRecord',
     _apiKey: string
     category: string
     title: string
@@ -77,10 +78,8 @@ export const siteSearch = async (opt: any) => {
         aboutIds: chunk.filter(el => el._api_key === 'about').map(el => el.id),
         newsIds: chunk.filter(el => el._api_key === 'news').map(el => el.id),
         programIds: chunk.filter(el => el._api_key === 'program').map(el => el.id),
-        exhibitionIds: chunk.filter(el => el._api_key === 'exhibition').map(el => el.id),
         participantIds: chunk.filter(el => el._api_key === 'participant').map(el => el.id),
         partnerIds: chunk.filter(el => el._api_key === 'partner').map(el => el.id),
-        locationIds: chunk.filter(el => el._api_key === 'location').map(el => el.id),
         first,
         skip: i,
         locale
@@ -103,7 +102,7 @@ export const siteSearch = async (opt: any) => {
         category: itemTypes.find(({ api_key }) => api_key === el._modelApiKey).name,
         title: el.title,
         text: truncateWords(el.text, 200),
-        slug: recordToSlug(el)
+        slug: recordToSlug(el, el._modelApiKey)
       }))
   })
 

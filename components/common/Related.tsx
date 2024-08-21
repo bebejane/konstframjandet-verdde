@@ -2,11 +2,11 @@ import s from './Related.module.scss'
 import React from 'react'
 import { Image } from 'react-datocms'
 import Link from '/components/nav/Link'
-import { recordToSlug } from '/lib/utils'
+import { recordToSlug } from '/lib/routes'
 
 export type Props = {
   header: string
-  items: (ParticipantRecord | LocationRecord | ProgramRecord | ExhibitionRecord)[]
+  items: (ParticipantRecord | LocationRecord | ProgramRecord)[]
 }
 
 export default function Related({ header, items }: Props) {

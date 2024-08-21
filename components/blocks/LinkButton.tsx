@@ -1,7 +1,7 @@
 import s from './LinkButton.module.scss'
 import React from 'react'
 import { Button, Link } from '/components'
-import { recordToSlug } from '/lib/utils'
+import { recordToSlug } from '/lib/routes'
 export type LinkButtonBlockProps = { data: LinkButtonRecord, onClick: Function }
 
 export default function LinkButton({ data: { link } }: LinkButtonBlockProps) {

@@ -2,7 +2,6 @@ import i18nPaths from './i18n/paths.json'
 import { TypedDocumentNode } from "@apollo/client/core";
 import { apiQuery } from "dato-nextjs-utils/api";
 import type { ApiQueryOptions } from "dato-nextjs-utils/api";
-import type { MenuItem } from '/lib/menu';
 import format from "date-fns/format";
 import React from "react";
 
@@ -41,49 +40,6 @@ export const pingEndpoint = async (path: string | string[], method: 'GET' | 'POS
       .then(() => console.log(`pinged ${path} endpoint`))
       .catch(err => console.error(`Failed: ping ${path} endpoint`, err))
   )
-}
-
-export const recordToSlug = (record: any): string => {
-
-  let url;
-
-  if (!record) {
-    throw new Error('recordToSlug: Record  is empty')
-  }
-
-  if (typeof record === 'string')
-    return record
-  else {
-    const { __typename, slug } = record
-
-    switch (__typename) {
-      case 'AboutRecord':
-        url = `/om/${slug}`
-        break;
-      case 'ParticipantRecord':
-        url = `/medverkande/${slug}`
-        break;
-      case 'ProgramRecord':
-        url = `/program/${slug}`
-        break;
-      case 'ExhibitionRecord':
-        url = `/utstallningar-och-projekt/${slug}`
-        break;
-      case 'NewsRecord':
-        url = `/nyheter/${slug}`
-        break;
-      case 'LocationRecord':
-        url = `/platser/${slug}`
-        break;
-      case 'PartnerRecord':
-        url = `/partners/${slug}`
-        break;
-      default:
-        throw Error(`${__typename} is unknown record slug!`)
-    }
-  }
-
-  return url
 }
 
 export const isEmail = (string: string): boolean => {

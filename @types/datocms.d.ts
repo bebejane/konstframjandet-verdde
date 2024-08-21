@@ -537,6 +537,7 @@ type GeneralRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   about?: Maybe<Scalars['String']>;
+  aboutIntro?: Maybe<Scalars['String']>;
   aboutSmi?: Maybe<Scalars['String']>;
   aboutSv?: Maybe<Scalars['String']>;
   contactSmi?: Maybe<Scalars['String']>;
@@ -545,8 +546,10 @@ type GeneralRecord = RecordInterface & {
   facebook?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
   instagram?: Maybe<Scalars['String']>;
+  newsIntro?: Maybe<Scalars['String']>;
   newsSmi?: Maybe<Scalars['String']>;
   newsSv?: Maybe<Scalars['String']>;
+  whatIntro?: Maybe<Scalars['String']>;
   whatSmi?: Maybe<Scalars['String']>;
   whatSv?: Maybe<Scalars['String']>;
 };
@@ -555,6 +558,24 @@ type GeneralRecord = RecordInterface & {
 /** Record of type Generellt (general) */
 type GeneralRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** Record of type Generellt (general) */
+type GeneralRecordaboutIntroArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** Record of type Generellt (general) */
+type GeneralRecordnewsIntroArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** Record of type Generellt (general) */
+type GeneralRecordwhatIntroArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']>;
 };
 
 type GlobalSeoField = {
@@ -4791,7 +4812,7 @@ type VideoFragment = { __typename?: 'VideoFileField', id: any, alt?: string | nu
 type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null }, general?: { __typename?: 'GeneralRecord', whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null } | null };
+type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null }, general?: { __typename?: 'GeneralRecord', whatSmi?: string | null, whatSv?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null } | null };
 
 type MenuQueryVariables = Exact<{ [key: string]: never; }>;
 

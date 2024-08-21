@@ -63,7 +63,7 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
             <Thumbnail
               title={item.__typename === 'ParticipantRecord' ? item.name : item.title}
               category={categories.find(c => c.__typename === item.__typename)?.title}
-              date={item._publishedAt}
+              date={item.__typename === 'ProgramRecord' ? item._publishedAt : undefined}
               image={item.image}
               titleRows={1}
               slug={`/vad-vi-gor/${item.slug}`}

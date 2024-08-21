@@ -22,31 +22,14 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
   const [loaded, setLoaded] = useState(false);
 
   return (
-<<<<<<< HEAD
-    <Link href={slug} transformHref={transformHref} className={s.thumbnail}>
-
-=======
     <Link href={slug} className={s.thumbnail}>
       <div className={s.category}>{category}</div>
->>>>>>> 2ca6557 (fixes)
       <h3 className={cn(s[`rows-${titleRows}`])}>
         <span>
           {titleLength ? truncateWords(title, titleLength) : title}
         </span>
       </h3>
-<<<<<<< HEAD
-      {(strippedIntro || meta) &&
-        <div className="thumb-intro">
-          <p>
-            {meta && <strong>{meta.trim()}</strong>}
-            {strippedIntro}
-          </p>
-        </div>
-
-      }
-=======
       <h5>{format(new Date(date), 'yyyy-mm-dd')}</h5>
->>>>>>> 2ca6557 (fixes)
       {image &&
         <div className={s.imageWrap}>
           <>

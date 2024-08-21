@@ -23,7 +23,7 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
 
   return (
     <Link href={slug} className={s.thumbnail}>
-      <div className={s.category}>{category}</div>
+      <div className="tag">{category}</div>
       <h3 className={cn(s[`rows-${titleRows}`])}>
         <span>
           {titleLength ? truncateWords(title, titleLength) : title}

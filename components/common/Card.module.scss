@@ -15,11 +15,11 @@
 
   padding-left: calc(0.25 * var(--gutter));
   padding-right: calc(0.25 * var(--gutter));
-  padding-top: var(--small-space);
-  padding-bottom: var(--small-space);
+  padding-top: calc(0.25 * var(--gutter));
+  padding-bottom: calc(0.25 * var(--gutter));
 
   @include mq($from: tablet) {
-    margin-bottom: var(--space);
+    //margin-bottom: calc(0.25 * var(--gutter));
   }
 
   &.hideLastOnDesktop {

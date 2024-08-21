@@ -16,8 +16,8 @@
     display: flex;
     align-items: flex-end;
     width: 100%;
-    padding-top: 0.2em;
-    padding-bottom: 0.5em;
+    padding-top: 0em;
+    padding-bottom: 0.2em;
     text-align: left;
 
     span {
@@ -25,6 +25,7 @@
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      line-height: 1.5;
     }
 
     &.rows-1 {
@@ -88,8 +89,8 @@
     }
 
     .image {
+      margin-top: calc(0.25 * var(--gutter));
       max-width: none !important;
-      margin-bottom: 0.8em;
       aspect-ratio: 8 / 5;
       transition: all 0.3s ease-in-out;
 

@@ -1,5 +1,5 @@
 import { withWebPreviewsEdge } from 'dato-nextjs-utils/hoc';
-import { categories } from '../../lib/constant';
+import { categories } from '/lib/constant';
 
 export const config = {
   runtime: 'edge'
@@ -21,11 +21,9 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
       break;
     case 'program': case 'participant': case 'partner':
       const category = categories.find(c => c._apiKey === api_key)
-      path = '/vad-vi-gor'
       path = `/vad-vi-gor/${category.slug}/${slug}`
       break;
     case 'news':
-      path = '/pa-gang'
       path = `/pa-gang/${slug}`
       break;
     case 'contact':

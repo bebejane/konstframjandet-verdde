@@ -12,13 +12,15 @@
     padding: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
-    background-color: var(--black);
     color: var(--white);
     border-radius: 1rem;
+    background-color: var(--yellow);
+    color: var(--black);
 
     &.active {
-      background-color: var(--yellow);
-      color: var(--black);
+      background-color: var(--black);
+      color: var(--white);
+
     }
   }
 }

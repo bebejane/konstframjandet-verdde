@@ -7,7 +7,6 @@ import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { apiQueryAll } from "dato-nextjs-utils/api";
 import { useState } from "react";
-import { routes } from '/lib/routes'
 
 export type Props = {
   participants: ParticipantRecord[]
@@ -37,7 +36,8 @@ const categories = [{
 export default function WhatWeDo({ participants = [], programs = [], partners = [], general }: Props) {
 
   const { asPath } = useRouter()
-  const [filter, setFilter] = useState({ participants: true, programs: true, partners: true })
+  const [filter, setFilter] = useState({ participants: false, programs: false, partners: false })
+  const noFilter = Object.values(filter).every(f => !f)
   const posts = [...participants, ...programs, ...partners]
 
   return (
@@ -54,7 +54,7 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
         )}
       </ul>
       <CardContainer key={`${asPath}-${JSON.stringify(filter)}`}>
-        {posts.filter(item => filter[categories.find(el => el.__typename === item.__typename)?.id]).map(item =>
+        {posts.filter(item => noFilter || filter[categories.find(el => el.__typename === item.__typename)?.id]).map(item =>
           <Card key={item.id}>
             <Thumbnail
               title={item.__typename === 'ParticipantRecord' ? item.name : item.title}

@@ -19,7 +19,7 @@ export default function CardContainer({ children, columns = 3, className, hideLa
     return chunkArray((Array.isArray(children) ? children : [children]).map(el => React.cloneElement(el as ReactElement, { hideLastOnDesktop, hideLastOnMobile })), !isDesktop ? 2 : columns) as [React.ReactNode[]]
   }
 
-  const ref = useRef<HTMLUListElement | null>(null)
+  const ref = useRef<HTMLDivElement | null>(null)
   const { isDesktop } = useDevice()
   const [cards, setCards] = useState(buildCards())
   const { locale } = useRouter()
@@ -27,7 +27,7 @@ export default function CardContainer({ children, columns = 3, className, hideLa
   useEffect(() => { setCards(buildCards()) }, [isDesktop, locale])
 
   return (
-    <ul ref={ref} className={cn(s.container, columns === 2 && s.two, columns === 3 && s.three, className)}>
+    <div ref={ref} className={cn(s.container, className)}>
       {cards.map((row, idx) => {
         return (
           <React.Fragment key={idx}>
@@ -35,6 +35,6 @@ export default function CardContainer({ children, columns = 3, className, hideLa
           </React.Fragment>
         )
       })}
-    </ul>
+    </div>
   )
 }

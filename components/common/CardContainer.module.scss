@@ -1,11 +1,9 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  columns: 3;
   width: 100%;
 
-  @include mq($until: tablet) {
-    //margin-left: calc(-1 * var(--outer-margin));
+  @include mq($until: desktop) {
+    columns: 2;
   }
 
   @include mq($from: tablet) {
@@ -16,15 +14,15 @@
   padding: 0;
   list-style: none;
 
-  li a:hover {
+  div a:hover {
     color: var(--black) !important;
   }
 
-  >li {
+  >div {
     border-right: 1px solid var(--beige-mid);
   }
 
-  &.two>li {
+  &.two>div {
     p {
       text-align: center;
     }
@@ -59,8 +57,7 @@
     }
   }
 
-  &.three>li {
-    width: 33.333%;
+  &.three>div {
 
     @include mq($from: tablet) {
       &:nth-of-type(3n) {

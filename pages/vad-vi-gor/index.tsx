@@ -7,6 +7,7 @@ import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { apiQueryAll } from "dato-nextjs-utils/api";
 import { useState } from "react";
+import { categories } from '/lib/constant';
 
 export type Props = {
   participants: ParticipantRecord[]
@@ -14,24 +15,6 @@ export type Props = {
   partners: PartnerRecord[]
   general: GeneralRecord
 }
-
-const categories = [{
-  id: 'participants',
-  title: 'Utövare',
-  slug: 'utovare',
-  __typename: 'ParticipantRecord'
-}, {
-  id: 'programs',
-  title: 'Aktivitet',
-  slug: 'aktiviteter',
-  __typename: 'ProgramRecord'
-}, {
-  id: 'partners',
-  title: 'Samverkan',
-  slug: 'samverkan',
-  __typename: 'PartnerRecord'
-}]
-
 
 export default function WhatWeDo({ participants = [], programs = [], partners = [], general }: Props) {
 
@@ -62,7 +45,7 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
               date={item.__typename === 'ProgramRecord' ? item._publishedAt : undefined}
               image={item.image}
               titleRows={1}
-              slug={`/vad-vi-gor/${item.slug}`}
+              slug={`/vad-vi-gor/${categories.find(c => c.__typename === item.__typename).slug}/${item.slug}`}
             />
           </Card>
         )}

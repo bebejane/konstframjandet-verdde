@@ -2,9 +2,10 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { AllParticipantsDocument, AllPartersDocument, AllProgramsDocument, WhatWeDoDocument } from "/graphql";
-import { Article, Related, BackButton } from '/components';
+import { Article, BackButton } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
+import { categories } from '/lib/constant';
 
 export type Props = {
   post: ParticipantRecord | ProgramRecord | PartnerRecord
@@ -34,7 +35,9 @@ export default function WhatWeDo({ post }: Props) {
 export async function getStaticPaths() {
 
   const [{ participants }, { programs }, { partners }] = await Promise.all([apiQueryAll(AllParticipantsDocument), apiQueryAll(AllProgramsDocument), apiQueryAll(AllPartersDocument)])
-  const paths = [...participants, ...programs, ...partners].map(({ slug }) => ({ params: { slug } }))
+  const paths = [...participants, ...programs, ...partners].map(({ slug, __typename }) => ({
+    params: { slug: [categories.find(c => c.__typename === __typename).slug, slug] }
+  }))
 
   return {
     paths,
@@ -44,7 +47,8 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const slug = context.params.slug;
+  const category = context.params.slug[0];
+  const slug = context.params.slug[1];
   const { program, partner, participant } = await apiQuery(WhatWeDoDocument, { variables: { slug }, preview: context.preview })
 
   if (!participant && !program && !partner)

@@ -4,6 +4,8 @@
 fragment ProgramFragmentLight on ProgramRecord {
 	__typename
 	_modelApiKey
+	_publishedAt
+	_createdAt
 	id
 	title
 	startDate

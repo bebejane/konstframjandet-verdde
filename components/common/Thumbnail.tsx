@@ -2,47 +2,34 @@ import s from './Thumbnail.module.scss'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { Image } from 'react-datocms/image'
-import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components'
-import Link from '/components/nav/Link'
-import { useRouter } from 'next/router'
-import { usePage } from '/lib/context/page'
-import { randomInt, truncateText, truncateWords } from '/lib/utils'
-import { remark } from 'remark'
-import strip from 'strip-markdown'
+import Link from 'next/link'
+import { truncateWords } from '/lib/utils'
+import { format } from 'date-fns'
+
 
 export type Props = {
   image?: FileField
   slug: string
+  date: string
   title: string
+  category: string
   titleLength?: number
   titleRows?: number
-  intro?: string
-  meta?: string
-  transformHref?: boolean
 }
 
-export default function Thumbnail({ image, slug, intro, title, titleLength, titleRows = 3, meta, transformHref = true }: Props) {
+export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date }: Props) {
 
-  const strippedIntro = truncateWords(remark().use(strip).processSync(intro).value as string, 500)
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Link href={slug} transformHref={transformHref} className={s.thumbnail}>
-
+    <Link href={slug} className={s.thumbnail}>
+      <div className={s.category}>{category}</div>
       <h3 className={cn(s[`rows-${titleRows}`])}>
         <span>
           {titleLength ? truncateWords(title, titleLength) : title}
         </span>
       </h3>
-      {(strippedIntro || meta) &&
-        <div className="thumb-intro">
-          <p>
-            {meta && <strong>{meta.trim()}</strong>}
-            {strippedIntro}
-          </p>
-        </div>
-
-      }
+      <h5>{format(new Date(date), 'yyyy-mm-dd')}</h5>
       {image &&
         <div className={s.imageWrap}>
           <>

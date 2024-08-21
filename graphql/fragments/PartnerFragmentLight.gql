@@ -6,4 +6,6 @@ fragment PartnerFragmentLight on PartnerRecord {
 		...ImageThumbnailFragment
 	}
 	slug
+	_createdAt
+	_publishedAt
 }

@@ -1,5 +1,6 @@
 fragment ParticipantFragment on ParticipantRecord {
 	_createdAt
+	_publishedAt
 	id
 	name
 	intro(markdown: false)

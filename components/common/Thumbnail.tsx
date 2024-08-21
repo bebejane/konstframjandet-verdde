@@ -23,13 +23,13 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
 
   return (
     <Link href={slug} className={s.thumbnail}>
-      <div className="tag">{category}</div>
+      {category && <div className="tag">{category}</div>}
       <h3 className={cn(s[`rows-${titleRows}`])}>
         <span>
           {titleLength ? truncateWords(title, titleLength) : title}
         </span>
       </h3>
-      {date && <h5>{format(new Date(date), 'yyyy-mm-dd')}</h5>}
+      {date && <h5>{format(new Date(date), 'yyyy-MM-dd')}</h5>}
       {image &&
         <div className={s.imageWrap}>
           <>

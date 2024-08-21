@@ -1,12 +1,11 @@
 import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
 import { AllNewsDocument } from "/graphql";
-import Link from '/components/nav/Link'
-import { DatoMarkdown as Markdown } from "dato-nextjs-utils/components";
-import format from "date-fns/format";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
-import { Button, PageHeader } from "/components";
+import { Card, CardContainer, PageHeader, Thumbnail } from "/components";
+import { useRouter } from "next/router";
+import { apiQueryAll } from "dato-nextjs-utils/api";
 
 export type Props = {
   news: (NewsRecord & ThumbnailImage)[]
@@ -15,43 +14,37 @@ export type Props = {
 
 export default function News({ news, general }: Props) {
 
+  const { asPath } = useRouter()
+
   return (
     <>
-      <DatoSEO title={'På gång'} />
-      <PageHeader header={general.newsSv} headerSmi={general.newsSmi} content={'Intro text...'} />
-      <section className={s.news}>
-        <ul>
-          {news.map(({ id, image, thumb, title, intro, _createdAt, slug }) =>
-            <li key={id}>
-              <h3 className="small">
-                {format(new Date(_createdAt), 'dd MMMM, yyyy')}
-              </h3>
-              <h1>
-                <Link href={`/nyheter/${slug}`} transformHref={false}>
-                  {title}
-                </Link>
-              </h1>
-              <div className="intro">
-                <Markdown className={s.intro}>
-                  {intro}
-                </Markdown>
-              </div>
-              <Link href={`/pa-gang/${slug}`} transformHref={false}>
-                <Button>Läs mer</Button>
-              </Link>
-            </li>
-          )}
-        </ul>
-      </section>
+      <DatoSEO title={'Vad vi gör'} />
+      <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={'Intro text...'} />
+      <CardContainer key={asPath}>
+        {news.map(({ id, title, _publishedAt, image, slug }) =>
+          <Card key={id}>
+            <Thumbnail
+              title={title}
+              image={image}
+              date={_publishedAt}
+              titleRows={1}
+              slug={`/pa-gang/${slug}`}
+            />
+          </Card>
+        )}
+      </CardContainer>
     </>
-  )
+  );
 }
 
-export const getStaticProps = withGlobalProps({ queries: [AllNewsDocument] }, async ({ props, revalidate }: any) => {
+export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
+
+  const { news } = await apiQueryAll(AllNewsDocument, { variables: {}, preview: context.preview })
 
   return {
     props: {
       ...props,
+      news,
       page: {
         section: 'news',
         slugs: pageSlugs('news')

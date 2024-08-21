@@ -1,12 +1,13 @@
 .footer {
   width: 100%;
   padding-bottom: var(--outer-margin);
-  border-top: 1px solid var(--black);
+  //border-top: 2px solid var(--black);
   position: relative;
   text-align: left;
   //z-index: var(--z-footer);
-  background-color: var(--black);
-  color: var(--white);
+  //background-color: var(--white);
+  color: var(--black);
+  margin-bottom: var(--menu-height);
 
   a {
     color: var(--white);

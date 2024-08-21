@@ -1,17 +1,22 @@
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem;
-  box-shadow: 1px 1px 10px var(--black);
-  padding: 0.5rem;
+
+  .box {
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 10px var(--black);
+    padding: 0.5rem;
+  }
 
   @include mq($until: tablet) {
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
   }
 
-  //padding-left: var(--gutter);
-  margin-bottom: var(--small-space);
+  padding-left: calc(0.25 * var(--gutter));
+  padding-right: calc(0.25 * var(--gutter));
+  padding-top: var(--small-space);
+  padding-bottom: var(--small-space);
 
   @include mq($from: tablet) {
     margin-bottom: var(--space);

@@ -40,6 +40,7 @@
 
   @include mq($until: tablet) {
     margin-top: -1.5em;
+    height: 3rem;
   }
 
   @include mq($from: tablet) {

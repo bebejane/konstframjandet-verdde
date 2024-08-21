@@ -13,7 +13,9 @@ export default function Card({ children, className, hideLastOnDesktop = false, h
 
   return (
     <li className={cn(s.card, className, hideLastOnDesktop && s.hideLastOnDesktop, hideLastOnMobile && s.hideLastOnMobile)}>
-      {children}
+      <div className={s.box}>
+        {children}
+      </div>
     </li>
   )
 }

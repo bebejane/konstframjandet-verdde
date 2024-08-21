@@ -1,5 +1,6 @@
 :root {
 	--black: #1d1d1d;
+	--transparent-black: #1d1d1d75;
 	--white: #fcfcfc;
 	--red: #bf0000;
 	--primary-color: #878639;
@@ -70,7 +71,8 @@ html {
 
 html,
 body {
-	//height: 100%;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 ::-webkit-scrollbar {
@@ -136,6 +138,7 @@ article p a {
 	padding-right: 0.75em;
 	padding-bottom: 0.35em;
 	border: 1px solid var(--yellow);
+	background-color: var(--yellow);
 }
 
 button {
@@ -163,8 +166,9 @@ button {
 		padding-top: 1em;
 	}
 
-	transition: color 0.2s ease-in-out,
-	background-color 0.3s ease-in-out;
+	transition:
+		color 0.2s ease-in-out,
+		background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);

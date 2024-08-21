@@ -8,10 +8,17 @@
 
   li {
     cursor: pointer;
+    margin: 1em;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 1rem;
 
     &.active {
-      background-color: var(--black);
-      color: white;
+      background-color: var(--yellow);
+      color: var(--black);
     }
   }
 }

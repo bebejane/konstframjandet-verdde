@@ -21,7 +21,7 @@ const categories = [{
   __typename: 'ParticipantRecord'
 }, {
   id: 'programs',
-  title: 'Aktiviteter',
+  title: 'Aktivitet',
   slug: 'aktiviteter',
   __typename: 'ProgramRecord'
 }, {

@@ -4,8 +4,9 @@
 
   .box {
     border-radius: 0.5rem;
-    box-shadow: 1px 1px 10px var(--black);
+    box-shadow: 1px 1px 10px var(--transparent-black);
     padding: 0.5rem;
+    background-color: var(--white);
   }
 
   @include mq($until: tablet) {

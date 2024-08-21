@@ -50,8 +50,9 @@ export default function MenuMobile({ items }: MenuProps) {
 				<ul ref={menuRef}>
 					{items.slice(1).map((item, idx) =>
 						<li key={idx}>
-							<span>{item.altLabel}</span><br />
 							<Link href={item.slug}>
+
+								<span>{item.altLabel}</span><br />
 								{item.label}
 							</Link>
 						</li>

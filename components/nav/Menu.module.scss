@@ -3,6 +3,7 @@
   bottom: 0;
   left: 0;
   z-index: var(--z-menu);
+  height: var(--menu-height);
 
   background-color: var(--white);
   width: 100%;
@@ -13,8 +14,8 @@
 
   .logo {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: var(--outer-margin);
+    top: calc(var(--outer-margin) / 2);
     height: 3rem;
   }
 
@@ -26,7 +27,12 @@
     width: 100%;
 
     li {
-      margin: 1rem
+      margin: 1rem;
+      text-align: center;
+      line-height: 1.2;
+      span {
+        color: var(--pink);
+      }
     }
   }
 }

@@ -54,12 +54,6 @@ export default function SectionHeader() {
           : <>{header}</>
         }
       </header>
-      {!isHome &&
-        <>
-          <div className={s.spacer}></div>
-          <div className={s.line}></div>
-        </>
-      }
     </>
   )
 }

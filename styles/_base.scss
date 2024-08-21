@@ -3,7 +3,8 @@
 	--white: #fcfcfc;
 	--red: #bf0000;
 	--primary-color: #878639;
-	--pink: #ff57ff;
+	--pink: #ff427d;
+	--yellow: #eaff32;
 	--archive: #ececec;
 	--outer-margin: 4vw;
 	--logo-size-optical: 0rem;
@@ -20,6 +21,7 @@
 	--gutter-half: 4vw;
 	--header-height: calc((var(--outer-margin) * 2) + 2.75rem); //snygga upp sen
 	--menu-transition: 0.3s ease-in-out;
+	--menu-height: 4.5rem;
 
 	--background: var(--white);
 	--foreground: var(--black);
@@ -151,8 +153,9 @@ button {
 		padding-top: 1em;
 	}
 
-	transition: color 0.2s ease-in-out,
-	background-color 0.3s ease-in-out;
+	transition:
+		color 0.2s ease-in-out,
+		background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);

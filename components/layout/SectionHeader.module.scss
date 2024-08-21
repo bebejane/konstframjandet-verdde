@@ -3,7 +3,6 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-
   z-index: var(--z-section-header);
   transition: width 0.3s ease-in-out;
   width: 100%;
@@ -120,6 +119,10 @@
   left: 0;
   top: 0;
   z-index: var(--z-menu);
+
+  @include mq($from: desktop) {
+    display: none;
+  }
 
   svg {
     @include mq($until: tablet) {

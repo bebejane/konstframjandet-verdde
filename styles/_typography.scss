@@ -8,7 +8,7 @@ body {
   }
 
   @include mq($from: wide) {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
@@ -17,8 +17,6 @@ h2,
 h3,
 h4,
 h5 {
-  color: var(--primary-color);
-
   strong {
     //font-weight: normal;
   }
@@ -90,7 +88,7 @@ p.intro,
     padding-right: 0.5em;
   }
 
-  >p {
+  > p {
     padding: 0;
   }
 }
@@ -120,7 +118,7 @@ button,
   font-family: $headline-font;
 
   @include mq($from: tablet) {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }
 
@@ -158,10 +156,10 @@ article {
     }
   }
 
-  p+h3,
-  ul+h3,
-  ul+h2,
-  p+h2 {
+  p + h3,
+  ul + h3,
+  ul + h2,
+  p + h2 {
     padding-top: 1rem;
   }
 

@@ -53,7 +53,7 @@ export default async (phase, { defaultConfig }) => {
 					headers: [
 						{ key: "Access-Control-Allow-Credentials", value: "true" },
 						{ key: "Access-Control-Allow-Origin", value: "*" },
-						{ key: "Access-Control-Allow-Methods", value: "POST,OPTIONS" },
+						{ key: "Access-Control-Allow-Methods", value: "POST,GET,OPTIONS" },
 						{
 							key: "Access-Control-Allow-Headers",
 							value:
@@ -66,7 +66,7 @@ export default async (phase, { defaultConfig }) => {
 					headers: [
 						{ key: "Access-Control-Allow-Credentials", value: "true" },
 						{ key: "Access-Control-Allow-Origin", value: "*" },
-						{ key: "Access-Control-Allow-Methods", value: "POST,OPTIONS" },
+						{ key: "Access-Control-Allow-Methods", value: "POST,GET,OPTIONS" },
 						{
 							key: "Access-Control-Allow-Headers",
 							value:

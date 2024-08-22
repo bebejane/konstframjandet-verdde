@@ -20,7 +20,7 @@ export const recordToSlug = (record: any, api_key?: string): string => {
     return record
   else {
     const { __typename, slug } = record
-    api_key = __typename ? __typename.toLowerCase().replace('Record', '') : api_key
+    api_key = __typename ? __typename.replace('Record', '').toLowerCase() : api_key
 
     switch (api_key) {
       case 'start': case 'general':

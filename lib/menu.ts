@@ -14,6 +14,7 @@ export const buildMenu = async () => {
   const res = await apiQuery(MenuDocument)
 
   base.forEach((item, idx) => {
+    base[idx].label = res.general[`${item.id}Sv`] ?? item.label
     base[idx].altLabel = res.general[`${item.id}Smi`] ?? item.label
   })
 

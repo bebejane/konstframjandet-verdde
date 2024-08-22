@@ -6,7 +6,7 @@ import { recordToSlug } from '/lib/routes'
 
 export type Props = {
   header: string
-  items: (ParticipantRecord | LocationRecord | ProgramRecord)[]
+  items: (ParticipantRecord | PartnerRecord | ProgramRecord)[]
 }
 
 export default function Related({ header, items }: Props) {

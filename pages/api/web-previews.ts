@@ -1,6 +1,5 @@
 import { withWebPreviewsEdge } from 'dato-nextjs-utils/hoc';
-import { recordToSlug } from '../../lib/routes';
-import { categories } from '/lib/constant';
+import { recordToSlug } from '/lib/routes';
 
 export const config = {
   runtime: 'edge'

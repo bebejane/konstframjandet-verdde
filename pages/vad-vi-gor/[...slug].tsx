@@ -2,7 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { AllParticipantsDocument, AllPartersDocument, AllProgramsDocument, WhatWeDoDocument } from "/graphql";
-import { Article, BackButton } from '/components';
+import { Article, BackButton, Related } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { categories } from '/lib/constant';
@@ -12,8 +12,12 @@ export type Props = {
 }
 
 export default function WhatWeDo({ post }: Props) {
+
   const { __typename, id, intro, content, image, _seoMetaTags } = post
   const title = __typename === 'ParticipantRecord' ? post.name : post.title
+  const related = __typename === 'ParticipantRecord' ? post._allReferencingPrograms : __typename === 'PartnerRecord' ? post._allReferencingPrograms : post.partipants
+  const relatedHeader = __typename === 'ParticipantRecord' ? 'Deltar i' : __typename === 'PartnerRecord' ? 'Medverkande' : 'Deltagare'
+
   return (
     <>
       <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
@@ -26,7 +30,7 @@ export default function WhatWeDo({ post }: Props) {
         content={content}
         onClick={(imageId) => { }}
       />
-
+      <Related header={relatedHeader} items={related} />
       <BackButton>Visa alla</BackButton>
     </>
   );
@@ -47,7 +51,6 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const category = context.params.slug[0];
   const slug = context.params.slug[1];
   const { program, partner, participant } = await apiQuery(WhatWeDoDocument, { variables: { slug }, preview: context.preview })
 

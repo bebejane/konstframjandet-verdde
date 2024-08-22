@@ -15,11 +15,10 @@ export default function Footer({ menu, footer: { email, facebook, instagram, abo
 		<footer className={cn(s.footer)} id="footer">
 			<section>
 				<div>
-					Copyright {PROJECT_NAME}, 2023 <br />
-					<a href={`mailto:${email}`}>{email}</a>Cookies & GDPR
+					Copyright {PROJECT_NAME}, 2023
 				</div>
 				<div>
-					Följ oss: <a href={instagram}>Instagram</a>
+					Följ oss på <a href={instagram}>Instagram</a>
 				</div>
 				<div>
 					{about}

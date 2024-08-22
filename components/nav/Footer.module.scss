@@ -1,16 +1,15 @@
 .footer {
   width: 100%;
   padding-bottom: var(--outer-margin);
-  //border-top: 2px solid var(--black);
   position: relative;
   text-align: left;
   //z-index: var(--z-footer);
   //background-color: var(--white);
   color: var(--black);
   margin-bottom: var(--menu-height);
-
+  height: var(--menu-height);
   a {
-    color: var(--white);
+    color: var(--black);
   }
 
   section {
@@ -28,16 +27,6 @@
     padding-left: var(--total-outer-margin);
     padding-right: var(--total-outer-margin);
     position: relative;
-
-    .logo {
-      position: absolute;
-      top: var(--outer-margin);
-      left: 0;
-
-      @include mq($until: desktop) {
-        display: none;
-      }
-    }
 
     div {
       padding-bottom: 0.2em;
@@ -65,7 +54,12 @@
     @include mq($from: tablet) {
       position: absolute;
       right: 0;
+      top: 0.8rem;
       margin-bottom: var(--outer-margin);
+    }
+
+    @include mq($from: wide) {
+      top: 1.2rem;
     }
   }
 }

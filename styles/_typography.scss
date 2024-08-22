@@ -113,8 +113,7 @@ figcaption,
 .caption label {
   font-family: $headline-font;
   font-size: 0.65rem;
-  font-weight: bold;
-  text-align: center;
+  font-weight: normal;
 
   @include mq($from: wide) {
     font-size: 0.7rem;

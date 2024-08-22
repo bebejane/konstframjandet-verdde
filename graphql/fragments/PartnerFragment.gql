@@ -11,6 +11,9 @@ fragment PartnerFragment on PartnerRecord {
 	address
 	city
 	webpage
+	_allReferencingPrograms(first: 100) {
+		...ProgramFragmentLight
+	}
 	content {
 		value
 		blocks {

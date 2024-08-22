@@ -8,8 +8,7 @@ fragment ParticipantFragment on ParticipantRecord {
 	image {
 		...ImageFragment
 	}
-
-	programs: _allReferencingPrograms(first: 100) {
+	_allReferencingPrograms(first: 100) {
 		...ProgramFragmentLight
 	}
 	content {

@@ -7,7 +7,6 @@
   }
 
   @include mq($from: tablet) {
-    margin-left: calc(-1 * var(--gutter));
     width: calc(100% + (var(--gutter)));
   }
 

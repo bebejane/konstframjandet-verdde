@@ -20,14 +20,12 @@ fragment ProgramFragment on ProgramRecord {
 	}
 	intro(markdown: false)
 	misc
-
 	partipants {
 		...ParticipantFragmentLight
 	}
 	partner {
 		...PartnerFragmentLight
 	}
-
 	slug
 	externalLink
 	content {

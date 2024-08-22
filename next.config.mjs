@@ -1,6 +1,3 @@
-import { GraphQLClient, gql } from "graphql-request";
-import i18nPaths from "./lib/i18n/paths.json" assert { type: "json" };
-
 export const locales = ["sv"];
 export const defaultLocale = "sv";
 
@@ -51,34 +48,8 @@ export default async (phase, { defaultConfig }) => {
 					source: "/api/:path*",
 					headers: [
 						{ key: "Access-Control-Allow-Credentials", value: "true" },
-						{ key: "Access-Control-Allow-Origin", value: "*" },
-						{ key: "Access-Control-Allow-Methods", value: "POST,GET,OPTIONS" },
-						{
-							key: "Access-Control-Allow-Headers",
-							value:
-								"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-						},
-					],
-				},
-				{
-					source: "/api/web-previews",
-					headers: [
-						{ key: "Access-Control-Allow-Credentials", value: "true" },
-						{ key: "Access-Control-Allow-Origin", value: "*" },
-						{ key: "Access-Control-Allow-Methods", value: "POST,GET,OPTIONS" },
-						{
-							key: "Access-Control-Allow-Headers",
-							value:
-								"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-						},
-					],
-				},
-				{
-					source: "/api/backup",
-					headers: [
-						{ key: "Access-Control-Allow-Credentials", value: "true" },
-						{ key: "Access-Control-Allow-Origin", value: "*" },
-						{ key: "Access-Control-Allow-Methods", value: "POST,GET,OPTIONS" },
+						{ key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
+						{ key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
 						{
 							key: "Access-Control-Allow-Headers",
 							value:

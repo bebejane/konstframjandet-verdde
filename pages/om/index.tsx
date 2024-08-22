@@ -19,7 +19,7 @@ export default function Abouts({ abouts, general }: Props) {
   return (
     <>
       <DatoSEO title={'Vad vi gör'} />
-      <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={'Intro text...'} />
+      <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={general.aboutIntro} />
       <CardContainer key={asPath}>
         {abouts.map(({ id, title, _publishedAt, image, slug }) =>
           <Card key={id}>

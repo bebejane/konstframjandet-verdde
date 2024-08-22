@@ -26,7 +26,7 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
   return (
     <>
       <DatoSEO title={'Vad vi gör'} />
-      <PageHeader header={general.whatSv} headerSmi={general.whatSmi} content={'Intro text...'} />
+      <PageHeader header={general.whatSv} headerSmi={general.whatSmi} content={general.whatIntro} />
       <ul className={s.filter}>
         {categories.map(({ id, title, slug }) =>
           <li

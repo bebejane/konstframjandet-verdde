@@ -12,10 +12,10 @@ export type CardProps = {
 export default function Card({ children, className, hideLastOnDesktop = false, hideLastOnMobile = false }: CardProps) {
 
   return (
-    <li className={cn(s.card, className, hideLastOnDesktop && s.hideLastOnDesktop, hideLastOnMobile && s.hideLastOnMobile)}>
+    <div className={cn(s.card, className, hideLastOnDesktop && s.hideLastOnDesktop, hideLastOnMobile && s.hideLastOnMobile)}>
       <div className={s.box}>
         {children}
       </div>
-    </li>
+    </div>
   )
 }

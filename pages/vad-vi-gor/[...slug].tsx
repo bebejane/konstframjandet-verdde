@@ -15,8 +15,9 @@ export default function WhatWeDo({ post }: Props) {
 
   const { __typename, id, intro, content, image, _seoMetaTags } = post
   const title = __typename === 'ParticipantRecord' ? post.name : post.title
-  const related = __typename === 'ParticipantRecord' ? post._allReferencingPrograms : __typename === 'PartnerRecord' ? post._allReferencingPrograms : post.partipants
-  const relatedHeader = __typename === 'ParticipantRecord' ? 'Deltar i' : __typename === 'PartnerRecord' ? 'Medverkande' : 'Deltagare'
+  const participants = __typename === 'ProgramRecord' ? post.partipants : []
+  const programs = __typename === 'PartnerRecord' ? post._allReferencingPrograms : __typename === 'ParticipantRecord' ? post._allReferencingPrograms : []
+  const partners = __typename === 'ProgramRecord' ? post.partner : []
 
   return (
     <>
@@ -30,8 +31,10 @@ export default function WhatWeDo({ post }: Props) {
         content={content}
         onClick={(imageId) => { }}
       />
-      <Related header={relatedHeader} items={related} />
-      <BackButton>Visa alla</BackButton>
+      {participants.length > 0 && <Related header='Deltagare' items={participants} />}
+      {programs.length > 0 && <Related header='Deltar i' items={programs} />}
+      {partners.length > 0 && <Related header='Samverkan' items={partners} />}
+      <BackButton href="/vad-vi-gor">Visa alla</BackButton>
     </>
   );
 }
@@ -58,6 +61,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
     return { notFound: true }
 
   const post = participant || program || partner
+
 
   return {
     props: {

@@ -24,7 +24,7 @@ export default function News({ news: { id, image, title, intro, content, _seoMet
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton>Visa alla</BackButton>
+      <BackButton href="/pa-gang">Visa alla</BackButton>
     </>
   );
 }

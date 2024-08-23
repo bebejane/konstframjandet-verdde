@@ -9,13 +9,13 @@ export type FooterProps = {
 	footer: GeneralRecord
 }
 
-export default function Footer({ menu, footer: { email, facebook, instagram, about } }: FooterProps) {
+export default function Footer({ footer: { instagram, about } }: FooterProps) {
 
 	return (
 		<footer className={cn(s.footer)} id="footer">
 			<section>
 				<div>
-					Copyright {PROJECT_NAME}, 2023
+					Copyright {PROJECT_NAME}, 2024
 				</div>
 				<div>
 					Följ oss på <a href={instagram}>Instagram</a>

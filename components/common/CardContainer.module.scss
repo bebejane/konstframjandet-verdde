@@ -1,13 +1,10 @@
 .container {
   columns: 3;
   width: 100%;
+  column-gap: 0;
 
   @include mq($until: desktop) {
     columns: 2;
-  }
-
-  @include mq($from: tablet) {
-    width: calc(100% + (var(--gutter)));
   }
 
   padding: 0;
@@ -17,11 +14,11 @@
     color: var(--black) !important;
   }
 
-  >div {
+  > div {
     border-right: 1px solid var(--beige-mid);
   }
 
-  &.two>div {
+  &.two > div {
     p {
       text-align: center;
     }
@@ -56,8 +53,7 @@
     }
   }
 
-  &.three>div {
-
+  &.three > div {
     @include mq($from: tablet) {
       &:nth-of-type(3n) {
         border-right: none;

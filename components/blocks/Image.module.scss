@@ -3,8 +3,8 @@
   margin-bottom: var(--space);
 
   &.small {
-    padding-left: calc(2 * var(--grid-unit));
-    padding-right: calc(2 * var(--grid-unit));
+    padding-left: calc(3 * var(--grid-unit));
+    padding-right: calc(3 * var(--grid-unit));
   }
 
   &.medium {
@@ -12,11 +12,14 @@
     padding-right: var(--grid-unit);
   }
 
-  &.large {}
+  &.large {
+  }
 
-  &.portrait {}
+  &.portrait {
+  }
 
-  .image {}
+  .image {
+  }
 
   figcaption {
     line-height: 0 !important;

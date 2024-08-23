@@ -31,8 +31,8 @@ export default function WhatWeDo({ post }: Props) {
         content={content}
         onClick={(imageId) => { }}
       />
-      {participants.length > 0 && <Related header='Deltagare' items={participants} />}
-      {programs.length > 0 && <Related header='Deltar i' items={programs} />}
+      {participants.length > 0 && <Related header='Utövare' items={participants} />}
+      {programs.length > 0 && <Related header='Aktivitet' items={programs} />}
       {partners.length > 0 && <Related header='Samverkan' items={partners} />}
       <BackButton href="/vad-vi-gor">Visa alla</BackButton>
     </>

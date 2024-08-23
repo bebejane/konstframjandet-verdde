@@ -33,6 +33,12 @@
       span {
         color: var(--pink);
       }
+      &:hover {
+        color: var(--pink);
+        span {
+          color: var(--black);
+        }
+      }
     }
   }
 }

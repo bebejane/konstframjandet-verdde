@@ -17,16 +17,24 @@
     align-items: center;
 
     &.mainImage {
-      padding-bottom: var(--space);
+      margin-bottom: var(--space);
       cursor: pointer;
     }
 
+    picture img {
+      display: block;
+      max-width: none !important;
+      box-shadow: 1px 1px 10px var(--yellow);
+    }
+
     &.small {
-      padding-left: calc(2 * var(--grid-unit));
-      padding-right: calc(2 * var(--grid-unit));
+      padding-left: calc(4 * var(--grid-unit));
+      padding-right: calc(4 * var(--grid-unit));
     }
 
     &.medium {
+      padding-left: calc(2 * var(--grid-unit));
+      padding-right: calc(2 * var(--grid-unit));
     }
 
     &.large {

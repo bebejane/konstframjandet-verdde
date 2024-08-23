@@ -8,6 +8,10 @@
     box-shadow: 1px 1px 10px var(--transparent-black);
     padding: 0.75rem;
     background-color: var(--white);
+
+    &:hover {
+      box-shadow: 1px 1px 10px var(--pink);
+    }
   }
 
   @include mq($until: tablet) {

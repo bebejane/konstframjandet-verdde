@@ -37,13 +37,12 @@ h1 {
 }
 
 h2 {
-  font-size: 0.95rem;
-
+  font-size: 1rem;
+  font-family: $body-font;
+  font-weight: normal;
   @include mq($from: tablet) {
-    font-size: 0.75rem;
+    font-size: 1.3rem;
   }
-
-  font-family: $headline-font;
 }
 
 h3 {
@@ -60,13 +59,14 @@ h5 {
 }
 
 p {
+  font-size: 1.1rem;
   line-height: var(--line-height);
 }
 
 p.intro,
 .intro p,
 .intro {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding-bottom: 0;
   font-weight: normal;
   line-height: var(--line-height);
@@ -155,8 +155,8 @@ article {
 
   p,
   .intro,
-  h2,
   .structured h3 {
+    font-family: $serif-font;
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
     text-align: left;

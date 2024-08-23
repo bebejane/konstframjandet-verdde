@@ -1,6 +1,6 @@
 .related {
   width: var(--body-width);
-  border-top: 1px solid var(--black);
+  //border-top: 1px solid var(--black);
   padding-top: var(--space);
   margin-top: var(--space);
   position: relative;
@@ -49,6 +49,14 @@
         max-width: 33.33%;
       }
 
+      a {
+        background-color: var(--white);
+        display: block;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        box-shadow: 1px 1px 10px var(--transparent-black);
+      }
+
       figure {
         display: flex;
         aspect-ratio: 8 / 5;
@@ -84,8 +92,8 @@
       }
 
       &:hover {
-        img {
-          background-color: var(--primary-color);
+        a {
+          box-shadow: 1px 1px 10px var(--pink);
         }
       }
     }

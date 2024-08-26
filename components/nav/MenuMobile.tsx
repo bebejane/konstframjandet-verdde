@@ -83,6 +83,9 @@ export default function MenuMobile({ items }: MenuProps) {
 	return (
 		<>
 			<Hamburger />
+			<Link href={`/`} className={s.logo}>
+				<img src={'/images/logo.png'} alt={'logo'} />
+			</Link>
 			<nav
 				className={cn(s.menu, !showMenu && s.hide)}
 				style={{ minHeight: `calc(100vh - ${footerScrollPosition}px - 1px)` }}
@@ -93,98 +96,16 @@ export default function MenuMobile({ items }: MenuProps) {
 					style={{ maxHeight: `calc(100vh - ${menuPadding}px - 1rem)` }}
 				>
 					{items.map((item, idx) =>
-						item.id !== 'search' ?
-							<MenuTree
-								key={idx}
-								item={item}
-								level={0}
-								selected={selected}
-								setSelected={setSelected}
-								path={path}
-								locale={router.locale}
-							/>
-							:
-							<li key={idx} className={s.search}>
-								<form onSubmit={onSubmitSearch}>
-									<input
-										name="q"
-										placeholder={'Sök...'}
-										autoComplete={'off'}
-										value={searchQuery ?? ''}
-										onFocus={() => setSearchFocus(true)}
-										onBlur={() => setSearchFocus(false)}
-										onChange={({ target: { value } }) => setSearchQuery(value)}
-									/>
-								</form>
-								<div
-									onClick={() => setSearchFocus(false)}
-									className={cn(s.close, !searchFocus && s.hide)}
-								>×</div>
-							</li>
+						<li
+							key={item.id}
+							data-parent={item.id}
+							className={cn((item.slug !== '/' && asPath.startsWith(item.slug)) || asPath === '/' && item.slug === '/' ? s.active : null)}
+						>
+							<Link href={item.slug}>{item.label}</Link>
+						</li>
 					)}
 				</ul>
 			</nav>
 		</>
 	)
 }
-
-export type MenuTreeProps = {
-	item: MenuItem
-	level?: number,
-	selected: MenuItem | undefined
-	setSelected: (item: MenuItem) => void
-	path: string
-	locale: string
-}
-
-export function MenuTree({ item, level, selected, setSelected, path, locale, }: MenuTreeProps) {
-
-	const expand = () => setSelected(item)
-
-	const itemIncludesPath = (item: MenuItem) => {
-		if (!item) return false
-		const slugs = [item.slug].map(s => s?.startsWith(`/${locale}`) ? s.replace(`/${locale}`, '') : s)
-		const p = path.startsWith(`/${locale}`) ? path.replace(`/${locale}`, '') : path
-		return slugs.includes(p)
-	}
-
-	const isVisible = (path: string, item: MenuItem) => {
-		if (itemIncludesPath(item)) return true
-		if (!item.sub?.length) return false
-
-		for (let i = 0; i < item.sub.length; i++) {
-			if (item.sub[i].sub && isVisible(path, item.sub[i]))
-				return true
-			else if (itemIncludesPath(item.sub[i]))
-				return true
-		}
-		return false
-	}
-
-	const isSelected = item.slug === selected?.slug && !item.virtual
-	const isLink = item.slug
-	const isBold = level === 0 || item.sub?.length > 0
-	const label = item.label
-
-	return (
-		<li data-parent={item.id} className={cn(isSelected && s.active, isBold && s.bold)}>
-			{isLink ? <Link onClick={expand} href={item.slug}>{label}</Link> : <span onClick={expand}>{label}</span>}
-			{item?.sub && isVisible(path, item) &&
-				<ul data-level={++level} onClick={e => e.stopPropagation()}>
-					{item.sub.map((item, idx) =>
-						<MenuTree
-							key={idx}
-							item={item}
-							level={level}
-							selected={selected}
-							setSelected={setSelected}
-							path={path}
-							locale={locale}
-						/>
-					)}
-				</ul>
-			}
-		</li >
-	);
-}
-

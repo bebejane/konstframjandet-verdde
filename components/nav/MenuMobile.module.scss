@@ -1,3 +1,25 @@
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin-left: var(--outer-margin);
+  width: 20vw;
+  height: calc(var(--navbar-height) + 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  img {
+    height: 3rem;
+  }
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
 .menu {
   position: fixed;
   top: 0;
@@ -73,13 +95,13 @@
         background: transparent;
       }
 
-      > li > a {
+      >li>a {
         color: var(--white);
       }
     }
 
     &[data-level="2"] {
-      li > a {
+      li>a {
         font-weight: normal !important;
       }
     }
@@ -98,8 +120,7 @@
         line-height: initial;
       }
 
-      &.bold > a {
-      }
+      &.bold>a {}
 
       &.active {
         a {
@@ -121,7 +142,7 @@
     }
   }
 
-  > ul {
+  >ul {
     margin-top: calc(var(--big-space) - var(--outer-margin));
   }
 }

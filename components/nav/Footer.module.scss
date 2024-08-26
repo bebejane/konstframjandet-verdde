@@ -8,6 +8,14 @@
   color: var(--black);
   margin-bottom: var(--menu-height);
   height: var(--menu-height);
+
+  @include mq($from: desktop) {
+    &.home {
+      display: none;
+    }
+  }
+
+
   a {
     color: var(--black);
   }

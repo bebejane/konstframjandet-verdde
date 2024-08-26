@@ -40,13 +40,13 @@
     }
 
     li {
-      flex: 0 0 33%.33;
+      flex: 0 0 50%;
       padding-right: var(--gutter-half);
       padding-left: var(--gutter-half);
       padding-top: var(--space);
 
-      @include mq($until: tablet) {
-        max-width: 33.33%;
+      @include mq($from: tablet) {
+        flex: 0 0 33%.33;
       }
 
       a {

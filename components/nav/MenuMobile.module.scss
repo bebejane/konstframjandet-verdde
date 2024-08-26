@@ -46,7 +46,6 @@
 
   ul {
     list-style: none;
-    font-weight: bold;
     padding-left: 0.62rem;
     margin-top: 0.5em;
 
@@ -75,7 +74,6 @@
       }
 
       > li > a {
-        font-weight: bold;
         color: var(--white);
       }
     }
@@ -101,7 +99,6 @@
       }
 
       &.bold > a {
-        font-weight: bold;
       }
 
       &.active {

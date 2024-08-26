@@ -7,6 +7,10 @@
   margin-bottom: 2rem;
   padding: 0;
 
+  @include mq($until: desktop) {
+    font-size: 0.8rem;
+  }
+
   li {
     cursor: pointer;
     margin: 1em;

@@ -29,6 +29,7 @@ export default function WhatWeDo({ post }: Props) {
         image={image}
         intro={intro}
         content={content}
+        category={categories.find(c => c.__typename === __typename)?.id}
         onClick={(imageId) => { }}
       />
       {participants.length > 0 && <Related header='Utövare' items={participants} />}

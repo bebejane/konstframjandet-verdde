@@ -139,6 +139,11 @@ article p a {
 	padding-bottom: 0.35em;
 	border: 1px solid var(--yellow);
 	background-color: var(--yellow);
+
+	&[data-selected="true"] {
+		background-color: var(--white);
+		color: var(--black);
+	}
 }
 
 button {
@@ -166,12 +171,12 @@ button {
 		padding-top: 1em;
 	}
 
-	transition:
-		color 0.2s ease-in-out,
-		background-color 0.3s ease-in-out;
+	transition: color 0.2s ease-in-out,
+	background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);
+
 		@include mq($from: tablet) {
 			width: var(--body-width);
 		}

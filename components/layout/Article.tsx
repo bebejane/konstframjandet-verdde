@@ -9,6 +9,7 @@ import useStore from '/lib/store';
 import format from 'date-fns/format';
 import { useRouter } from 'next/router';
 import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components'
+import { categories } from '/lib/constant'
 import BalanceText from 'react-balance-text'
 
 export type ArticleProps = {
@@ -23,12 +24,11 @@ export type ArticleProps = {
   onClick?: (id: string) => void
   record?: any
   date?: string
+  category?: string
   partner?: PartnerRecord[]
 }
 
-export default function Article({ id, children, title, content, image, imageSize, intro, partner, date, onClick, record }: ArticleProps) {
-
-  const { asPath } = useRouter()
+export default function Article({ id, children, title, content, image, imageSize, intro, category, partner, date, onClick, record }: ArticleProps) {
 
   const [setImageId, setImages] = useStore((state) => [state.setImageId, state.setImages])
   const captionRef = useRef<HTMLElement | null>(null)
@@ -47,7 +47,6 @@ export default function Article({ id, children, title, content, image, imageSize
     <>
       <DatoSEO title={title} />
       <div className={cn(s.article, 'article')}>
-        <h1><BalanceText>{title}</BalanceText></h1>
         {image &&
           <figure
             className={cn(s.mainImage, imageSize && s[imageSize], image.height > image.width && s.portrait)}
@@ -62,6 +61,17 @@ export default function Article({ id, children, title, content, image, imageSize
               {image.title}
             </figcaption>
           </figure>
+        }
+        <h1><BalanceText>{title}</BalanceText></h1>
+
+        {category &&
+          <ul className={s.categories}>
+            {categories.map(({ id, title }, index) => (
+              <li key={index} data-selected={id === category} className="tag">
+                {title}
+              </li>
+            ))}
+          </ul>
         }
         <section className="intro">
           {date &&

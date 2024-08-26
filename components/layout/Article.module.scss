@@ -42,8 +42,7 @@
       padding-right: calc(2 * var(--grid-unit));
     }
 
-    &.large {
-    }
+    &.large {}
 
     &.portrait {
       padding-left: calc(3 * var(--grid-unit));
@@ -91,7 +90,7 @@
     }
   }
 
-  .intro > p {
+  .intro>p {
     padding: 0;
   }
 }

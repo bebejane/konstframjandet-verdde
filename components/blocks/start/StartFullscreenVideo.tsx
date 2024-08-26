@@ -20,9 +20,7 @@ export default function StartFullscreenVideo({ data: { video, text, headline, li
 				<VideoPlayer data={video} />
 			</DatoLink>
 			<div className={s.textWrap}>
-				<h2>{headline}</h2>
-				<Markdown className={s.text}>{text}</Markdown>
-			</div>
+				<h1>{text} </h1>			</div>
 		</div>
 	)
 }

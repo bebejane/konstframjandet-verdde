@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  height: 100vh;
+  height: calc(100vh - var(--menu-height));
   padding-bottom: 0 !important;
   padding-bottom: 0 !important;
   width: 100vw;
@@ -53,23 +53,26 @@
     bottom: var(--small-space);
     left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: var(--white);
     padding: var(--outer-margin);
 
-    h2 {
-      padding-bottom: var(--space);
+    h1 {
+      font-size: 2.5rem;
     }
 
-    .text {}
+    .text {
+    }
   }
 
   @include mq($until: tablet) {
     height: 50vh;
 
-    .textWrap {}
+    .textWrap {
+    }
   }
 }

@@ -1,4 +1,3 @@
-import s from './[about].module.scss'
 import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';

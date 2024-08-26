@@ -3,15 +3,16 @@
   top: 0;
   left: 0;
   z-index: 10;
-  margin-left: var(--outer-margin);
   width: 20vw;
   height: calc(var(--navbar-height) + 1.5rem);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--white);
 
   img {
+    margin-left: var(--outer-margin);
     height: 3rem;
   }
 
@@ -95,13 +96,13 @@
         background: transparent;
       }
 
-      >li>a {
+      > li > a {
         color: var(--white);
       }
     }
 
     &[data-level="2"] {
-      li>a {
+      li > a {
         font-weight: normal !important;
       }
     }
@@ -120,7 +121,8 @@
         line-height: initial;
       }
 
-      &.bold>a {}
+      &.bold > a {
+      }
 
       &.active {
         a {
@@ -142,7 +144,7 @@
     }
   }
 
-  >ul {
+  > ul {
     margin-top: calc(var(--big-space) - var(--outer-margin));
   }
 }

@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  height: calc(100vh - var(--menu-height));
+  height: calc(100vh - var(--navbar-height));
+
   padding-bottom: 0 !important;
   padding-bottom: 0 !important;
   width: 100vw;
@@ -11,6 +12,10 @@
 
   margin-left: calc(-1 * var(--outer-margin));
   margin-right: calc(-1 * var(--outer-margin));
+
+  @include mq($from: desktop) {
+    height: calc(100vh - var(--menu-height));
+  }
 
   @include mq($from: tablet) {
     width: calc(100% + (2 * var(--total-outer-margin)));
@@ -66,13 +71,6 @@
     }
 
     .text {
-    }
-  }
-
-  @include mq($until: tablet) {
-    height: 50vh;
-
-    .textWrap {
     }
   }
 }

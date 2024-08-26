@@ -9,7 +9,10 @@
   @include mq($from: tablet) {
     flex-basis: 80%;
     max-width: 80%;
-    transition: max-width 0.3s ease-in-out, margin 0.3s ease-in-out, flex-basis 0.3s ease-in-out;
+    transition:
+      max-width 0.3s ease-in-out,
+      margin 0.3s ease-in-out,
+      flex-basis 0.3s ease-in-out;
 
     &.full {
       flex-basis: 100%;

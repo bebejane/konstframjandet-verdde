@@ -7,7 +7,7 @@
 	--pink: #ff427d;
 	--yellow: #eaff32;
 	--archive: #ececec;
-	--outer-margin: 4vw;
+	--outer-margin: 5vw;
 	--logo-size-optical: 0rem;
 	--total-outer-margin: calc((var(--outer-margin) * 2) + var(--logo-size-optical));
 	--grid-unit: calc(((100vw - (2 * var(--total-outer-margin))) / 12));
@@ -48,7 +48,7 @@
 	}
 
 	@include mq($until: tablet) {
-		--navbar-height: 3.5rem;
+		--navbar-height: 2.5rem;
 		--logo-size: 1.3rem;
 	}
 }
@@ -171,8 +171,9 @@ button {
 		padding-top: 1em;
 	}
 
-	transition: color 0.2s ease-in-out,
-	background-color 0.3s ease-in-out;
+	transition:
+		color 0.2s ease-in-out,
+		background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);

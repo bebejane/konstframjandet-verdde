@@ -3,6 +3,7 @@ import cn from 'classnames'
 import type { MenuItem } from '/lib/menu'
 import KFLogo from '/public/images/kf-logo.svg'
 import { PROJECT_NAME } from '/lib/constant'
+import { useRouter } from 'next/router'
 
 export type FooterProps = {
 	menu: MenuItem[]
@@ -11,8 +12,10 @@ export type FooterProps = {
 
 export default function Footer({ footer: { instagram, about } }: FooterProps) {
 
+	const isHome = useRouter().pathname === '/'
+
 	return (
-		<footer className={cn(s.footer)} id="footer">
+		<footer className={cn(s.footer, isHome && s.home)} id="footer">
 			<section>
 				<div>
 					Copyright {PROJECT_NAME}, 2024

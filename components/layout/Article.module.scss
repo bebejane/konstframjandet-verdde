@@ -16,6 +16,10 @@
     flex-direction: column;
     align-items: center;
 
+    .picture {
+      box-shadow: 1px 1px 10px var(--yellow);
+    }
+
     &.mainImage {
       margin-bottom: var(--space);
       cursor: pointer;

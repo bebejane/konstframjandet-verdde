@@ -56,7 +56,7 @@ export default function Article({ id, children, title, content, image, imageSize
           >
             <Image
               data={image.responsiveImage}
-              pictureClassName={s.picture}
+              className={s.picture}
             />
             <figcaption ref={captionRef}>
               {image.title}

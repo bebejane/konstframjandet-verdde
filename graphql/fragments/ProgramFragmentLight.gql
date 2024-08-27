@@ -15,6 +15,5 @@ fragment ProgramFragmentLight on ProgramRecord {
 	image {
 		...ImageThumbnailFragment
 	}
-
 	slug
 }

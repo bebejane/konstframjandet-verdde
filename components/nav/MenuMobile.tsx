@@ -101,7 +101,12 @@ export default function MenuMobile({ items }: MenuProps) {
 							data-parent={item.id}
 							className={cn((item.slug !== '/' && asPath.startsWith(item.slug)) || asPath === '/' && item.slug === '/' ? s.active : null)}
 						>
-							<Link href={item.slug}>{item.label}</Link>
+							<Link href={item.slug}>
+								{item.label}
+								{item.label !== item.altLabel &&
+									<><br />{item.altLabel}</>
+								}
+							</Link>
 						</li>
 					)}
 				</ul>

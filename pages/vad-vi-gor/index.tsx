@@ -19,8 +19,7 @@ export type Props = {
 export default function WhatWeDo({ participants = [], programs = [], partners = [], general }: Props) {
 
   const { asPath } = useRouter()
-  const [filter, setFilter] = useState({ participants: false, programs: false, partners: false })
-  const noFilter = Object.values(filter).every(f => !f)
+  const [filter, setFilter] = useState<string | null>(null)
   const posts = [...participants, ...programs, ...partners]
 
   return (
@@ -28,19 +27,20 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
       <DatoSEO title={'Vad vi gör'} />
       <PageHeader header={general.whatSv} headerSmi={general.whatSmi} content={general.whatIntro} />
       <ul className={s.filter}>
-        {categories.map(({ id, title, slug }) =>
+        {categories.map(({ id, title, slug, __typename }) =>
           <li
-            className={filter[id] && s.active}
+            className={__typename === filter && s.active}
             key={slug}
-            onClick={() => setFilter(f => ({ ...f, [id]: !f[id] }))}
+            onClick={() => setFilter(filter === __typename ? null : __typename)}
           >{title}</li>
         )}
       </ul>
       <CardContainer key={`${asPath}-${JSON.stringify(filter)}`}>
-        {posts.filter(item => noFilter || filter[categories.find(el => el.__typename === item.__typename)?.id]).map(item =>
+        {posts.filter(item => !filter || item.__typename === filter).map(item =>
           <Card key={item.id}>
             <Thumbnail
               title={item.__typename === 'ParticipantRecord' ? item.name : item.title}
+              //subtitle={item.__typename !== 'ParticipantRecord' ? item.}
               category={categories.find(c => c.__typename === item.__typename)?.title}
               date={item.__typename === 'ProgramRecord' ? item._publishedAt : undefined}
               image={item.image}

@@ -27,7 +27,7 @@ h1 {
   font-weight: normal;
   padding-bottom: var(--space);
   line-height: 1.1;
-  font-family: $body-font;
+  font-family: $headline-font;
   text-align: center;
 
   @include mq($until: tablet) {
@@ -39,7 +39,7 @@ h1 {
 
 h2 {
   font-size: 1rem;
-  font-family: $body-font;
+  font-family: $headline-font;
   font-weight: normal;
   @include mq($from: tablet) {
     font-size: 1.3rem;
@@ -89,7 +89,7 @@ p.intro,
   }
 
   strong {
-    font-family: $headline-font;
+    font-family: $body-font;
     font-weight: bold !important;
     font-size: 0.75rem;
     display: inline-block;
@@ -112,12 +112,12 @@ footer,
 footer nav,
 figcaption,
 .caption label {
-  font-family: $headline-font;
+  font-family: $body-font;
   font-size: 0.75rem;
   font-weight: normal;
 
   @include mq($from: desktop) {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   @include mq($from: wide) {
@@ -161,7 +161,7 @@ article {
   p,
   .intro,
   .structured h3 {
-    font-family: $serif-font;
+    font-family: $body-font;
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
     text-align: left;

@@ -40,11 +40,11 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
           <Card key={item.id}>
             <Thumbnail
               title={item.__typename === 'ParticipantRecord' ? item.name : item.title}
-              //subtitle={item.__typename !== 'ParticipantRecord' ? item.}
               category={categories.find(c => c.__typename === item.__typename)?.title}
               date={item.__typename === 'ProgramRecord' ? item._publishedAt : undefined}
               image={item.image}
               titleRows={1}
+              city={item.__typename === 'PartnerRecord' ? item.city : undefined}
               slug={`/vad-vi-gor/${categories.find(c => c.__typename === item.__typename).slug}/${item.slug}`}
             />
           </Card>

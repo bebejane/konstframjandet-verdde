@@ -1,12 +1,11 @@
 import s from './Thumbnail.module.scss'
 import cn from 'classnames'
-import React, { useState } from 'react'
+import React from 'react'
 import { Image } from 'react-datocms/image'
 import Link from 'next/link'
 import { truncateWords } from '/lib/utils'
 import { format } from 'date-fns'
 import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components'
-
 
 export type Props = {
   image?: FileField
@@ -17,11 +16,10 @@ export type Props = {
   category?: string
   titleLength?: number
   titleRows?: number
+  city?: string
 }
 
-export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, intro }: Props) {
-
-  const [loaded, setLoaded] = useState(false);
+export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, intro, city }: Props) {
 
   return (
     <Link href={slug} className={s.thumbnail}>
@@ -32,6 +30,7 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
         </span>
       </h3>
       {date && <h5 className="small">{format(new Date(date), 'yyyy-MM-dd')}</h5>}
+      {city && <h5 className="small">{city}</h5>}
       {image &&
         <div className={s.imageWrap}>
           <>
@@ -39,12 +38,12 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
               data={image.responsiveImage}
               className={s.image}
               pictureClassName={s.picture}
-              onLoad={() => setLoaded(true)}
             /><div className={s.border}></div>
           </>
         </div>
       }
       <Markdown className={cn(s.intro, "small")}>{intro}</Markdown>
+
     </Link>
   )
 }

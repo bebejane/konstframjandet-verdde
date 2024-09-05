@@ -148,11 +148,6 @@ query Start {
 								title
 							}
 
-							... on LocationRecord {
-								id
-								slug
-								title
-							}
 							... on NewsRecord {
 								id
 								slug
@@ -237,13 +232,6 @@ query Start {
 							}
 						}
 					}
-				}
-			}
-			... on StartSelectedLocationRecord {
-				__typename
-				id
-				locations {
-					...LocationFragmentLight
 				}
 			}
 			... on StartGalleryRecord {

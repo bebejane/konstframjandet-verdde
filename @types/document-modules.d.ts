@@ -74,24 +74,6 @@ declare module '*/ImageThumbnailFragment.gql' {
 }
     
 
-declare module '*/LocationFragment.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const LocationFragment: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/LocationFragmentLight.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const LocationFragmentLight: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/NewsFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;

@@ -45,22 +45,18 @@ export default function Article({ id, children, title, content, image, imageSize
       <DatoSEO title={title} />
       <div className={cn(s.article, 'article')}>
         <h1><BalanceText>{title}</BalanceText></h1>
-        {image &&
+        {image?.responsiveImage &&
           <figure
             className={cn(s.mainImage, imageSize && s[imageSize], image.height > image.width && s.portrait)}
             onClick={() => setImageId(image?.id)}
             ref={figureRef}
           >
-            <Image
-              data={image.responsiveImage}
-              className={s.picture}
-            />
+            <Image data={image.responsiveImage} className={s.picture} />
             <figcaption ref={captionRef}>
               {image.title}
             </figcaption>
           </figure>
         }
-
 
         <section className="intro">
           {date &&

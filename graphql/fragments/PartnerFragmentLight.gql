@@ -2,6 +2,7 @@ fragment PartnerFragmentLight on PartnerRecord {
 	id
 	title
 	intro(markdown: false)
+	city
 	image {
 		...ImageThumbnailFragment
 	}

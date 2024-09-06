@@ -17,6 +17,10 @@
     left: var(--outer-margin);
     top: calc(var(--outer-margin) / 2);
     height: 3rem;
+
+    @include mq($from: wide) {
+      top: calc(var(--outer-margin) / 2.5);
+    }
   }
 
   ul {

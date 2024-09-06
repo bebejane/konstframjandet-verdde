@@ -35,7 +35,7 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 	return (
 		<video
 			className={cn(styles.video, className)}
-			src={quality ? data.video[`mp4${quality}`] : undefined}
+			src={quality ? data.video.streamingUrl : undefined}
 			ref={setRefs}
 			playsInline
 			muted

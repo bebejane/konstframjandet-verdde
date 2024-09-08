@@ -45,7 +45,7 @@ export default function Article({ id, children, title, city, content, image, ima
     <>
       <DatoSEO title={title} />
       <div className={cn(s.article, 'article')}>
-        <h1><BalanceText>{title}</BalanceText></h1>
+        {title && <h1><BalanceText>{title}</BalanceText></h1>}
         {image?.responsiveImage &&
           <figure
             className={cn(s.mainImage, imageSize && s[imageSize], image.height > image.width && s.portrait)}

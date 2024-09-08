@@ -10,7 +10,7 @@ export type Props = {
   news: NewsRecord
 }
 
-export default function News({ news: { id, image, title, intro, content, _seoMetaTags } }: Props) {
+export default function News({ news: { id, image, title, intro, city, content, _seoMetaTags } }: Props) {
 
   return (
     <>
@@ -22,6 +22,7 @@ export default function News({ news: { id, image, title, intro, content, _seoMet
         image={image}
         intro={intro}
         content={content}
+        city={city}
         onClick={(imageId) => { }}
       />
       <BackButton href="/pa-gang">Visa alla</BackButton>

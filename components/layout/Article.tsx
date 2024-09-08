@@ -13,6 +13,7 @@ export type ArticleProps = {
   id: string
   children?: React.ReactNode | React.ReactNode[] | undefined
   title?: string
+  city?: string
   subtitle?: string
   intro?: string
   image?: FileField
@@ -25,7 +26,7 @@ export type ArticleProps = {
   partner?: PartnerRecord[]
 }
 
-export default function Article({ id, children, title, content, image, imageSize, intro, category, partner, date, onClick, record }: ArticleProps) {
+export default function Article({ id, children, title, city, content, image, imageSize, intro, category, partner, date, onClick, record }: ArticleProps) {
 
   const [setImageId, setImages] = useStore((state) => [state.setImageId, state.setImages])
   const captionRef = useRef<HTMLElement | null>(null)
@@ -65,8 +66,12 @@ export default function Article({ id, children, title, content, image, imageSize
               <span>{format(new Date(date), 'dd').replace('.', '')}</span>
             </div>
           }
+          {city &&
+            <div className={s.city}>{city}</div>
+          }
           <Markdown className={s.intro}>{intro}</Markdown>
         </section>
+
         {content &&
           <>
             <div className="structured">

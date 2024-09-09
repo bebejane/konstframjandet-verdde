@@ -4,6 +4,7 @@ fragment NewsFragmentLight on NewsRecord {
 	intro(markdown: false)
 	city
 	slug
+	date
 	image {
 		...ImageThumbnailFragment
 	}

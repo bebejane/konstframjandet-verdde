@@ -6,6 +6,7 @@ fragment NewsFragment on NewsRecord {
 		...ImageFragment
 	}
 	city
+	date
 	slug
 	_createdAt
 	content {

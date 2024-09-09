@@ -95,6 +95,11 @@ fragment ParticipantFragment on ParticipantRecord {
 			}
 		}
 	}
+	works {
+		blocks
+		value
+		links
+	}
 	_seoMetaTags {
 		...SeoMetaTagsFragment
 	}

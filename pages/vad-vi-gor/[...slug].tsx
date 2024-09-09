@@ -2,7 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { AllParticipantsDocument, AllPartersDocument, AllProgramsDocument, WhatWeDoDocument } from "/graphql";
-import { Article, BackButton, Related } from '/components';
+import { Article, BackButton, Content, Related, StructuredContent } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { categories } from '/lib/constant';
@@ -31,10 +31,15 @@ export default function WhatWeDo({ post }: Props) {
         content={content}
         category={categories.find(c => c.__typename === __typename)?.id}
         onClick={(imageId) => { }}
-      />
+      >
+        {post.__typename === 'ParticipantRecord' &&
+          <StructuredContent id={id} record={post} content={post.works} />
+        }
+      </Article>
       {participants.length > 0 && <Related header='Utövare' items={participants} />}
       {programs.length > 0 && <Related header='Aktivitet' items={programs} />}
       {partners.length > 0 && <Related header='Samverkan' items={partners} />}
+
       <BackButton href="/vad-vi-gor">Visa alla</BackButton>
     </>
   );

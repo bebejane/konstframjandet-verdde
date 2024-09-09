@@ -28,7 +28,7 @@
   z-index: var(--z-menu);
   padding: var(--outer-margin);
   overflow: hidden;
-  background: var(--pink);
+  background: var(--yellow);
   transition: transform var(--menu-transition);
   min-width: 20%;
   max-width: 20%;
@@ -65,7 +65,7 @@
     padding-left: 0.62rem;
     margin-top: 0.5em;
 
-    @include mq($until: tablet) {
+    @include mq($until: desktop) {
       margin-left: 0.62em;
       font-size: 1.1rem;
     }
@@ -76,7 +76,7 @@
       overflow-x: hidden;
 
       // Extra padding for scrolling on mobile
-      @include mq($until: tablet) {
+      @include mq($until: desktop) {
         padding-bottom: 4rem;
       }
 
@@ -90,7 +90,7 @@
       }
 
       > li > a {
-        color: var(--white);
+        color: var(--pink);
       }
     }
 
@@ -119,9 +119,9 @@
 
       &.active {
         a {
-          color: var(--white) !important;
+          color: var(--pink) !important;
           span {
-            color: var(--white);
+            color: var(--pink);
           }
         }
       }

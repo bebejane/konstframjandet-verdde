@@ -29,7 +29,7 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
           {titleLength ? truncateWords(title, titleLength) : title}
         </span>
       </h3>
-      {date && <h5 className="small">{format(new Date(date), 'yyyy-MM-dd')}</h5>}
+      {date && <h4>{format(new Date(date), 'yyyy-MM-dd')}</h4>}
       {city && <h5 className="small">{city}</h5>}
       {image &&
         <div className={s.imageWrap}>

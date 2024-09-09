@@ -26,7 +26,6 @@ export default function News({ news, general }: Props) {
             <Thumbnail
               title={title}
               image={image}
-              intro={intro}
               city={city}
               date={_publishedAt}
               titleRows={1}

@@ -102,9 +102,9 @@ export default function MenuMobile({ items }: MenuProps) {
 							className={cn((item.slug !== '/' && asPath.startsWith(item.slug)) || asPath === '/' && item.slug === '/' ? s.active : null)}
 						>
 							<Link href={item.slug}>
-								{item.label}
+								{item.altLabel}
 								{item.label !== item.altLabel &&
-									<><br /><span>{item.altLabel}</span></>
+									<><br /><span>{item.label}</span></>
 								}
 							</Link>
 						</li>

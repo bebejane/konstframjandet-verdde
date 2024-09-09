@@ -8,6 +8,7 @@
   top: 0rem;
   right: 0;
   margin: var(--outer-margin);
+  margin-top: calc(var(--navbar-height) * 0.5);
   width: var(--width);
   max-width: var(--width);
   min-height: var(--height);
@@ -26,7 +27,7 @@
     }
   }
 
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     --line-height: 10px;
     top: 0;
   }

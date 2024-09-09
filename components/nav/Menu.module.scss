@@ -15,12 +15,8 @@
   .logo {
     position: absolute;
     left: var(--outer-margin);
-    top: calc(var(--outer-margin) / 2);
+    top: calc(var(--menu-height) * 0.17);
     height: 3rem;
-
-    @include mq($from: wide) {
-      top: calc(var(--outer-margin) / 2.5);
-    }
   }
 
   ul {

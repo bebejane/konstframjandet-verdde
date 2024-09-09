@@ -38,7 +38,7 @@
 	--z-fullscreen-gallery: 800;
 	--z-fullscreen-gallery-close: 801;
 
-	@include mq($from: tablet) {
+	@include mq($from: desktop) {
 		--body-width: calc(100% - (2 * var(--grid-unit)));
 		--space: 2rem;
 		--outer-margin: 2vw;
@@ -47,7 +47,7 @@
 		--header-height: calc((var(--outer-margin) * 2) + 2rem); //snygga upp sen
 	}
 
-	@include mq($until: tablet) {
+	@include mq($until: desktop) {
 		--navbar-height: 2.5rem;
 		--logo-size: 1.3rem;
 	}

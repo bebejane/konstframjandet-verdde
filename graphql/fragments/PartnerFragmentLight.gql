@@ -9,4 +9,5 @@ fragment PartnerFragmentLight on PartnerRecord {
 	slug
 	_createdAt
 	_publishedAt
+	_firstPublishedAt
 }

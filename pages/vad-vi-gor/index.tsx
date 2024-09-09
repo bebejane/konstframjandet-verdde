@@ -13,14 +13,14 @@ export type Props = {
   participants: ParticipantRecord[]
   programs: ProgramRecord[]
   partners: PartnerRecord[]
+  posts: (ParticipantRecord | ProgramRecord | PartnerRecord)[]
   general: GeneralRecord
 }
 
-export default function WhatWeDo({ participants = [], programs = [], partners = [], general }: Props) {
+export default function WhatWeDo({ posts = [], general }: Props) {
 
   const { asPath } = useRouter()
   const [filter, setFilter] = useState<string | null>(null)
-  const posts = [...participants, ...programs, ...partners]
 
   return (
     <>
@@ -56,14 +56,16 @@ export default function WhatWeDo({ participants = [], programs = [], partners = 
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
 
-  const [{ participants }, { programs }, { partners }] = await Promise.all([apiQueryAll(AllParticipantsDocument), apiQueryAll(AllProgramsDocument), apiQueryAll(AllPartersDocument)])
+  const [{ participants }, { programs }, { partners }] = await Promise.all([
+    apiQueryAll(AllParticipantsDocument),
+    apiQueryAll(AllProgramsDocument),
+    apiQueryAll(AllPartersDocument)
+  ])
 
   return {
     props: {
       ...props,
-      participants,
-      programs,
-      partners,
+      posts: [...participants, ...programs, ...partners].sort((a, b) => new Date(b._firstPublishedAt).getTime() - new Date(a._firstPublishedAt).getTime() ? 1 : -1),
       page: {
         section: 'what',
         slugs: pageSlugs('what')

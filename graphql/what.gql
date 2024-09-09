@@ -1,5 +1,5 @@
 query AllParters($first: IntType = 100, $skip: IntType = 0) {
-	partners: allPartners(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+	partners: allPartners(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...PartnerFragmentLight
 	}
 	pagination: _allPartnersMeta {
@@ -8,7 +8,7 @@ query AllParters($first: IntType = 100, $skip: IntType = 0) {
 }
 
 query AllParticipants($first: IntType = 100, $skip: IntType = 0) {
-	participants: allParticipants(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+	participants: allParticipants(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...ParticipantFragmentLight
 	}
 	pagination: _allParticipantsMeta {
@@ -17,7 +17,7 @@ query AllParticipants($first: IntType = 100, $skip: IntType = 0) {
 }
 
 query AllPrograms($first: IntType = 100, $skip: IntType = 0) {
-	programs: allPrograms(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+	programs: allPrograms(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...ProgramFragmentLight
 	}
 	pagination: _allProgramsMeta {

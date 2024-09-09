@@ -9,4 +9,5 @@ fragment ParticipantFragmentLight on ParticipantRecord {
 	slug
 	_createdAt
 	_publishedAt
+	_firstPublishedAt
 }

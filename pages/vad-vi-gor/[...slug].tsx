@@ -6,6 +6,8 @@ import { Article, BackButton, Content, Related, StructuredContent } from '/compo
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { categories } from '/lib/constant';
+import s from "./[...slug].module.scss";
+
 
 export type Props = {
   post: ParticipantRecord | ProgramRecord | PartnerRecord
@@ -33,7 +35,11 @@ export default function WhatWeDo({ post }: Props) {
         onClick={(imageId) => { }}
       >
         {post.__typename === 'ParticipantRecord' &&
-          <StructuredContent id={id} record={post} content={post.works} />
+          <div className={s.works}>
+            <div class="works small">
+              <StructuredContent id={id} record={post} content={post.works} />
+            </div>
+          </div>
         }
       </Article>
       {participants.length > 0 && <Related header='Utövare' items={participants} />}

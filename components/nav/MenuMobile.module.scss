@@ -53,14 +53,7 @@
 
   span {
     display: block;
-    line-height: 1;
-
-    @include mq($until: tablet) {
-      padding-top: 1.5em;
-      padding-bottom: calc(var(--header-height) - 1.5em);
-    }
-
-    padding-bottom: var(--header-height);
+    color: var(--black);
   }
 
   a:hover {
@@ -126,7 +119,10 @@
 
       &.active {
         a {
-          color: var(--black) !important;
+          color: var(--white) !important;
+          span {
+            color: var(--white);
+          }
         }
       }
 

@@ -6,7 +6,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding-top: 2.5rem;
+  padding-top: 4rem;
 
   @include mq($from: desktop) {
     padding-top: 2rem;
@@ -16,9 +16,11 @@
     flex: 0 0 50%;
     margin: 0;
     padding: 0;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--black);
-    margin-bottom: 1.5rem;
+    @include mq($from: desktop) {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--black);
+      //margin-bottom: 1.5rem;
+    }
   }
 
   p {

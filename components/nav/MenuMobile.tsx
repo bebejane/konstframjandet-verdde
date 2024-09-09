@@ -104,7 +104,7 @@ export default function MenuMobile({ items }: MenuProps) {
 							<Link href={item.slug}>
 								{item.label}
 								{item.label !== item.altLabel &&
-									<><br />{item.altLabel}</>
+									<><br /><span>{item.altLabel}</span></>
 								}
 							</Link>
 						</li>

@@ -15,7 +15,6 @@
     }
   }
 
-
   a {
     color: var(--black);
   }
@@ -26,6 +25,7 @@
 
     @include mq($until: tablet) {
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       padding-left: var(--outer-margin);
       padding-right: var(--outer-margin);
@@ -38,22 +38,16 @@
 
     div {
       padding-bottom: 0.2em;
-
-      @include mq($from: tablet) {
-        width: 33.33%;
-
-        &:last-of-type {
-          padding-right: 2rem;
-        }
-      }
-
+      width: 100%;
       text-align: center;
     }
   }
 
   .kf {
-    margin-right: var(--outer-margin);
-    filter: invert(1);
+    @include mq($from: desktop) {
+      margin-right: var(--outer-margin);
+      //filter: invert(1);
+    }
 
     @include mq($until: tablet) {
       transform: scale(0.7);

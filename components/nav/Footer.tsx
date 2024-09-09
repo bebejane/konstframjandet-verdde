@@ -18,15 +18,9 @@ export default function Footer({ footer: { instagram, about } }: FooterProps) {
 		<footer className={cn(s.footer, isHome && s.home)} id="footer">
 			<section>
 				<div>
-					Copyright {PROJECT_NAME}, 2024
-				</div>
-				<div>
 					Följ oss på <a href={instagram}>Instagram</a>
 				</div>
-				<div>
-					{about}
-				</div>
-				<KFLogo className={s.kf} />
+				<a href="https://www.konstframjandet.se/" target="new"><KFLogo className={s.kf} /></a>
 			</section>
 		</footer>
 	)

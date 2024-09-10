@@ -7,6 +7,7 @@ import { locales } from '/lib/i18n'
 import { PROJECT_NAME } from '/lib/constant';
 import { sv } from 'date-fns/locale'
 import setDefaultOptions from 'date-fns/setDefaultOptions';
+import { useEffect } from 'react';
 
 setDefaultOptions({ locale: sv })
 
@@ -20,6 +21,18 @@ function App({ Component, pageProps, router }) {
   const isHome = asPath === '/' || locales.find(l => asPath === `/${l}`) !== undefined
   const errorCode = parseInt(router.pathname.replace('/', ''))
   const isError = (!isNaN(errorCode) && (errorCode > 400 && errorCode < 600)) || router.pathname.replace('/', '') === '_error'
+
+  useEffect(() => {
+
+    // Preload background images
+    const sectionIds = ['about', 'kontakt', 'pa-gang', 'vad-vi-gor']
+
+    sectionIds.forEach(sectionId => {
+      const img = new Image()
+      img.src = `/images/sections/${sectionId}.svg`
+    })
+
+  }, [])
 
   if (isError) return <Component {...pageProps} />
 

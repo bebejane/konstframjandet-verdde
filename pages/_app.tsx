@@ -29,7 +29,7 @@ function App({ Component, pageProps, router }) {
 
     sectionIds.forEach(sectionId => {
       const img = new Image()
-      img.src = `/images/sections/${sectionId}.svg`
+      img.src = `${process.env.NEXT_PUBLIC_SITE_URL}/images/sections/${sectionId}.svg`
     })
 
   }, [])

@@ -4,7 +4,6 @@ import useDevice from '/lib/hooks/useDevice'
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 
-
 export type Props = {
   children?: React.ReactNode | React.ReactNode[],
   columns?: 2 | 3,
@@ -13,7 +12,7 @@ export type Props = {
   hideLastOnMobile?: boolean
 }
 
-export default function CardContainer({ children, columns = 3, className, hideLastOnDesktop = false, hideLastOnMobile = false }: Props) {
+export default function CardContainer({ children, className }: Props) {
 
   const buildRows = () => {
     const cards = Array.isArray(children) ? children : [children]
@@ -25,7 +24,6 @@ export default function CardContainer({ children, columns = 3, className, hideLa
       const row = i % maxColumns
       rows[row] = [...(rows[row] ?? []), card]
     })
-
     return rows
   }
 
@@ -40,7 +38,7 @@ export default function CardContainer({ children, columns = 3, className, hideLa
     <div ref={ref} className={cn(s.container, className)}>
       {rows?.map((row, i) =>
         <React.Fragment key={i}>
-          {row.map((card, j) => card)}
+          {row.map((card) => card)}
         </React.Fragment>
       )}
     </div>

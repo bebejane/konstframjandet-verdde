@@ -48,7 +48,7 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
           </>
         </div>
       }
-      <Markdown className={cn(s.intro, "small", isTextOnly && s.text)}>{intro}</Markdown>
+      <h3><Markdown className={cn(s.intro, isTextOnly && s.text)}>{intro}</Markdown></h3>
     </>
 
   return slug ?

@@ -35,7 +35,14 @@
   }
 
   .intro {
-    padding-top: 1em;
+    //padding-top: 1em;
+
+    &.text {
+      color: var(--pink) !important;
+      p {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .imageWrap {

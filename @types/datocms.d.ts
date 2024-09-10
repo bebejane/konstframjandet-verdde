@@ -5032,7 +5032,7 @@ type AllShortTextsQueryVariables = Exact<{
 }>;
 
 
-type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename?: 'ShortTextRecord', text?: string | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
+type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename: 'ShortTextRecord', _firstPublishedAt?: any | null, id: any, text?: string | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
 
 type StartQueryVariables = Exact<{ [key: string]: never; }>;
 

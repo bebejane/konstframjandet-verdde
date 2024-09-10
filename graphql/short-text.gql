@@ -1,5 +1,8 @@
 query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
 	allShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+		__typename
+		_firstPublishedAt
+		id
 		text
 	}
 	pagination: _allAboutsMeta {

@@ -11,11 +11,10 @@ import s from "./index.module.scss";
 export type Props = {
   news: (NewsRecord & ThumbnailImage)[]
   pastNews: (NewsRecord & ThumbnailImage)[]
-  allShortTexts: ShortTextRecord[]
   general: GeneralRecord
 }
 
-export default function News({ news, pastNews, allShortTexts, general }: Props) {
+export default function News({ news, pastNews, general }: Props) {
 
   const { asPath } = useRouter()
 
@@ -61,7 +60,6 @@ export default function News({ news, pastNews, allShortTexts, general }: Props) 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
   const { news } = await apiQueryAll(AllNewsDocument, { variables: {}, preview: context.preview })
-  const { allShortTexts } = await apiQueryAll(AllShortTextsDocument, { variables: {}, preview: context.preview })
   const currentNews = news.filter(({ date, endDate }) => endDate ? new Date(endDate) >= new Date() : new Date(date) >= new Date())
   const pastNews = news.filter(({ id }) => !currentNews.find(({ id: currentId }) => currentId === id))
 
@@ -70,7 +68,6 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
       ...props,
       news: currentNews,
       pastNews,
-      allShortTexts,
       page: {
         section: 'news',
         slugs: pageSlugs('news')

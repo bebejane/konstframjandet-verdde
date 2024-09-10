@@ -13,12 +13,11 @@ export type Props = {
   participants: ParticipantRecord[]
   programs: ProgramRecord[]
   partners: PartnerRecord[]
-  posts: (ParticipantRecord | ProgramRecord | PartnerRecord)[]
-  allShortTexts: ShortTextRecord[]
+  posts: (ParticipantRecord | ProgramRecord | PartnerRecord | ShortTextRecord)[]
   general: GeneralRecord
 }
 
-export default function WhatWeDo({ posts = [], allShortTexts, general }: Props) {
+export default function WhatWeDo({ posts = [], general }: Props) {
 
   const { asPath } = useRouter()
   const [filter, setFilter] = useState<string | null>(null)
@@ -36,27 +35,22 @@ export default function WhatWeDo({ posts = [], allShortTexts, general }: Props) 
           >{title}</li>
         )}
       </ul>
-      <CardContainer key={`${asPath}-${JSON.stringify(filter)}`}>
+      <CardContainer key={`${asPath}-${filter ? JSON.stringify(filter) : ''}`}>
         {posts.filter(item => !filter || item.__typename === filter).map(item =>
           <Card key={item.id}>
             <Thumbnail
-              title={item.__typename === 'ParticipantRecord' ? item.name : item.title}
+              title={item.__typename === 'ParticipantRecord' ? item.name : item.__typename !== 'ShortTextRecord' ? item.title : null}
               category={categories.find(c => c.__typename === item.__typename)?.title}
-              date={item.__typename === 'ProgramRecord' ? item.startDate : undefined}
-              image={item.image}
+              date={item.__typename === 'ProgramRecord' ? item.startDate : null}
+              image={item.__typename !== 'ShortTextRecord' ? item.image : null}
               titleRows={1}
+              intro={item.__typename === 'ShortTextRecord' ? item.text : null}
               city={item.__typename === 'PartnerRecord' ? item.city : undefined}
-              slug={`/vad-vi-gor/${categories.find(c => c.__typename === item.__typename).slug}/${item.slug}`}
+              slug={item.__typename !== 'ShortTextRecord' ? `/vad-vi-gor/${categories.find(c => c.__typename === item.__typename)?.slug}/${item.slug}` : null}
             />
           </Card>
         )}
-        {allShortTexts.map(({ id, text }) =>
-          <Card key={id}>
-            <Thumbnail
-              intro={text}
-            />
-          </Card>
-        )}
+
       </CardContainer>
     </>
   );
@@ -71,12 +65,10 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
     apiQueryAll(AllShortTextsDocument)
   ])
 
-
   return {
     props: {
       ...props,
-      posts: [...participants, ...programs, ...partners].sort((a, b) => new Date(b._firstPublishedAt).getTime() - new Date(a._firstPublishedAt).getTime() ? 1 : -1),
-      allShortTexts,
+      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._firstPublishedAt).getTime() > new Date(a._firstPublishedAt).getTime() ? 1 : -1),
       page: {
         section: 'what',
         slugs: pageSlugs('what')

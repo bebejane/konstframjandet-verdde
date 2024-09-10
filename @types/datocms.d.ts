@@ -3342,6 +3342,8 @@ type Query = {
   _allProgramCategoriesMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allProgramsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allShowTextsMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata;
   /** Returns the single instance record */
@@ -3366,6 +3368,8 @@ type Query = {
   allProgramCategories: Array<ProgramCategoryRecord>;
   /** Returns a collection of records */
   allPrograms: Array<ProgramRecord>;
+  /** Returns a collection of records */
+  allShowTexts: Array<ShowTextRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
   /** Returns the single instance record */
@@ -3390,6 +3394,8 @@ type Query = {
   program?: Maybe<ProgramRecord>;
   /** Returns a specific record */
   programCategory?: Maybe<ProgramCategoryRecord>;
+  /** Returns a specific record */
+  showText?: Maybe<ShowTextRecord>;
   /** Returns the single instance record */
   start?: Maybe<StartRecord>;
   /** Returns a specific asset */
@@ -3465,6 +3471,14 @@ type Query_allProgramCategoriesMetaArgs = {
 type Query_allProgramsMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<ProgramModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
+type Query_allShowTextsMetaArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<ShowTextModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -3592,6 +3606,17 @@ type QueryallProgramsArgs = {
 
 
 /** The query root for this schema */
+type QueryallShowTextsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<ShowTextModelFilter>;
+  first?: InputMaybe<Scalars['IntType']>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<ShowTextModelOrderBy>>>;
+  skip?: InputMaybe<Scalars['IntType']>;
+};
+
+
+/** The query root for this schema */
 type QueryallUploadsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<UploadFilter>;
@@ -3696,6 +3721,15 @@ type QueryprogramCategoryArgs = {
 
 
 /** The query root for this schema */
+type QueryshowTextArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<ShowTextModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<ShowTextModelOrderBy>>>;
+};
+
+
+/** The query root for this schema */
 type QuerystartArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
@@ -3773,6 +3807,70 @@ type SeoField = {
   noIndex?: Maybe<Scalars['BooleanType']>;
   title?: Maybe<Scalars['String']>;
   twitterCard?: Maybe<Scalars['String']>;
+};
+
+type ShowTextModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ShowTextModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ShowTextModelFilter>>>;
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  text?: InputMaybe<StringFilter>;
+};
+
+enum ShowTextModelOrderBy {
+  _createdAt_ASC = '_createdAt_ASC',
+  _createdAt_DESC = '_createdAt_DESC',
+  _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
+  _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
+  _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
+  _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
+  _publishedAt_ASC = '_publishedAt_ASC',
+  _publishedAt_DESC = '_publishedAt_DESC',
+  _status_ASC = '_status_ASC',
+  _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
+  _updatedAt_ASC = '_updatedAt_ASC',
+  _updatedAt_DESC = '_updatedAt_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
+  text_ASC = 'text_ASC',
+  text_DESC = 'text_DESC'
+}
+
+/** Record of type Kort text (show_text) */
+type ShowTextRecord = RecordInterface & {
+  __typename?: 'ShowTextRecord';
+  _createdAt: Scalars['DateTime'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+  text?: Maybe<Scalars['String']>;
+};
+
+
+/** Record of type Kort text (show_text) */
+type ShowTextRecord_seoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 type Site = {

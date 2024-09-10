@@ -5,6 +5,8 @@ import { pageSlugs } from "/lib/i18n";
 import { Card, CardContainer, PageHeader, Thumbnail } from "/components";
 import { useRouter } from "next/router";
 import { apiQueryAll } from "dato-nextjs-utils/api";
+import s from "./index.module.scss";
+
 
 export type Props = {
   news: (NewsRecord & ThumbnailImage)[]
@@ -36,6 +38,7 @@ export default function News({ news, pastNews, allShortTexts, general }: Props) 
           </Card>
         )}
       </CardContainer>
+      <h1 className={s.past}>Avslutat</h1>
       <CardContainer key={asPath}>
         {pastNews.map(({ id, title, date, endDate, image, slug, city }) =>
           <Card key={id}>

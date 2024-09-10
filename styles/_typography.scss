@@ -4,7 +4,7 @@ body {
   font-weight: normal;
 
   @include mq($from: tablet) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @include mq($from: wide) {
@@ -136,6 +136,11 @@ figcaption p,
   }
 }
 
+figcaption p {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 nav,
 .mid,
 button,
@@ -178,8 +183,8 @@ article {
     text-align: left;
 
     @include mq($from: tablet) {
-      padding-left: var(--grid-unit);
-      padding-right: var(--grid-unit);
+      padding-left: calc(1 * var(--grid-unit));
+      padding-right: calc(1 * var(--grid-unit));
     }
   }
 

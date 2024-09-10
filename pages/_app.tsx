@@ -12,6 +12,8 @@ setDefaultOptions({ locale: sv })
 
 function App({ Component, pageProps, router }) {
 
+  setDefaultOptions({ locale: sv })
+
   const page = pageProps.page || {} as PageProps
   const { asPath } = useRouter()
   const siteTitle = PROJECT_NAME

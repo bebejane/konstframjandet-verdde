@@ -25,6 +25,7 @@ export default function CardContainer({ children, columns = 3, className, hideLa
       const row = i % maxColumns
       rows[row] = [...(rows[row] ?? []), card]
     })
+
     return rows
   }
 

@@ -2,10 +2,8 @@
   width: 100%;
   column-gap: 0;
   columns: 3;
-  column-count: 3;
   margin-top: 2rem;
   padding: 0;
-  list-style: none;
 
   @include mq($until: desktop) {
     columns: 1;

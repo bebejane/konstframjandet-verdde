@@ -15,13 +15,11 @@ export default function Contact({ contact: { id, title, image, intro, content, _
   return (
     <>
       <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
-      <PageHeader header={general.contactSv} headerSmi={general.contactSmi} />
+      <PageHeader header={general.contactSv} headerSmi={general.contactSmi} content={intro} />
       <Article
         id={id}
         key={id}
-        //title={title}
         image={image}
-        intro={intro}
         imageSize="small"
         content={content}
         onClick={(imageId) => { }}

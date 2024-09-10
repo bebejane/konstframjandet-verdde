@@ -9,9 +9,10 @@ import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components'
 
 export type Props = {
   image?: FileField
-  slug: string
+  slug?: string
   date?: string
-  title: string
+  endDate?: string
+  title?: string
   intro?: string
   category?: string
   titleLength?: number
@@ -19,17 +20,22 @@ export type Props = {
   city?: string
 }
 
-export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, intro, city }: Props) {
+export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, endDate, intro, city }: Props) {
 
-  return (
-    <Link href={slug} className={s.thumbnail}>
+  const isTextOnly = !title && !image && !slug
+
+  const content =
+    <>
       {category && <div className="tag">{category}</div>}
-      <h3 className={cn(s[`rows-${titleRows}`])}>
-        <span>
-          {titleLength ? truncateWords(title, titleLength) : title}
-        </span>
-      </h3>
-      {date && <h4>{format(new Date(date), 'yyyy-MM-dd')}</h4>}
+      {title &&
+        <h3 className={cn(s[`rows-${titleRows}`])}>
+          <span>
+            {titleLength ? truncateWords(title, titleLength) : title}
+          </span>
+        </h3>
+      }
+      {date && !endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'yyyy-MM-dd')}</h4>}
+      {date && endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'dd MMM')} - {format(new Date(endDate), 'dd MMM yyyy')} </h4>}
       {city && <h5 className="small">{city}</h5>}
       {image &&
         <div className={s.imageWrap}>
@@ -42,8 +48,13 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
           </>
         </div>
       }
-      <Markdown className={cn(s.intro, "small")}>{intro}</Markdown>
+      <Markdown className={cn(s.intro, "small", isTextOnly && s.text)}>{intro}</Markdown>
+    </>
 
+  return slug ?
+    <Link href={slug} className={s.thumbnail}>
+      {content}
     </Link>
-  )
+    : <div className={s.thumbnail}>{content}</div>
+
 }

@@ -1,7 +1,6 @@
 .thumbnail {
   position: relative;
   display: block;
-  //width: 100%;
   height: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -15,6 +14,10 @@
     text-align: left;
   }
 
+  h4 {
+    text-transform: capitalize;
+  }
+
   p {
     display: -webkit-box;
     //-webkit-line-clamp: 4;
@@ -24,6 +27,10 @@
 
     strong {
       padding-right: 1em;
+    }
+
+    &.text {
+      padding: 0;
     }
   }
 

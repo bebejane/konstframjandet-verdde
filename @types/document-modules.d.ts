@@ -220,6 +220,15 @@ declare module '*/search.gql' {
 }
     
 
+declare module '*/short-text.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const AllShortTexts: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/start.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;

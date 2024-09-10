@@ -1,6 +1,6 @@
 import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
-import { AllPartersDocument, AllParticipantsDocument, AllProgramsDocument } from "/graphql";
+import { AllPartersDocument, AllParticipantsDocument, AllProgramsDocument, AllShortTextsDocument } from "/graphql";
 import { CardContainer, Card, Thumbnail, PageHeader } from "/components";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
@@ -14,10 +14,11 @@ export type Props = {
   programs: ProgramRecord[]
   partners: PartnerRecord[]
   posts: (ParticipantRecord | ProgramRecord | PartnerRecord)[]
+  allShortTexts: ShortTextRecord[]
   general: GeneralRecord
 }
 
-export default function WhatWeDo({ posts = [], general }: Props) {
+export default function WhatWeDo({ posts = [], allShortTexts, general }: Props) {
 
   const { asPath } = useRouter()
   const [filter, setFilter] = useState<string | null>(null)
@@ -49,6 +50,13 @@ export default function WhatWeDo({ posts = [], general }: Props) {
             />
           </Card>
         )}
+        {allShortTexts.map(({ id, text }) =>
+          <Card key={id}>
+            <Thumbnail
+              intro={text}
+            />
+          </Card>
+        )}
       </CardContainer>
     </>
   );
@@ -56,16 +64,19 @@ export default function WhatWeDo({ posts = [], general }: Props) {
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
 
-  const [{ participants }, { programs }, { partners }] = await Promise.all([
+  const [{ participants }, { programs }, { partners }, { allShortTexts }] = await Promise.all([
     apiQueryAll(AllParticipantsDocument),
     apiQueryAll(AllProgramsDocument),
-    apiQueryAll(AllPartersDocument)
+    apiQueryAll(AllPartersDocument),
+    apiQueryAll(AllShortTextsDocument)
   ])
+
 
   return {
     props: {
       ...props,
       posts: [...participants, ...programs, ...partners].sort((a, b) => new Date(b._firstPublishedAt).getTime() - new Date(a._firstPublishedAt).getTime() ? 1 : -1),
+      allShortTexts,
       page: {
         section: 'what',
         slugs: pageSlugs('what')

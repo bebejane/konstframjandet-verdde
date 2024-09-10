@@ -35,13 +35,6 @@ export default function News({ news, pastNews, allShortTexts, general }: Props) 
             />
           </Card>
         )}
-        {allShortTexts.map(({ id, text }) =>
-          <Card key={id}>
-            <Thumbnail
-              intro={text}
-            />
-          </Card>
-        )}
       </CardContainer>
       <CardContainer key={asPath}>
         {pastNews.map(({ id, title, date, endDate, image, slug, city }) =>

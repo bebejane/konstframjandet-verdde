@@ -1,4 +1,3 @@
-import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
 import { AllNewsDocument, AllShortTextsDocument } from "/graphql";
 import { DatoSEO } from "dato-nextjs-utils/components";

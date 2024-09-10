@@ -34,8 +34,8 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
           </span>
         </h3>
       }
-      {date && !endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'yyyy-MM-dd')}</h4>}
-      {date && endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'dd MMM')} - {format(new Date(endDate), 'dd MMM yyyy')} </h4>}
+      {date && !endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'dd MMM yyyy')}</h4>}
+      {date && endDate && <h4 suppressHydrationWarning={true}>{format(new Date(date), 'd MMM')} — {format(new Date(endDate), 'dd MMM yyyy')} </h4>}
       {city && <h5 className="small">{city}</h5>}
       {image &&
         <div className={s.imageWrap}>

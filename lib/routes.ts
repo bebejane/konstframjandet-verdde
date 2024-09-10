@@ -29,6 +29,9 @@ export const recordToSlug = (record: any, api_key?: string): string => {
       case 'about':
         path = `/om/${slug}`
         break;
+      case 'short_text':
+        path = `/vad-vi-gor`
+        break;
       case 'program': case 'participant': case 'partner':
         const category = categories.find(c => c._apiKey === api_key)
         path = `/vad-vi-gor/${category.slug}/${slug}`

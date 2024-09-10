@@ -16,6 +16,9 @@ export default withRevalidate(async (record, revalidate) => {
       paths.push('/')
       paths.push(`/om/${slug}`)
       break;
+    case 'short_text':
+      paths.push('/vad-vi-gor')
+      break;
     case 'program': case 'participant': case 'partner':
       const category = categories.find(c => c._apiKey === api_key)
       paths.push('/')
@@ -33,7 +36,6 @@ export default withRevalidate(async (record, revalidate) => {
     default:
       break;
   }
-
   console.log(paths)
   revalidate(paths)
 })

@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  overflow: hidden;
+  display: inline-block;
   width: 100%;
 
   .box {
@@ -27,21 +27,5 @@
 
   @include mq($from: tablet) {
     //margin-bottom: calc(0.25 * var(--gutter));
-  }
-
-  &.hideLastOnDesktop {
-    @include mq($from: tablet) {
-      &:last-child {
-        display: none;
-      }
-    }
-  }
-
-  &.hideLastOnMobile {
-    @include mq($until: tablet) {
-      &:last-child {
-        display: none;
-      }
-    }
   }
 }

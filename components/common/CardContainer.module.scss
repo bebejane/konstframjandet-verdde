@@ -1,76 +1,17 @@
 .container {
-  columns: 3;
   width: 100%;
   column-gap: 0;
+  columns: 3;
+  column-count: 3;
   margin-top: 2rem;
+  padding: 0;
+  list-style: none;
 
   @include mq($until: desktop) {
     columns: 1;
   }
 
-  padding: 0;
-  list-style: none;
-
   div a:hover {
     color: var(--black) !important;
-  }
-
-  > div {
-    border-right: 1px solid var(--beige-mid);
-  }
-
-  &.two > div {
-    p {
-      text-align: center;
-    }
-
-    @include mq($from: tablet) {
-      width: 50%;
-
-      &:nth-of-type(2n) {
-        border-right: none;
-      }
-    }
-
-    @include mq($until: tablet) {
-      width: 100%;
-      border-right: none;
-
-      a:last-of-type {
-        border-bottom: 1px solid var(--beige-mid);
-      }
-
-      &:last-of-type a:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &.two {
-    @include mq($until: tablet) {
-      hr {
-        display: none;
-      }
-    }
-  }
-
-  &.three > div {
-    @include mq($from: tablet) {
-      &:nth-of-type(3n) {
-        border-right: none;
-      }
-    }
-
-    @include mq($until: tablet) {
-      width: 50%;
-
-      &:nth-of-type(odd) {
-        padding-right: calc(0.5 * var(--outer-margin));
-      }
-
-      &:nth-of-type(even) {
-        padding-left: calc(0.5 * var(--outer-margin));
-      }
-    }
   }
 }

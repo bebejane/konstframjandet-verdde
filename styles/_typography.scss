@@ -47,11 +47,11 @@ h2 {
 }
 
 h3,
-h3 p {
+h3 p,
+.headline p {
   font-size: 1.3rem;
   font-family: $serif-font !important;
   font-weight: normal;
-  text-align: center;
   padding-bottom: 0.5em;
   line-height: 1.2;
 }

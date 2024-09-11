@@ -37,7 +37,7 @@ export default function News({ news, pastNews, general }: Props) {
           </Card>
         )}
       </CardContainer>
-      <h1 className={s.past}>Avslutat</h1>
+      <h1 className={s.past}>Genomfört</h1>
       <CardContainer key={asPath}>
         {pastNews.map(({ id, title, date, endDate, image, slug, city }) =>
           <Card key={id}>

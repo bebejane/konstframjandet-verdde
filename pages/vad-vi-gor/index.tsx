@@ -29,7 +29,7 @@ export default function WhatWeDo({ posts = [], general }: Props) {
       <ul className={s.filter}>
         {categories.map(({ id, title, slug, __typename }) =>
           <li
-            className={__typename === filter && s.active}
+            className={__typename === filter ? s.active : undefined}
             key={slug}
             onClick={() => setFilter(filter === __typename ? null : __typename)}
           >{title}</li>
@@ -68,7 +68,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
   return {
     props: {
       ...props,
-      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._firstPublishedAt).getTime() > new Date(a._firstPublishedAt).getTime() ? 1 : -1),
+      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1),
       page: {
         section: 'what',
         slugs: pageSlugs('what')

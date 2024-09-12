@@ -25,7 +25,7 @@ function App({ Component, pageProps, router }) {
   useEffect(() => {
 
     // Preload background images
-    const sectionIds = ['about', 'kontakt', 'pa-gang', 'vad-vi-gor']
+    const sectionIds = ['om', 'kontakt', 'pa-gang', 'vad-vi-gor']
 
     sectionIds.forEach(sectionId => {
       const img = new Image()

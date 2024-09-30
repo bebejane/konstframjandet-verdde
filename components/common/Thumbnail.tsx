@@ -18,9 +18,22 @@ export type Props = {
   titleLength?: number
   titleRows?: number
   city?: string
+  className?: string // Add className prop
 }
 
-export default function Thumbnail({ image, slug, title, titleLength, titleRows = 3, category, date, endDate, intro, city }: Props) {
+export default function Thumbnail({
+  image,
+  slug,
+  title,
+  titleLength,
+  titleRows = 3,
+  category,
+  date,
+  endDate,
+  intro,
+  city,
+  className // Add className prop
+}: Props) {
 
   const isTextOnly = !title && !image && !slug
 
@@ -60,9 +73,11 @@ export default function Thumbnail({ image, slug, title, titleLength, titleRows =
     </>
 
   return slug ?
-    <Link href={slug} className={s.thumbnail}>
+    <Link href={slug} className={cn(s.thumbnail, className)}> {/* Merge className */}
       {content}
     </Link>
-    : <div className={s.thumbnail}>{content}</div>
+    : <div className={cn(s.thumbnail, className)}> {/* Merge className */}
+      {content}
+    </div>
 
 }

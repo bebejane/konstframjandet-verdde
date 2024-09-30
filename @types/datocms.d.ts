@@ -3832,7 +3832,7 @@ type ShortTextModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  text?: InputMaybe<StringFilter>;
+  image?: InputMaybe<FileFilter>;
 };
 
 enum ShortTextModelOrderBy {
@@ -3853,9 +3853,7 @@ enum ShortTextModelOrderBy {
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
   id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
-  text_ASC = 'text_ASC',
-  text_DESC = 'text_DESC'
+  id_DESC = 'id_DESC'
 }
 
 /** Record of type Kort text (short_text) */
@@ -3875,7 +3873,7 @@ type ShortTextRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
-  text?: Maybe<Scalars['String']>;
+  image?: Maybe<FileField>;
 };
 
 
@@ -4975,6 +4973,14 @@ type SiteFragment = { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', 
 
 type VideoFragment = { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, streamingUrl: string, framerate?: number | null, duration?: number | null, mp4high?: string | null, mp4med?: string | null, mp4low?: string | null } };
 
+type AllShortTextsQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']>;
+  skip?: InputMaybe<Scalars['IntType']>;
+}>;
+
+
+type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename: 'ShortTextRecord', _firstPublishedAt?: any | null, id: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
+
 type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5025,14 +5031,6 @@ type SiteSearchQueryVariables = Exact<{
 
 
 type SiteSearchQuery = { __typename?: 'Query', abouts: Array<{ __typename: 'AboutRecord', _modelApiKey: string, title: string, slug: string, text: string }>, news: Array<{ __typename: 'NewsRecord', _modelApiKey: string, title: string, slug: string, text: string }>, programs: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, title: string, slug: string, text: string }>, participants: Array<{ __typename: 'ParticipantRecord', _modelApiKey: string, slug: string, title: string, text: string }>, locations: Array<{ __typename: 'LocationRecord', _modelApiKey: string, title: string, slug: string, text: string }>, partners: Array<{ __typename: 'PartnerRecord', _modelApiKey: string, title: string, slug: string, text: string }> };
-
-type AllShortTextsQueryVariables = Exact<{
-  first?: InputMaybe<Scalars['IntType']>;
-  skip?: InputMaybe<Scalars['IntType']>;
-}>;
-
-
-type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename: 'ShortTextRecord', _firstPublishedAt?: any | null, id: any, text?: string | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
 
 type StartQueryVariables = Exact<{ [key: string]: never; }>;
 

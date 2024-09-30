@@ -39,10 +39,12 @@ export default function WhatWeDo({ posts = [], general }: Props) {
         {posts.filter(item => !filter || item.__typename === filter).map(item =>
           <Card key={item.id}>
             <Thumbnail
+              className={item.__typename === 'ShortTextRecord' ? 'textBox' : ''}
               title={item.__typename === 'ParticipantRecord' ? item.name : item.__typename !== 'ShortTextRecord' ? item.title : null}
               category={categories.find(c => c.__typename === item.__typename)?.title}
               date={item.__typename === 'ProgramRecord' ? item.startDate : null}
-              image={item.__typename !== 'ShortTextRecord' ? item.image : null}
+              //image={item.__typename !== 'ShortTextRecord' ? item.image : null}
+              image={item.image}
               titleRows={1}
               intro={item.__typename === 'ShortTextRecord' ? item.text : null}
               city={item.__typename === 'PartnerRecord' ? item.city : undefined}

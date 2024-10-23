@@ -36,7 +36,7 @@ export default function WhatWeDo({ post }: Props) {
       >
         {post.__typename === 'ParticipantRecord' &&
           <div className={s.works}>
-            <div class="works small">
+            <div className="works small">
               <StructuredContent id={id} record={post} content={post.works} />
             </div>
           </div>

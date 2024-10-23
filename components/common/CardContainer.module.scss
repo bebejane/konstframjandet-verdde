@@ -1,12 +1,12 @@
 .container {
   width: 100%;
   column-gap: 0;
-  columns: 3;
+  column-count: 3;
   margin-top: 1rem;
   padding: 0;
 
   @include mq($until: desktop) {
-    columns: 1;
+    column-count: 1;
   }
 
   div a:hover {

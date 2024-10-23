@@ -22,7 +22,7 @@ export default function News({ news, pastNews, general }: Props) {
     <>
       <DatoSEO title={'Vad vi gör'} />
       <PageHeader header={general.newsSv} headerSmi={general.newsSmi} content={general.newsIntro} />
-      <CardContainer key={asPath}>
+      <CardContainer key={`${asPath}-news`}>
         {news.map(({ id, title, date, endDate, image, slug, intro, city }) =>
           <Card key={id}>
             <Thumbnail
@@ -37,8 +37,9 @@ export default function News({ news, pastNews, general }: Props) {
           </Card>
         )}
       </CardContainer>
+
       <h1 className={s.past}>Genomfört</h1>
-      <CardContainer key={asPath}>
+      <CardContainer key={`${asPath}-past-news`}>
         {pastNews.map(({ id, title, date, endDate, image, slug, city }) =>
           <Card key={id}>
             <Thumbnail

@@ -43,14 +43,7 @@ export default function WhatWeDo({ posts = [], general }: Props) {
               title={item.__typename === 'ParticipantRecord' ? item.name : item.__typename !== 'ShortTextRecord' ? item.title : null}
               category={categories.find(c => c.__typename === item.__typename)?.title}
               date={item.__typename === 'ProgramRecord' ? item.startDate : null}
-<<<<<<< HEAD
-              //image={item.__typename !== 'ShortTextRecord' ? item.image : null}
               image={item.image}
-              titleRows={1}
-=======
-              image={item.__typename !== 'ShortTextRecord' ? item.image : null}
->>>>>>> 2d30a7d (sync)
-              intro={item.__typename === 'ShortTextRecord' ? item.text : null}
               city={item.__typename === 'PartnerRecord' ? item.city : undefined}
               slug={item.__typename !== 'ShortTextRecord' ? `/vad-vi-gor/${categories.find(c => c.__typename === item.__typename)?.slug}/${item.slug}` : null}
               titleRows={1}
@@ -74,7 +67,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
   return {
     props: {
       ...props,
-      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1),
+      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1).slice(0, 4),
       page: {
         section: 'what',
         slugs: pageSlugs('what')

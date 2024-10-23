@@ -4979,7 +4979,7 @@ type AllShortTextsQueryVariables = Exact<{
 }>;
 
 
-type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename: 'ShortTextRecord', _firstPublishedAt?: any | null, id: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
+type AllShortTextsQuery = { __typename?: 'Query', allShortTexts: Array<{ __typename: 'ShortTextRecord', _firstPublishedAt?: any | null, _createdAt: any, id: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
 
 type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 

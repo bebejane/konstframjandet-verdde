@@ -1,6 +1,7 @@
 fragment PartnerFragment on PartnerRecord {
 	_createdAt
 	_publishedAt
+	__typename
 	id
 	title
 	intro(markdown: false)

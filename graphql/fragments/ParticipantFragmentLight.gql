@@ -7,6 +7,7 @@ fragment ParticipantFragmentLight on ParticipantRecord {
 	}
 
 	slug
+	__typename
 	_createdAt
 	_publishedAt
 	_firstPublishedAt

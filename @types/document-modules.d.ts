@@ -173,15 +173,6 @@ declare module '*/VideoFragment.gql' {
 }
     
 
-declare module '*/short-text.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const AllShortTexts: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/global.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -224,6 +215,15 @@ declare module '*/search.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const SiteSearch: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/short-text.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const AllShortTexts: DocumentNode;
 
   export default defaultDocument;
 }

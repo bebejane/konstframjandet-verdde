@@ -22,6 +22,7 @@ export default function WhatWeDo({ posts = [], general }: Props) {
   const { asPath } = useRouter()
   const [filter, setFilter] = useState<string | null>(null)
 
+
   return (
     <>
       <DatoSEO title={'Vad vi gör'} />
@@ -57,7 +58,7 @@ export default function WhatWeDo({ posts = [], general }: Props) {
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
 
-  const [{ participants }, { programs }, { partners }, { allShortTexts }] = await Promise.all([
+  const [{ participants }, { programs }, { partners }, { shortTexts }] = await Promise.all([
     apiQueryAll(AllParticipantsDocument),
     apiQueryAll(AllProgramsDocument),
     apiQueryAll(AllPartersDocument),
@@ -67,7 +68,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
   return {
     props: {
       ...props,
-      posts: [...participants, ...programs, ...partners, ...allShortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1).slice(0, 4),
+      posts: [...participants, ...programs, ...partners, ...shortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1),
       page: {
         section: 'what',
         slugs: pageSlugs('what')

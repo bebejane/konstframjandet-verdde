@@ -1,5 +1,5 @@
 query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
-	allShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+	shortTexts: allShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		__typename
 		_firstPublishedAt
 		_createdAt
@@ -8,7 +8,7 @@ query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
 			...ImageThumbnailFragment
 		}
 	}
-	pagination: _allAboutsMeta {
+	pagination: _allShortTextsMeta {
 		count
 	}
 }

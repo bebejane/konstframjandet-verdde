@@ -250,4 +250,8 @@ select {
 .textBox {
 	margin: -0.75rem;
 	margin-top: -1.5rem;
+
+	div {
+		aspect-ratio: none !important;
+	}
 }

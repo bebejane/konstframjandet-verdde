@@ -1,12 +1,13 @@
 .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 0px;
   width: 100%;
-  column-gap: 0;
-  column-count: 3;
   margin-top: 1rem;
   padding: 0;
 
   @include mq($until: desktop) {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 
   div a:hover {

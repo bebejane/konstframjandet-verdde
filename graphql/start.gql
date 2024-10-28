@@ -17,49 +17,10 @@ query Start {
 			... on StartFullscreenVideoRecord {
 				__typename
 				id
-				headline
 				text(markdown: false)
 				video {
 					...VideoFragment
 				}
-				link {
-					__typename
-					... on ExternalLinkRecord {
-						__typename
-						id
-						title
-						url
-					}
-					... on InternalLinkRecord {
-						__typename
-						id
-						internalTitle: title
-						record {
-							... on AboutRecord {
-								id
-								slug
-								title
-							}
-
-							... on NewsRecord {
-								id
-								slug
-								title
-							}
-							... on ParticipantRecord {
-								id
-								slug
-								name
-							}
-							... on ProgramRecord {
-								id
-								slug
-								title
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 }

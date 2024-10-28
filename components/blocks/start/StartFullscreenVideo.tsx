@@ -9,18 +9,17 @@ import useStore from '/lib/store'
 
 export type Props = { data: StartFullscreenVideoRecord }
 
-export default function StartFullscreenVideo({ data: { video, text, headline, link } }: Props) {
+export default function StartFullscreenVideo({ data: { video, text, headline } }: Props) {
 
 	const ref = useRef()
 	const [showMenu] = useStore((state) => [state.showMenu])
 
 	return (
 		<div className={cn(s.fullScreenVideo, !showMenu && s.full)} ref={ref}>
-			<DatoLink link={link}>
-				<VideoPlayer data={video} />
-			</DatoLink>
+			<VideoPlayer data={video} />
 			<div className={s.textWrap}>
-				<h1>{text} </h1>			</div>
+				<h1>{text} </h1>
+			</div>
 		</div>
 	)
 }

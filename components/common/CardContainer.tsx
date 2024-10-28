@@ -3,6 +3,7 @@ import cn from 'classnames'
 import useDevice from '/lib/hooks/useDevice'
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 export type Props = {
   children?: React.ReactNode | React.ReactNode[],
@@ -14,33 +15,17 @@ export type Props = {
 
 export default function CardContainer({ children, className }: Props) {
 
-  const buildRows = () => {
-    const cards = Array.isArray(children) ? children : [children]
-    const maxColumns = !isDesktop ? 1 : 3
-    const totalRows = Math.ceil(cards.length / maxColumns)
-    const rows = new Array(totalRows).fill([])
-
-    cards.forEach((card, i) => {
-      const row = i % maxColumns
-      rows[row] = [...(rows[row] ?? []), card]
-    })
-    return rows
-  }
-
-  const ref = useRef<HTMLDivElement | null>(null)
-  const { isDesktop } = useDevice()
-  const [rows, setRows] = useState(buildRows())
-  const { locale } = useRouter()
-
-  useEffect(() => { setRows(buildRows()) }, [isDesktop, locale])
+  const cards = Array.isArray(children) ? children : [children]
 
   return (
-    <div ref={ref} className={cn(s.container, className)}>
-      {rows?.map((row, i) =>
-        <React.Fragment key={i}>
-          {row.map((card) => card)}
-        </React.Fragment>
-      )}
-    </div>
+    <ResponsiveMasonry
+      className={cn(s.masonry, className)}
+      columnsCountBreakPoints={{ 320: 1, 980: 3 }}
+    >
+      <Masonry>
+        {cards}
+      </Masonry>
+    </ResponsiveMasonry>
+
   )
 }

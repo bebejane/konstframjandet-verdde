@@ -3,6 +3,17 @@ query Start {
 		id
 		content {
 			__typename
+			... on StartVideoRecord {
+				__typename
+				id
+				title
+				video {
+					provider
+					providerUid
+					thumbnailUrl
+					url
+				}
+			}
 			... on StartFullscreenVideoRecord {
 				__typename
 				id
@@ -49,8 +60,7 @@ query Start {
 					}
 				}
 			}
-
-			
+		}
 	}
 }
 

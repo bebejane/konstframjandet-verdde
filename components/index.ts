@@ -14,6 +14,7 @@ export { default as StartSelectedLocation } from './blocks/start/StartSelectedLo
 export { default as StartText } from './blocks/start/StartText'
 export { default as StartVideo } from './blocks/start/StartVideo'
 export { default as Video } from './blocks/Video'
+export { default as Sound } from './blocks/Sound'
 export { default as BackButton } from './common/BackButton'
 export { default as Button } from './common/Button'
 export { default as Card } from './common/Card'

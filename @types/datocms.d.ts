@@ -549,6 +549,9 @@ type GeneralRecord = RecordInterface & {
   homeSv?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
   instagram?: Maybe<Scalars['String']>;
+  learnMoreIntro?: Maybe<Scalars['String']>;
+  learnMoreSmi?: Maybe<Scalars['String']>;
+  learnMoreSv?: Maybe<Scalars['String']>;
   newsIntro?: Maybe<Scalars['String']>;
   newsSmi?: Maybe<Scalars['String']>;
   newsSv?: Maybe<Scalars['String']>;
@@ -572,6 +575,12 @@ type GeneralRecordaboutIntroArgs = {
 
 /** Record of type Generellt (general) */
 type GeneralRecordcontactIntroArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** Record of type Generellt (general) */
+type GeneralRecordlearnMoreIntroArgs = {
   markdown?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -2493,9 +2502,9 @@ enum ItemStatus {
   updated = 'updated'
 }
 
-type LearnCategoryModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<LearnCategoryModelFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<LearnCategoryModelFilter>>>;
+type LearnMoreCategoryModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<LearnMoreCategoryModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<LearnMoreCategoryModelFilter>>>;
   _createdAt?: InputMaybe<CreatedAtFilter>;
   _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
   _isValid?: InputMaybe<BooleanFilter>;
@@ -2505,10 +2514,10 @@ type LearnCategoryModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  titel?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
-enum LearnCategoryModelOrderBy {
+enum LearnMoreCategoryModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
@@ -2527,13 +2536,13 @@ enum LearnCategoryModelOrderBy {
   _updatedAt_DESC = '_updatedAt_DESC',
   id_ASC = 'id_ASC',
   id_DESC = 'id_DESC',
-  titel_ASC = 'titel_ASC',
-  titel_DESC = 'titel_DESC'
+  title_ASC = 'title_ASC',
+  title_DESC = 'title_DESC'
 }
 
-/** Record of type Lär mer kategori (learn_category) */
-type LearnCategoryRecord = RecordInterface & {
-  __typename?: 'LearnCategoryRecord';
+/** Record of type Lär mer kategori (learn_more_category) */
+type LearnMoreCategoryRecord = RecordInterface & {
+  __typename?: 'LearnMoreCategoryRecord';
   _createdAt: Scalars['DateTime'];
   /** Editing URL */
   _editingUrl?: Maybe<Scalars['String']>;
@@ -2548,27 +2557,27 @@ type LearnCategoryRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
-  titel?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
 };
 
 
-/** Record of type Lär mer kategori (learn_category) */
-type LearnCategoryRecord_seoMetaTagsArgs = {
+/** Record of type Lär mer kategori (learn_more_category) */
+type LearnMoreCategoryRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-type LearnModelContentBlocksField = ImageGalleryRecord | ImageRecord | LinkButtonRecord | SoundRecord | VideoRecord;
+type LearnMoreModelContentBlocksField = ImageGalleryRecord | ImageRecord | LinkButtonRecord | SoundRecord | VideoRecord;
 
-type LearnModelContentField = {
-  __typename?: 'LearnModelContentField';
-  blocks: Array<LearnModelContentBlocksField>;
+type LearnMoreModelContentField = {
+  __typename?: 'LearnMoreModelContentField';
+  blocks: Array<LearnMoreModelContentBlocksField>;
   links: Array<Scalars['String']>;
   value: Scalars['JsonField'];
 };
 
-type LearnModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<LearnModelFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<LearnModelFilter>>>;
+type LearnMoreModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<LearnMoreModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<LearnMoreModelFilter>>>;
   _createdAt?: InputMaybe<CreatedAtFilter>;
   _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
   _isValid?: InputMaybe<BooleanFilter>;
@@ -2581,12 +2590,12 @@ type LearnModelFilter = {
   id?: InputMaybe<ItemIdFilter>;
   image?: InputMaybe<FileFilter>;
   intro?: InputMaybe<TextFilter>;
-  kategori?: InputMaybe<LinkFilter>;
+  learnMoreCategory?: InputMaybe<LinkFilter>;
   name?: InputMaybe<StringFilter>;
   slug?: InputMaybe<SlugFilter>;
 };
 
-enum LearnModelOrderBy {
+enum LearnMoreModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
@@ -2609,9 +2618,9 @@ enum LearnModelOrderBy {
   name_DESC = 'name_DESC'
 }
 
-/** Record of type Lär mer (learn) */
-type LearnRecord = RecordInterface & {
-  __typename?: 'LearnRecord';
+/** Record of type Lär mer (learn_more) */
+type LearnMoreRecord = RecordInterface & {
+  __typename?: 'LearnMoreRecord';
   _createdAt: Scalars['DateTime'];
   /** Editing URL */
   _editingUrl?: Maybe<Scalars['String']>;
@@ -2625,24 +2634,24 @@ type LearnRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  content?: Maybe<LearnModelContentField>;
+  content?: Maybe<LearnMoreModelContentField>;
   id: Scalars['ItemId'];
   image: FileField;
   intro: Scalars['String'];
-  kategori?: Maybe<LearnCategoryRecord>;
+  learnMoreCategory?: Maybe<LearnMoreCategoryRecord>;
   name: Scalars['String'];
   slug: Scalars['String'];
 };
 
 
-/** Record of type Lär mer (learn) */
-type LearnRecord_seoMetaTagsArgs = {
+/** Record of type Lär mer (learn_more) */
+type LearnMoreRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type Lär mer (learn) */
-type LearnRecordintroArgs = {
+/** Record of type Lär mer (learn_more) */
+type LearnMoreRecordintroArgs = {
   markdown?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -3458,9 +3467,9 @@ type Query = {
   /** Returns meta information regarding a record collection */
   _allInternalLinksMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
-  _allLearnCategoriesMeta: CollectionMetadata;
+  _allLearnMoreCategoriesMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
-  _allLearnsMeta: CollectionMetadata;
+  _allLearnMoresMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allLocationsMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
@@ -3488,9 +3497,9 @@ type Query = {
   /** Returns a collection of records */
   allInternalLinks: Array<InternalLinkRecord>;
   /** Returns a collection of records */
-  allLearnCategories: Array<LearnCategoryRecord>;
+  allLearnMoreCategories: Array<LearnMoreCategoryRecord>;
   /** Returns a collection of records */
-  allLearns: Array<LearnRecord>;
+  allLearnMores: Array<LearnMoreRecord>;
   /** Returns a collection of records */
   allLocations: Array<LocationRecord>;
   /** Returns a collection of records */
@@ -3518,9 +3527,9 @@ type Query = {
   /** Returns a specific record */
   internalLink?: Maybe<InternalLinkRecord>;
   /** Returns a specific record */
-  learn?: Maybe<LearnRecord>;
+  learnMore?: Maybe<LearnMoreRecord>;
   /** Returns a specific record */
-  learnCategory?: Maybe<LearnCategoryRecord>;
+  learnMoreCategory?: Maybe<LearnMoreCategoryRecord>;
   /** Returns a specific record */
   location?: Maybe<LocationRecord>;
   /** Returns a specific record */
@@ -3567,17 +3576,17 @@ type Query_allInternalLinksMetaArgs = {
 
 
 /** The query root for this schema */
-type Query_allLearnCategoriesMetaArgs = {
+type Query_allLearnMoreCategoriesMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnCategoryModelFilter>;
+  filter?: InputMaybe<LearnMoreCategoryModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
-type Query_allLearnsMetaArgs = {
+type Query_allLearnMoresMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnModelFilter>;
+  filter?: InputMaybe<LearnMoreModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -3695,23 +3704,23 @@ type QueryallInternalLinksArgs = {
 
 
 /** The query root for this schema */
-type QueryallLearnCategoriesArgs = {
+type QueryallLearnMoreCategoriesArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnCategoryModelFilter>;
+  filter?: InputMaybe<LearnMoreCategoryModelFilter>;
   first?: InputMaybe<Scalars['IntType']>;
   locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<LearnCategoryModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<LearnMoreCategoryModelOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
-type QueryallLearnsArgs = {
+type QueryallLearnMoresArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnModelFilter>;
+  filter?: InputMaybe<LearnMoreModelFilter>;
   first?: InputMaybe<Scalars['IntType']>;
   locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<LearnModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<LearnMoreModelOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
@@ -3844,20 +3853,20 @@ type QueryinternalLinkArgs = {
 
 
 /** The query root for this schema */
-type QuerylearnArgs = {
+type QuerylearnMoreArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnModelFilter>;
+  filter?: InputMaybe<LearnMoreModelFilter>;
   locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<LearnModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<LearnMoreModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
-type QuerylearnCategoryArgs = {
+type QuerylearnMoreCategoryArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<LearnCategoryModelFilter>;
+  filter?: InputMaybe<LearnMoreCategoryModelFilter>;
   locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<LearnCategoryModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<LearnMoreCategoryModelOrderBy>>>;
 };
 
 
@@ -4118,8 +4127,8 @@ type SoundRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
+  data?: Maybe<Scalars['JsonField']>;
   id: Scalars['ItemId'];
-  link?: Maybe<Scalars['JsonField']>;
 };
 
 
@@ -5141,12 +5150,39 @@ type VideoFragment = { __typename?: 'VideoFileField', id: any, alt?: string | nu
 type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null }, general?: { __typename?: 'GeneralRecord', whatSmi?: string | null, whatSv?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null } | null };
+type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null } | null };
+
+type AllLearnMoreQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']>;
+  skip?: InputMaybe<Scalars['IntType']>;
+}>;
+
+
+type AllLearnMoreQuery = { __typename?: 'Query', learns: Array<{ __typename?: 'LearnMoreRecord', id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<{ __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> } | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } } | { __typename: 'LinkButtonRecord', id: any, link: { __typename: 'ExternalLinkRecord', id: any, title: string, url: string } | { __typename: 'InternalLinkRecord', id: any, record: { __typename?: 'AboutRecord', id: any, slug: string, title: string } | { __typename?: 'LocationRecord', id: any, slug: string, title: string } | { __typename?: 'NewsRecord', id: any, slug: string, title: string } | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string } | { __typename?: 'ProgramRecord', id: any, slug: string, title: string } } } | { __typename: 'SoundRecord', id: any, data?: any | null } | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }> } | null }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
+
+type AllLearnMoreCategoriesQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']>;
+  skip?: InputMaybe<Scalars['IntType']>;
+}>;
+
+
+type AllLearnMoreCategoriesQuery = { __typename?: 'Query', learnMoreCategories: Array<{ __typename?: 'LearnMoreCategoryRecord', id: any, title: string }>, pagination: { __typename?: 'CollectionMetadata', count: any } };
+
+type LearnMoreQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type LearnMoreQuery = { __typename?: 'Query', learnMore?: { __typename?: 'LearnMoreRecord', id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<{ __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> } | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } } | { __typename: 'LinkButtonRecord', id: any, link: { __typename: 'ExternalLinkRecord', id: any, title: string, url: string } | { __typename: 'InternalLinkRecord', id: any, record: { __typename?: 'AboutRecord', id: any, slug: string, title: string } | { __typename?: 'LocationRecord', id: any, slug: string, title: string } | { __typename?: 'NewsRecord', id: any, slug: string, title: string } | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string } | { __typename?: 'ProgramRecord', id: any, slug: string, title: string } } } | { __typename: 'SoundRecord', id: any, data?: any | null } | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }> } | null } | null };
+
+type LearnMoreFragment = { __typename?: 'LearnMoreRecord', id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<{ __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> } | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } } | { __typename: 'LinkButtonRecord', id: any, link: { __typename: 'ExternalLinkRecord', id: any, title: string, url: string } | { __typename: 'InternalLinkRecord', id: any, record: { __typename?: 'AboutRecord', id: any, slug: string, title: string } | { __typename?: 'LocationRecord', id: any, slug: string, title: string } | { __typename?: 'NewsRecord', id: any, slug: string, title: string } | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string } | { __typename?: 'ProgramRecord', id: any, slug: string, title: string } } } | { __typename: 'SoundRecord', id: any, data?: any | null } | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }> } | null };
 
 type MenuQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MenuQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'AboutRecord', id: any, title: string, slug: string }>, aboutMeta: { __typename?: 'CollectionMetadata', count: any }, programMeta: { __typename?: 'CollectionMetadata', count: any }, participantsMeta: { __typename?: 'CollectionMetadata', count: any }, partnersMeta: { __typename?: 'CollectionMetadata', count: any }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null } | null };
+type MenuQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'AboutRecord', id: any, title: string, slug: string }>, aboutMeta: { __typename?: 'CollectionMetadata', count: any }, programMeta: { __typename?: 'CollectionMetadata', count: any }, participantsMeta: { __typename?: 'CollectionMetadata', count: any }, partnersMeta: { __typename?: 'CollectionMetadata', count: any }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null } | null };
+
+type GeneralFragment = { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null };
 
 type AllNewsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['IntType']>;

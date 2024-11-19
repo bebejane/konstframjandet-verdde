@@ -3,16 +3,6 @@ query Global {
 		...SiteFragment
 	}
 	general {
-		whatSmi
-		whatSv
-		whatIntro
-		newsSv
-		newsSmi
-		newsIntro
-		contactSv
-		contactSmi
-		aboutSv
-		aboutSmi
-		aboutIntro
+		...GeneralFragment
 	}
 }

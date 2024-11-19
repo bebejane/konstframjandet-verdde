@@ -18,15 +18,22 @@ query Menu {
 	}
 
 	general {
-		homeSv
-		homeSmi
-		whatSmi
-		whatSv
-		newsSv
-		newsSmi
-		contactSv
-		contactSmi
-		aboutSv
-		aboutSmi
+		...GeneralFragment
 	}
+}
+
+fragment GeneralFragment on GeneralRecord {
+	homeSv
+	homeSmi
+	whatSmi
+	whatSv
+	newsSv
+	newsSmi
+	contactSv
+	contactSmi
+	aboutSv
+	aboutSmi
+	learnMoreSv
+	learnMoreSmi
+	learnMoreIntro(markdown: false)
 }

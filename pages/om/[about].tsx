@@ -2,7 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { AboutDocument, AllAboutsDocument } from "/graphql";
-import { Article } from '/components';
+import { Article, BackButton } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 
 
@@ -23,6 +23,8 @@ export default function AboutItem({ about: { id, image, title, intro, content, _
         intro={intro}
         content={content}
       />
+      <BackButton href="/om">Visa alla</BackButton>
+
     </>
   );
 }

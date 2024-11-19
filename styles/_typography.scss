@@ -4,7 +4,7 @@ body {
   font-weight: normal;
 
   @include mq($from: tablet) {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   @include mq($from: wide) {
@@ -177,16 +177,22 @@ article {
 
   p,
   .intro,
-  .structured h3 {
+  .structured h3,
+  blockquote {
     font-family: $body-font;
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
     text-align: left;
 
     @include mq($from: tablet) {
-      padding-left: calc(1 * var(--grid-unit));
-      padding-right: calc(1 * var(--grid-unit));
+      padding-left: calc(1.75 * var(--grid-unit));
+      padding-right: calc(1.75 * var(--grid-unit));
     }
+  }
+
+  blockquote {
+    font-size: 1.5rem;
+    line-height: var(--line-height);
   }
 
   p + h3,
@@ -198,8 +204,8 @@ article {
 
   p strong,
   p b {
-    font-weight: normal !important;
-    font-family: $headline-font;
+    //font-weight: normal !important;
+    font-family: $body-font;
   }
 
   p.center {

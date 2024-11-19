@@ -52,13 +52,22 @@ export default function MenuMobile({ items }: MenuProps) {
 				<ul ref={menuRef}>
 					{items.slice(1).map((item, idx) =>
 						<li key={idx}>
-							<Link href={item.slug}>
+							<Link href={item.slug} className={cn((item.slug !== '/' && asPath.startsWith(item.slug)) || asPath === '/' && item.slug === '/' ? s.active : null)}
+							>
 								<span>{item.altLabel}</span><br />
 								{item.label}
 							</Link>
 						</li>
 					)}
 				</ul>
+				<div className={s.lang}>
+					<Link href={'/om/in-english-verdde'}>
+						EN
+					</Link>
+					<Link href={'/om/samegillii-verdde'}>
+						Sá
+					</Link>
+				</div>
 			</nav>
 		</>
 	)

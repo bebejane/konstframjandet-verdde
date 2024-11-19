@@ -110,6 +110,14 @@ export default function MenuMobile({ items }: MenuProps) {
 						</li>
 					)}
 				</ul>
+				<div className={s.lang}>
+					<Link href={'/om/in-english-verdde'}>
+						EN
+					</Link>
+					<Link href={'/om/samegillii-verdde'}>
+						Sá
+					</Link>
+				</div>
 			</nav>
 		</>
 	)

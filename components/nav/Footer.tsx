@@ -4,6 +4,8 @@ import type { MenuItem } from '/lib/menu'
 import KFLogo from '/public/images/kf-logo.svg'
 import { PROJECT_NAME } from '/lib/constant'
 import { useRouter } from 'next/router'
+import Link from 'next/link';
+
 
 export type FooterProps = {
 	menu: MenuItem[]
@@ -18,9 +20,21 @@ export default function Footer({ footer: { instagram, about } }: FooterProps) {
 		<footer className={cn(s.footer, isHome && s.home)} id="footer">
 			<section>
 				<div>
-					Följ oss på <a href={instagram}>Instagram</a>
+					<Link
+						href="https://www.instagram.com/verddekonst/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img className={s.logo} src="/images/instagram.svg" alt="Instagram" />
+					</Link>
+					<Link
+						href="https://www.facebook.com/profile.php?id=61556115250072"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img className={s.logo} src="/images/facebook.svg" alt="Facebook" />
+					</Link>
 				</div>
-				<a href="https://www.konstframjandet.se/" target="new"><KFLogo className={s.kf} /></a>
 			</section>
 		</footer>
 	)

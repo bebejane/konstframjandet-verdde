@@ -12,6 +12,14 @@
     display: none;
   }
 
+  &.active {
+    text-shadow: #03030353 1px 1px 5px;
+    color: var(--pink);
+    span {
+      color: var(--black);
+    }
+  }
+
   .logo {
     position: absolute;
     left: var(--outer-margin);
@@ -31,14 +39,43 @@
       text-align: center;
       line-height: 1.2;
       span {
-        color: var(--pink);
+        color: var(--black);
       }
-      &:hover {
-        color: var(--pink);
-        span {
-          color: var(--black);
+      a {
+        color: var(--pink); // Default link color
+        text-decoration: none;
+
+        &.active {
+          text-shadow: var(--yellow) 1px 1px 5px;
+          color: var(--pink); // Active link color
+          span {
+            color: var(--black); // Active span styling
+          }
+        }
+
+        &:hover {
+          text-shadow: var(--yellow) 1px 1px 5px;
+          color: var(--pink);
+          span {
+            color: var(--black);
+          }
         }
       }
+    }
+  }
+
+  .lang {
+    position: absolute;
+    right: var(--outer-margin);
+    top: 0;
+    height: var(--menu-height);
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 0.8rem;
+      padding-left: 1rem;
+      text-transform: uppercase;
     }
   }
 }

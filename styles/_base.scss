@@ -108,7 +108,7 @@ a {
 }
 
 .structured a {
-	color: var(--primary-color);
+	color: var(--pink);
 
 	&:hover {
 		color: var(--pink) !important;
@@ -119,9 +119,10 @@ article p a {
 	text-decoration: underline 1px !important;
 	text-underline-offset: 0.15em;
 	text-decoration-thickness: 1px;
+	color: var(--pink);
 
 	&:hover {
-		color: var(--beige-dark);
+		color: var(--pink);
 	}
 }
 

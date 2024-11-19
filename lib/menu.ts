@@ -3,10 +3,10 @@ import { MenuDocument } from "/graphql";
 
 const base: Menu = [
   { id: 'home', label: 'Hem', slug: '/', general: true },
+  { id: 'news', label: 'På gång', slug: '/pa-gang', virtual: true, sub: [] },
   { id: 'what', label: 'Vad vi gör', slug: '/vad-vi-gor' },
   { id: 'about', label: 'Detta är Verdde', slug: '/om', virtual: true, sub: [] },
   { id: 'contact', label: 'Kontakt', slug: '/kontakt', general: true },
-  { id: 'news', label: 'På gång', slug: '/pa-gang', virtual: true, sub: [] }
 ]
 
 export const buildMenu = async () => {

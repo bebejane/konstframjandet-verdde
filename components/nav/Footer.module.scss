@@ -37,9 +37,14 @@
     position: relative;
 
     div {
-      padding-bottom: 0.2em;
+      margin-bottom: 6rem;
       width: 100%;
       text-align: center;
+
+      img {
+        width: 2rem;
+        margin: 1rem;
+      }
     }
   }
 

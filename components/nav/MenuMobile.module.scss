@@ -119,9 +119,11 @@
 
       &.active {
         a {
+          text-shadow: #03030353 1px 1px 5px;
+
           color: var(--pink) !important;
           span {
-            color: var(--pink);
+            //color: var(--pink);
           }
         }
       }
@@ -142,6 +144,14 @@
 
   > ul {
     margin-top: calc(var(--big-space) - var(--outer-margin));
+  }
+}
+
+.lang {
+  padding-left: var(--outer-margin);
+  a {
+    padding-right: 1rem;
+    text-transform: uppercase;
   }
 }
 

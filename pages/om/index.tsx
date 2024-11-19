@@ -1,11 +1,10 @@
-import s from 'index.module.scss'
+import s from './index.module.scss'
 import withGlobalProps from "/lib/withGlobalProps";
 import { apiQueryAll } from 'dato-nextjs-utils/api';
-import { AllAboutsDocument, MainAboutDocument } from "/graphql";
+import { AllAboutsDocument } from "/graphql";
 import { DatoSEO } from 'dato-nextjs-utils/components';
 import { Card, CardContainer, PageHeader, Thumbnail } from '../../components';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 export type Props = {
   abouts: AboutRecord[]

@@ -21,7 +21,7 @@ export default function Abouts({ abouts, general }: Props) {
       <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={general.aboutIntro} />
       <CardContainer key={asPath}>
         {abouts.map(({ id, title, intro, _publishedAt, image, slug }) =>
-          <Card key={id}>
+          <Card key={id} className={s.margin}>
             <Thumbnail
               title={title}
               image={image}

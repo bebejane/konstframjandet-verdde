@@ -25,14 +25,18 @@ query Menu {
 fragment GeneralFragment on GeneralRecord {
 	homeSv
 	homeSmi
-	whatSmi
 	whatSv
+	whatSmi
+	whatIntro(markdown: false)
 	newsSv
 	newsSmi
+	newsIntro(markdown: false)
 	contactSv
 	contactSmi
+	contactIntro(markdown: false)
 	aboutSv
 	aboutSmi
+	aboutIntro(markdown: false)
 	learnMoreSv
 	learnMoreSmi
 	learnMoreIntro(markdown: false)

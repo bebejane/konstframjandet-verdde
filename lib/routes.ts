@@ -39,6 +39,9 @@ export const recordToSlug = (record: any, api_key?: string): string => {
       case 'news':
         path = `/pa-gang/${slug}`
         break;
+      case 'learn_more':
+        path = `/lar-mer/${slug}`
+        break;
       case 'contact':
         path = `/kontakt`
         break;

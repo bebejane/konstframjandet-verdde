@@ -545,6 +545,8 @@ type GeneralRecord = RecordInterface & {
   contactSv?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
   facebook?: Maybe<Scalars['String']>;
+  homeSmi?: Maybe<Scalars['String']>;
+  homeSv?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
   instagram?: Maybe<Scalars['String']>;
   newsIntro?: Maybe<Scalars['String']>;
@@ -5144,7 +5146,7 @@ type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon:
 type MenuQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MenuQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'AboutRecord', id: any, title: string, slug: string }>, aboutMeta: { __typename?: 'CollectionMetadata', count: any }, programMeta: { __typename?: 'CollectionMetadata', count: any }, participantsMeta: { __typename?: 'CollectionMetadata', count: any }, partnersMeta: { __typename?: 'CollectionMetadata', count: any }, general?: { __typename?: 'GeneralRecord', whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null } | null };
+type MenuQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'AboutRecord', id: any, title: string, slug: string }>, aboutMeta: { __typename?: 'CollectionMetadata', count: any }, programMeta: { __typename?: 'CollectionMetadata', count: any }, participantsMeta: { __typename?: 'CollectionMetadata', count: any }, partnersMeta: { __typename?: 'CollectionMetadata', count: any }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSmi?: string | null, whatSv?: string | null, newsSv?: string | null, newsSmi?: string | null, contactSv?: string | null, contactSmi?: string | null, aboutSv?: string | null, aboutSmi?: string | null } | null };
 
 type AllNewsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['IntType']>;

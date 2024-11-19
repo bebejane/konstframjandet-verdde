@@ -18,6 +18,8 @@ query Menu {
 	}
 
 	general {
+		homeSv
+		homeSmi
 		whatSmi
 		whatSv
 		newsSv

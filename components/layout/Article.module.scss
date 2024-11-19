@@ -6,6 +6,10 @@
     padding-top: 2rem;
   }
 
+  &.noTitle {
+    padding-top: 0;
+  }
+
   &.noBottom {
     padding-bottom: 0;
   }
@@ -46,8 +50,7 @@
       padding-right: calc(2 * var(--grid-unit));
     }
 
-    &.large {
-    }
+    &.large {}
 
     &.portrait {
       padding-left: calc(3 * var(--grid-unit));
@@ -95,7 +98,8 @@
     }
   }
 
-  .intro > p {
+  .intro>p {
     padding: 0;
   }
+
 }

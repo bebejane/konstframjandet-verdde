@@ -44,7 +44,7 @@ export default function Article({ id, children, title, city, content, image, ima
   return (
     <>
       <DatoSEO title={title} />
-      <div className={cn(s.article, 'article')}>
+      <div className={cn(s.article, 'article', !title && s.noTitle)}>
         {title && <h1><BalanceText>{title}</BalanceText></h1>}
         {image?.responsiveImage &&
           <figure
@@ -74,7 +74,7 @@ export default function Article({ id, children, title, city, content, image, ima
 
         {content &&
           <>
-            <div className="structured">
+            <div className={cn("structured")}>
               <StructuredContent
                 id={id}
                 record={record}

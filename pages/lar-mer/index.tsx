@@ -7,7 +7,6 @@ import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { apiQueryAll } from "dato-nextjs-utils/api";
 import { useState } from "react";
-import { categories } from '/lib/constant';
 
 export type Props = {
   learns: LearnMoreRecord[]
@@ -60,8 +59,8 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
       learns,
       learnMoreCategories,
       page: {
-        section: 'learn-more',
-        slugs: pageSlugs('learn-more')
+        section: 'learnMore',
+        slugs: pageSlugs('learnMore')
       } as PageProps
     },
     revalidate

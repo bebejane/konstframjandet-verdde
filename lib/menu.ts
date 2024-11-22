@@ -6,7 +6,7 @@ const base: Menu = [
   { id: 'news', label: 'På gång', slug: '/pa-gang', virtual: true, sub: [] },
   { id: 'what', label: 'Vad vi gör', slug: '/vad-vi-gor' },
   { id: 'about', label: 'Detta är Verdde', slug: '/om', virtual: true, sub: [] },
-  { id: 'learn-more', label: 'Lär mer', slug: '/lar-mer', virtual: true, sub: [] },
+  { id: 'learnMore', label: 'Lär mer', slug: '/lar-mer', virtual: true, sub: [] },
   { id: 'contact', label: 'Kontakt', slug: '/kontakt', general: true },
 ]
 

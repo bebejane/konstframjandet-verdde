@@ -177,8 +177,7 @@ article {
 
   p,
   .intro,
-  .structured h3,
-  blockquote {
+  .structured h3 {
     font-family: $body-font;
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
@@ -190,9 +189,22 @@ article {
     }
   }
 
-  blockquote {
+  blockquote,
+  blockquote p {
     font-size: 1.5rem;
     line-height: var(--line-height);
+
+    footer {
+      padding-left: var(--outer-margin);
+      padding-right: var(--outer-margin);
+      text-align: left;
+      margin-top: -1rem;
+
+      @include mq($from: tablet) {
+        padding-left: calc(1.75 * var(--grid-unit));
+        padding-right: calc(1.75 * var(--grid-unit));
+      }
+    }
   }
 
   p + h3,

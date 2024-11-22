@@ -6,4 +6,9 @@
     cursor: pointer;
     width: var(--body-width);
   }
+
+  &:not(:first-of-type) {
+    margin-top: -4rem;
+    margin-bottom: 0;
+  }
 }

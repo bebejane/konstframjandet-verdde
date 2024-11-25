@@ -5,6 +5,7 @@ import { pageSlugs } from "/lib/i18n";
 import { Card, CardContainer, PageHeader, Thumbnail } from "/components";
 import { useRouter } from "next/router";
 import { apiQueryAll } from "dato-nextjs-utils/api";
+import { isSameDay } from "date-fns";
 import s from "./index.module.scss";
 
 
@@ -61,7 +62,15 @@ export default function News({ news, pastNews, general }: Props) {
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
   const { news } = await apiQueryAll(AllNewsDocument, { variables: {}, preview: context.preview })
-  const currentNews = news.filter(({ date, endDate }) => endDate ? new Date(endDate) >= new Date() : new Date(date) >= new Date())
+  const currentNews = news.filter(({ date, endDate }) => {
+    const t = new Date();
+    const s = new Date(date);
+    const e = new Date(endDate);
+    t.setHours(0, 0, 0, 0);
+    s.setHours(0, 0, 0, 0);
+    e.setHours(23, 59, 59, 999);
+    return endDate ? s >= t : isSameDay(t, s) || s > t;
+  })
   const pastNews = news.filter(({ id }) => !currentNews.find(({ id: currentId }) => currentId === id))
 
   return {

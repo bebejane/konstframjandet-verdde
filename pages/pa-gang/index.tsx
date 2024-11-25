@@ -70,7 +70,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
     s.setHours(0, 0, 0, 0);
     e.setHours(23, 59, 59, 999);
     return endDate ? s >= t : isSameDay(t, s) || s > t;
-  })
+  }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   const pastNews = news.filter(({ id }) => !currentNews.find(({ id: currentId }) => currentId === id))
 
   return {

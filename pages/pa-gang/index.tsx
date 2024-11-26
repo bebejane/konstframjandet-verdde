@@ -62,16 +62,17 @@ export default function News({ news, pastNews, general }: Props) {
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
   const { news } = await apiQueryAll(AllNewsDocument, { variables: {}, preview: context.preview })
-  const currentNews = news.filter(({ date, endDate }) => {
+  const currentNews = news.filter(({ title, date, endDate }) => {
     const t = new Date();
     const s = new Date(date);
     const e = new Date(endDate);
     t.setHours(0, 0, 0, 0);
     s.setHours(0, 0, 0, 0);
     e.setHours(23, 59, 59, 999);
-    return endDate ? s >= t : isSameDay(t, s) || s > t;
+    return endDate ? e >= t : isSameDay(t, s) || s > t;
   }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-  const pastNews = news.filter(({ id }) => !currentNews.find(({ id: currentId }) => currentId === id))
+
+  const pastNews = news.filter(({ id }) => !currentNews.find(({ id: currentId }) => currentId === id)).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return {
     props: {

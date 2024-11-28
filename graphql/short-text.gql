@@ -12,3 +12,41 @@ query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
 		count
 	}
 }
+
+query AllAboutShortTexts($first: IntType = 100, $skip: IntType = 0) {
+	aboutShortTexts: allAboutShortTexts(
+		first: $first
+		skip: $skip
+		orderBy: [_firstPublishedAt_DESC]
+	) {
+		__typename
+		_firstPublishedAt
+		_createdAt
+		id
+		image {
+			...ImageThumbnailFragment
+		}
+	}
+	pagination: _allAboutShortTextsMeta {
+		count
+	}
+}
+
+query AllLearnMoreShortTexts($first: IntType = 100, $skip: IntType = 0) {
+	learnMoreShortTexts: allLearnMoreShortTexts(
+		first: $first
+		skip: $skip
+		orderBy: [_createdAt_DESC]
+	) {
+		__typename
+		_firstPublishedAt
+		_createdAt
+		id
+		image {
+			...ImageThumbnailFragment
+		}
+	}
+	pagination: _allLearnMoreShortTextsMeta {
+		count
+	}
+}

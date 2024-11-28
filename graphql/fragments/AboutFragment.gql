@@ -4,6 +4,7 @@
 fragment AboutFragment on AboutRecord {
 	__typename
 	_modelApiKey
+	_createdAt
 	id
 	title
 	intro

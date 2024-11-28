@@ -237,6 +237,8 @@ declare module '*/short-text.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const AllShortTexts: DocumentNode;
+export const AllAboutShortTexts: DocumentNode;
+export const AllLearnMoreShortTexts: DocumentNode;
 
   export default defaultDocument;
 }

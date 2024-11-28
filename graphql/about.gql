@@ -21,6 +21,7 @@ query MainAbout {
 
 query AllAboutsMenu {
 	abouts: allAbouts(first: 100) {
+		_createdAt
 		title
 		slug
 	}

@@ -28,6 +28,7 @@ query LearnMore($slug: String!) {
 }
 
 fragment LearnMoreFragment on LearnMoreRecord {
+	_createdAt
 	id
 	name
 	intro(markdown: false)

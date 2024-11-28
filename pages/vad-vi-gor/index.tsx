@@ -22,8 +22,6 @@ export default function WhatWeDo({ posts = [], general }: Props) {
   const { asPath } = useRouter()
   const [filter, setFilter] = useState<string | null>(null)
 
-
-  console.log(general)
   return (
     <>
       <DatoSEO title={'Vad vi gör'} />

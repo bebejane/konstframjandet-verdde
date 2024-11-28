@@ -1,5 +1,6 @@
 fragment AboutFragmentLight on AboutRecord {
 	__typename
+	_createdAt
 	id
 	title
 	intro

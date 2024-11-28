@@ -1,6 +1,6 @@
 import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
-import { AllLearnMoreDocument, AllLearnMoreCategoriesDocument } from "/graphql";
+import { AllLearnMoreDocument, AllLearnMoreCategoriesDocument, AllLearnMoreShortTextsDocument } from "/graphql";
 import { CardContainer, Card, Thumbnail, PageHeader } from "/components";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
@@ -48,15 +48,18 @@ export default function LearnMore({ learns = [], learnMoreCategories, general }:
   );
 }
 
-export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
+export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const { learns } = await apiQueryAll(AllLearnMoreDocument)
-  const { learnMoreCategories } = await apiQueryAll(AllLearnMoreCategoriesDocument)
+  const [{ learns }, { learnMoreShortTexts }, { learnMoreCategories }] = await Promise.all([
+    apiQueryAll(AllLearnMoreDocument, { variables: {}, preview: context.preview }),
+    apiQueryAll(AllLearnMoreShortTextsDocument, { variables: {}, preview: context.preview }),
+    apiQueryAll(AllLearnMoreCategoriesDocument)
+  ])
 
   return {
     props: {
       ...props,
-      learns,
+      learns: [...learns, ...learnMoreShortTexts].sort((a, b) => new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1),
       learnMoreCategories,
       page: {
         section: 'learnMore',

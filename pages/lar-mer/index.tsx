@@ -9,7 +9,7 @@ import { apiQueryAll } from "dato-nextjs-utils/api";
 import { useState } from "react";
 
 export type Props = {
-  learns: LearnMoreRecord[]
+  learns: (LearnMoreRecord | LearnMoreShortTextRecord)[]
   learnMoreCategories: LearnMoreCategoryRecord[]
   general: GeneralRecord
 }
@@ -33,13 +33,14 @@ export default function LearnMore({ learns = [], learnMoreCategories, general }:
         )}
       </ul>
       <CardContainer key={`${asPath}-${filter ? JSON.stringify(filter) : ''}`}>
-        {learns.filter(item => !filter || item.learnMoreCategory?.id === filter).map(item =>
+        {learns.filter(item => !filter || item.__typename === 'LearnMoreRecord' && item.learnMoreCategory?.id === filter).map(item =>
           <Card key={item.id}>
             <Thumbnail
-              title={item.name}
-              category={learnMoreCategories.find(c => c.id === item.learnMoreCategory?.id)?.title}
+              className={item.__typename === 'LearnMoreShortTextRecord' ? 'textBox' : ''}
+              title={item.__typename === 'LearnMoreRecord' ? item.name : null}
+              category={item.__typename === 'LearnMoreRecord' ? learnMoreCategories.find(c => c.id === item.learnMoreCategory?.id)?.title : null}
               image={item.image}
-              slug={`/lar-mer/${item.slug}`}
+              slug={`/lar-mer/${item.__typename === 'LearnMoreRecord' ? item.slug : null}`}
             />
           </Card>
         )}

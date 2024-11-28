@@ -7,7 +7,7 @@ import { Card, CardContainer, PageHeader, Thumbnail } from '../../components';
 import { useRouter } from 'next/router';
 
 export type Props = {
-  abouts: AboutRecord[]
+  abouts: (AboutRecord | AboutShortTextRecord)[]
   general: GeneralRecord
 }
 
@@ -20,14 +20,15 @@ export default function Abouts({ abouts, general }: Props) {
       <DatoSEO title={'Vad vi gör'} />
       <PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={general.aboutIntro} />
       <CardContainer key={asPath}>
-        {abouts.map(({ id, title, intro, _publishedAt, image, slug }) =>
-          <Card key={id} className={s.margin}>
+        {abouts.map((item) =>
+          <Card key={item.id} className={s.margin}>
             <Thumbnail
-              title={title}
-              image={image}
-              intro={intro}
+              className={item.__typename === 'AboutShortTextRecord' ? 'textBox' : ''}
+              title={item.__typename === 'AboutRecord' ? item.title : null}
+              image={item.image}
+              intro={item.__typename === 'AboutRecord' ? item.intro : null}
+              slug={`/om/${item.__typename === 'AboutRecord' ? item.slug : null}`}
               titleRows={1}
-              slug={`/om/${slug}`}
             />
           </Card>
         )}

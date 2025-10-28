@@ -18,6 +18,8 @@ query Start {
 				__typename
 				id
 				text(markdown: false)
+				newsText
+				newsLink
 				video {
 					...VideoFragment
 				}

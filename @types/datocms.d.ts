@@ -4610,6 +4610,8 @@ type StartFullscreenVideoRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
+  newsLink?: Maybe<Scalars['String']>;
+  newsText?: Maybe<Scalars['String']>;
   text: Scalars['String'];
   video: VideoFileField;
 };
@@ -5614,7 +5616,7 @@ type AllLearnMoreShortTextsQuery = { __typename?: 'Query', learnMoreShortTexts: 
 type StartQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type StartQuery = { __typename?: 'Query', start?: { __typename?: 'StartRecord', id: any, content: Array<{ __typename: 'StartFullscreenVideoRecord', id: any, text: string, video: { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, streamingUrl: string, framerate?: number | null, duration?: number | null, mp4high?: string | null, mp4med?: string | null, mp4low?: string | null } } } | { __typename: 'StartVideoRecord', id: any, title?: string | null, video: { __typename?: 'VideoField', provider: string, providerUid: string, thumbnailUrl: string, url: string } }> } | null };
+type StartQuery = { __typename?: 'Query', start?: { __typename?: 'StartRecord', id: any, content: Array<{ __typename: 'StartFullscreenVideoRecord', id: any, text: string, newsText?: string | null, newsLink?: string | null, video: { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, streamingUrl: string, framerate?: number | null, duration?: number | null, mp4high?: string | null, mp4med?: string | null, mp4low?: string | null } } } | { __typename: 'StartVideoRecord', id: any, title?: string | null, video: { __typename?: 'VideoField', provider: string, providerUid: string, thumbnailUrl: string, url: string } }> } | null };
 
 type StartDataQueryVariables = Exact<{
   newsItems?: InputMaybe<Scalars['IntType']>;

@@ -9,7 +9,7 @@ import useStore from '/lib/store'
 
 export type Props = { data: StartFullscreenVideoRecord }
 
-export default function StartFullscreenVideo({ data: { video, text, headline } }: Props) {
+export default function StartFullscreenVideo({ data: { video, text, newsText, newsLink } }: Props) {
 
 	const ref = useRef()
 	const [showMenu] = useStore((state) => [state.showMenu])
@@ -18,7 +18,14 @@ export default function StartFullscreenVideo({ data: { video, text, headline } }
 		<div className={cn(s.fullScreenVideo, !showMenu && s.full)} ref={ref}>
 			<VideoPlayer data={video} />
 			<div className={s.textWrap}>
-				<h1>{text} </h1>
+				<h1>{text}</h1>
+				{newsText && newsLink && (
+					<div className={s.newsText}>
+						<a href={newsLink} target="_blank" rel="noopener noreferrer">
+							{newsText} →
+						</a>
+					</div>
+				)}
 			</div>
 		</div>
 	)

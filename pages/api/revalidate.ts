@@ -3,6 +3,7 @@ import path from 'path';
 import { categories } from '/lib/constant';
 
 export default withRevalidate(async (record, revalidate) => {
+  console.log('Revalidation triggered for record:', record)
 
   const { api_key } = record.model;
   const { slug } = record
@@ -31,8 +32,16 @@ export default withRevalidate(async (record, revalidate) => {
       paths.push(`/kontakt`)
       break;
     default:
+      console.log('Unknown api_key:', api_key)
       break;
   }
-  console.log(paths)
-  revalidate(paths)
+
+  console.log('Revalidating paths:', paths)
+
+  try {
+    await revalidate(paths)
+    console.log('Successfully revalidated paths:', paths)
+  } catch (error) {
+    console.error('Error revalidating paths:', error)
+  }
 })

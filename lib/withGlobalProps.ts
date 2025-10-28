@@ -6,7 +6,7 @@ import { buildMenu } from "/lib/menu";
 
 export default function withGlobalProps(opt: any, callback: Function): GetStaticProps | GetServerSideProps {
 
-  const revalidate: number = parseInt(process.env.REVALIDATE_TIME)
+  const revalidate: number = parseInt(process.env.REVALIDATE_TIME) || 60
   const queries: TypedDocumentNode[] = [GlobalDocument, FooterDocument]
 
   if (opt.query)

@@ -1,15 +1,17 @@
+@use 'mediaqueries' as *;
+
 html,
 body {
-  font-size: 15px;
-  font-weight: normal;
+	font-size: 15px;
+	font-weight: normal;
 
-  @include mq($from: tablet) {
-    font-size: 17px;
-  }
+	@include mq($from: tablet) {
+		font-size: 17px;
+	}
 
-  @include mq($from: wide) {
-    font-size: 21px;
-  }
+	@include mq($from: wide) {
+		font-size: 21px;
+	}
 }
 
 h1,
@@ -17,104 +19,104 @@ h2,
 h3,
 h4,
 h5 {
-  strong {
-    //font-weight: normal;
-  }
+	strong {
+		//font-weight: normal;
+	}
 }
 
 h1 {
-  font-size: 1.7rem;
-  font-weight: normal;
-  padding-bottom: var(--space);
-  line-height: 1.1;
-  font-family: $headline-font;
-  text-align: center;
+	font-size: 1.7rem;
+	font-weight: normal;
+	padding-bottom: var(--space);
+	line-height: 1.1;
+	font-family: var(--headline-font);
+	text-align: center;
 
-  @include mq($until: tablet) {
-    font-size: 1.5rem;
-    padding-left: var(--outer-margin);
-    padding-right: var(--outer-margin);
-  }
+	@include mq($until: tablet) {
+		font-size: 1.5rem;
+		padding-left: var(--outer-margin);
+		padding-right: var(--outer-margin);
+	}
 }
 
 h2 {
-  font-size: 1rem;
-  font-family: $headline-font;
-  font-weight: normal;
-  @include mq($from: tablet) {
-    font-size: 1.3rem;
-  }
+	font-size: 1rem;
+	font-family: var(--headline-font);
+	font-weight: normal;
+	@include mq($from: tablet) {
+		font-size: 1.3rem;
+	}
 }
 
 h3,
 h3 p,
 .headline p {
-  font-size: 1.3rem;
-  font-family: $serif-font !important;
-  font-weight: normal;
-  padding-bottom: 0.5em;
-  line-height: 1.2;
+	font-size: 1.3rem;
+	font-family: var(--serif-font) !important;
+	font-weight: normal;
+	padding-bottom: 0.5em;
+	line-height: 1.2;
 }
 
 h4 {
-  font-size: 1rem;
-  font-family: $headline-font;
-  font-weight: normal;
-  padding-bottom: 0.1em;
-  line-height: 1.2;
+	font-size: 1rem;
+	font-family: var(--headline-font);
+	font-weight: normal;
+	padding-bottom: 0.1em;
+	line-height: 1.2;
 }
 
 h5 {
-  font-weight: normal;
-  text-transform: uppercase;
-  color: var(--pink);
+	font-weight: normal;
+	text-transform: uppercase;
+	color: var(--pink);
 }
 
 p {
-  font-size: 1.1rem;
-  line-height: var(--line-height);
+	font-size: 1.1rem;
+	line-height: var(--line-height);
 }
 
 p.intro,
 .intro p,
 .intro {
-  font-size: 1.3rem;
-  padding-bottom: 0;
-  font-weight: normal;
-  line-height: var(--line-height);
+	font-size: 1.3rem;
+	padding-bottom: 0;
+	font-weight: normal;
+	line-height: var(--line-height);
 }
 
 .tag {
-  font-family: $serif-font;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: bold;
+	font-family: var(--serif-font);
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	font-weight: bold;
 }
 
 .thumb-intro,
 .small-body {
-  font-size: 0.85rem;
+	font-size: 0.85rem;
 
-  @include mq($from: tablet) {
-    font-size: 0.75rem;
-  }
+	@include mq($from: tablet) {
+		font-size: 0.75rem;
+	}
 
-  strong {
-    font-family: $body-font;
-    font-weight: bold !important;
-    font-size: 0.75rem;
-    display: inline-block;
+	strong {
+		font-family: var(--body-font);
+		font-weight: bold !important;
+		font-size: 0.75rem;
+		display: inline-block;
 
-    @include mq($from: tablet) {
-      font-size: 0.65rem;
-    }
+		@include mq($from: tablet) {
+			font-size: 0.65rem;
+		}
 
-    padding-right: 0.5em;
-  }
+		padding-right: 0.5em;
+	}
 
-  > p {
-    padding: 0;
-  }
+	> p {
+		padding: 0;
+	}
 }
 
 .small,
@@ -124,22 +126,22 @@ footer nav,
 figcaption,
 figcaption p,
 .caption label {
-  font-family: $body-font;
-  font-size: 0.75rem;
-  font-weight: normal;
+	font-family: var(--body-font);
+	font-size: 0.75rem;
+	font-weight: normal;
 
-  @include mq($from: desktop) {
-    font-size: 0.75rem;
-  }
+	@include mq($from: desktop) {
+		font-size: 0.75rem;
+	}
 
-  @include mq($from: wide) {
-    font-size: 0.7rem;
-  }
+	@include mq($from: wide) {
+		font-size: 0.7rem;
+	}
 }
 
 figcaption p {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 nav,
@@ -147,90 +149,90 @@ nav,
 button,
 .mid input,
 .mid select {
-  font-size: 0.95rem;
-  font-family: $headline-font;
+	font-size: 0.95rem;
+	font-family: var(--headline-font);
 
-  @include mq($from: tablet) {
-    font-size: 1rem;
-  }
+	@include mq($from: tablet) {
+		font-size: 1rem;
+	}
 }
 
 strong,
 b {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 // För Article
 article {
-  ul {
-    padding-left: 1em;
-    list-style-type: square;
+	ul {
+		padding-left: 1em;
+		list-style-type: square;
 
-    p:last-of-type {
-      margin-bottom: 0.7em;
-    }
+		p:last-of-type {
+			margin-bottom: 0.7em;
+		}
 
-    & li:last-child p {
-      margin-bottom: 1em;
-    }
-  }
+		& li:last-child p {
+			margin-bottom: 1em;
+		}
+	}
 
-  p,
-  .intro,
-  .structured h3 {
-    font-family: $body-font;
-    padding-left: var(--outer-margin);
-    padding-right: var(--outer-margin);
-    text-align: left;
+	p,
+	.intro,
+	.structured h3 {
+		font-family: var(--body-font);
+		padding-left: var(--outer-margin);
+		padding-right: var(--outer-margin);
+		text-align: left;
 
-    @include mq($from: tablet) {
-      padding-left: calc(1.75 * var(--grid-unit));
-      padding-right: calc(1.75 * var(--grid-unit));
-    }
-  }
+		@include mq($from: tablet) {
+			padding-left: calc(1.75 * var(--grid-unit));
+			padding-right: calc(1.75 * var(--grid-unit));
+		}
+	}
 
-  blockquote,
-  blockquote p {
-    font-family: $serif-font;
-    font-size: 1.5rem;
-    line-height: var(--line-height);
+	blockquote,
+	blockquote p {
+		font-family: var(--serif-font);
+		font-size: 1.5rem;
+		line-height: var(--line-height);
 
-    footer {
-      padding-left: var(--outer-margin);
-      padding-right: var(--outer-margin);
-      text-align: left;
-      margin-top: -1rem;
+		footer {
+			padding-left: var(--outer-margin);
+			padding-right: var(--outer-margin);
+			text-align: left;
+			margin-top: -1rem;
 
-      @include mq($from: tablet) {
-        padding-left: calc(1.75 * var(--grid-unit));
-        padding-right: calc(1.75 * var(--grid-unit));
-      }
-    }
-  }
+			@include mq($from: tablet) {
+				padding-left: calc(1.75 * var(--grid-unit));
+				padding-right: calc(1.75 * var(--grid-unit));
+			}
+		}
+	}
 
-  p + h3,
-  ul + h3,
-  ul + h2,
-  p + h2 {
-    padding-top: 1rem;
-  }
+	p + h3,
+	ul + h3,
+	ul + h2,
+	p + h2 {
+		padding-top: 1rem;
+	}
 
-  p strong,
-  p b {
-    //font-weight: normal !important;
-    font-family: $body-font;
-  }
+	p strong,
+	p b {
+		//font-weight: normal !important;
+		font-family: var(--body-font);
+	}
 
-  p.center {
-    text-align: center;
-  }
+	p.center {
+		text-align: center;
+	}
 }
 
 button {
-  font-family: $headline-font;
+	font-family: var(--headline-font);
 }
 
 em,
 i {
-  font-style: italic;
+	font-style: italic;
 }

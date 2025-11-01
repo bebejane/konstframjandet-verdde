@@ -1,19 +1,19 @@
 query Menu {
-	abouts: allAbouts(first: 100) {
+	allAbouts(first: 100) {
 		id
 		title
 		slug
 	}
-	aboutMeta: _allAboutsMeta {
+	_allAboutsMeta {
 		count
 	}
-	programMeta: _allProgramsMeta {
+	_allProgramsMeta {
 		count
 	}
-	participantsMeta: _allParticipantsMeta {
+	_allParticipantsMeta {
 		count
 	}
-	partnersMeta: _allPartnersMeta {
+	_allPartnersMeta {
 		count
 	}
 

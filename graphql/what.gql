@@ -1,26 +1,26 @@
-query AllParters($first: IntType = 100, $skip: IntType = 0) {
-	partners: allPartners(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+query AllParters($first: IntType = 500, $skip: IntType = 0) {
+	allPartners(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...PartnerFragmentLight
 	}
-	pagination: _allPartnersMeta {
+	_allPartnersMeta {
 		count
 	}
 }
 
-query AllParticipants($first: IntType = 100, $skip: IntType = 0) {
-	participants: allParticipants(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+query AllParticipants($first: IntType = 500, $skip: IntType = 0) {
+	allParticipants(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...ParticipantFragmentLight
 	}
-	pagination: _allParticipantsMeta {
+	_allParticipantsMeta {
 		count
 	}
 }
 
-query AllPrograms($first: IntType = 100, $skip: IntType = 0) {
-	programs: allPrograms(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+query AllPrograms($first: IntType = 500, $skip: IntType = 0) {
+	allPrograms(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		...ProgramFragmentLight
 	}
-	pagination: _allProgramsMeta {
+	_allProgramsMeta {
 		count
 	}
 }

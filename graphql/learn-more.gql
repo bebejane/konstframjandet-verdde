@@ -1,22 +1,18 @@
-query AllLearnMore($first: IntType = 100, $skip: IntType = 0) {
-	learns: allLearnMores(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+query AllLearnMore($first: IntType = 500, $skip: IntType = 0) {
+	allLearnMores(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
 		...LearnMoreFragment
 	}
-	pagination: _allLearnMoresMeta {
+	_allLearnMoresMeta {
 		count
 	}
 }
 
-query AllLearnMoreCategories($first: IntType = 100, $skip: IntType = 0) {
-	learnMoreCategories: allLearnMoreCategories(
-		first: $first
-		skip: $skip
-		orderBy: [_createdAt_DESC]
-	) {
+query AllLearnMoreCategories($first: IntType = 500, $skip: IntType = 0) {
+	allLearnMoreCategories(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
 		id
 		title
 	}
-	pagination: _allLearnMoreCategoriesMeta {
+	_allLearnMoreCategoriesMeta {
 		count
 	}
 }

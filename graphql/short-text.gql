@@ -1,5 +1,5 @@
-query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
-	shortTexts: allShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+query AllShortTexts($first: IntType = 500, $skip: IntType = 0) {
+	allShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		__typename
 		_firstPublishedAt
 		_createdAt
@@ -8,17 +8,13 @@ query AllShortTexts($first: IntType = 100, $skip: IntType = 0) {
 			...ImageThumbnailFragment
 		}
 	}
-	pagination: _allShortTextsMeta {
+	_allShortTextsMeta {
 		count
 	}
 }
 
-query AllAboutShortTexts($first: IntType = 100, $skip: IntType = 0) {
-	aboutShortTexts: allAboutShortTexts(
-		first: $first
-		skip: $skip
-		orderBy: [_firstPublishedAt_DESC]
-	) {
+query AllAboutShortTexts($first: IntType = 500, $skip: IntType = 0) {
+	allAboutShortTexts(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
 		__typename
 		_firstPublishedAt
 		_createdAt
@@ -27,17 +23,13 @@ query AllAboutShortTexts($first: IntType = 100, $skip: IntType = 0) {
 			...ImageThumbnailFragment
 		}
 	}
-	pagination: _allAboutShortTextsMeta {
+	_allAboutShortTextsMeta {
 		count
 	}
 }
 
-query AllLearnMoreShortTexts($first: IntType = 100, $skip: IntType = 0) {
-	learnMoreShortTexts: allLearnMoreShortTexts(
-		first: $first
-		skip: $skip
-		orderBy: [_createdAt_DESC]
-	) {
+query AllLearnMoreShortTexts($first: IntType = 500, $skip: IntType = 0) {
+	allLearnMoreShortTexts(first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
 		__typename
 		_firstPublishedAt
 		_createdAt
@@ -46,7 +38,7 @@ query AllLearnMoreShortTexts($first: IntType = 100, $skip: IntType = 0) {
 			...ImageThumbnailFragment
 		}
 	}
-	pagination: _allLearnMoreShortTextsMeta {
+	_allLearnMoreShortTextsMeta {
 		count
 	}
 }

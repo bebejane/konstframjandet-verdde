@@ -29,10 +29,10 @@ query Start {
 }
 
 query StartData($newsItems: IntType, $programItems: IntType, $date: Date) {
-	news: allNews(first: $newsItems, orderBy: _createdAt_DESC) {
+	allNews(first: $newsItems, orderBy: _createdAt_DESC) {
 		...NewsFragmentLight
 	}
-	programs: allPrograms(
+	allPrograms(
 		filter: { startDate: { gte: $date } }
 
 		first: $programItems
@@ -40,7 +40,7 @@ query StartData($newsItems: IntType, $programItems: IntType, $date: Date) {
 	) {
 		...ProgramFragmentLight
 	}
-	participants: allParticipants(first: 100, orderBy: _createdAt_DESC) {
+	allParticipants(first: 100, orderBy: _createdAt_DESC) {
 		...ParticipantFragmentLight
 	}
 }

@@ -1,3 +1,5 @@
+@use 'mediaqueries' as *;
+
 :root {
 	--black: #1d1d1d;
 	--transparent-black: #1d1d1d75;
@@ -27,9 +29,12 @@
 	--background: var(--white);
 	--foreground: var(--black);
 
+	--body-font: 'new-science', Times, 'Times New Roman', Sans-Serif;
+	--headline-font: 'new-science-extended', Arial, Helvetica, Sans-Serif;
+	--serif-font: 'tuppence', Arial, Helvetica, Sans-Serif;
+
 	--z-background-image: 0;
 	--z-section-header: 100;
-
 	--z-language: 300;
 	--z-menu: 400;
 	--z-footer: 500;
@@ -59,9 +64,9 @@ body {
 	line-height: 1em;
 	color: var(--foreground);
 	background-color: var(--background);
-	font-family: $body-font;
+	font-family: var(--body-font);
 	-webkit-font-smoothing: antialiased;
-	font-feature-settings: "liga", "kern";
+	font-feature-settings: 'liga', 'kern';
 	overflow-x: hidden;
 }
 
@@ -141,7 +146,7 @@ article p a {
 	border: 1px solid var(--yellow);
 	background-color: var(--yellow);
 
-	&[data-selected="true"] {
+	&[data-selected='true'] {
 		background-color: var(--white);
 		color: var(--black);
 	}
@@ -172,9 +177,7 @@ button {
 		padding-top: 1em;
 	}
 
-	transition:
-		color 0.2s ease-in-out,
-		background-color 0.3s ease-in-out;
+	transition: color 0.2s ease-in-out, background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);
@@ -215,7 +218,7 @@ select {
 	padding: 0.8em;
 	padding-bottom: 0.9em;
 	padding-left: 1em;
-	font-family: "Jazz";
+	font-family: 'Jazz';
 	border: none;
 
 	&:focus {

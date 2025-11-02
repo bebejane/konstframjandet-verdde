@@ -1,9 +1,10 @@
 import s from './page.module.scss';
 
 import { apiQuery } from 'next-dato-utils/api';
-import { AllAboutsDocument, AllAboutShortTextsDocument, GlobalDocument } from '@/graphql';
-
+import { AllAboutsDocument, AllAboutShortTextsDocument, GeneralDocument } from '@/graphql';
 import { Card, CardContainer, PageHeader, Thumbnail } from '@/components';
+import { Metadata } from 'next';
+import { buildMetadata } from '@/app/layout';
 
 export type Props = {
 	abouts: (AboutRecord | AboutShortTextRecord)[];
@@ -14,12 +15,12 @@ export default async function Abouts() {
 	const [{ allAbouts }, { allAboutShortTexts }, { general }] = await Promise.all([
 		apiQuery(AllAboutsDocument, { all: true }),
 		apiQuery(AllAboutShortTextsDocument, { all: true }),
-		apiQuery(GlobalDocument),
+		apiQuery(GeneralDocument),
 	]);
 
 	return (
 		<>
-			<PageHeader header={general.aboutSv} headerSmi={general.aboutSmi} content={general.aboutIntro} />
+			<PageHeader header={general?.aboutSv} headerSmi={general?.aboutSmi} content={general?.aboutIntro} />
 			<CardContainer>
 				{[...allAbouts, ...allAboutShortTexts]
 					.sort((a, b) => (new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1))
@@ -27,10 +28,10 @@ export default async function Abouts() {
 						<Card key={item.id} className={s.margin}>
 							<Thumbnail
 								className={item.__typename === 'AboutShortTextRecord' ? 'textBox' : ''}
-								title={item.__typename === 'AboutRecord' ? item.title : null}
+								title={item.__typename === 'AboutRecord' ? item.title : undefined}
 								image={item.image as FileField}
-								intro={item.__typename === 'AboutRecord' ? item.intro : null}
-								slug={`/om/${item.__typename === 'AboutRecord' ? item.slug : null}`}
+								intro={item.__typename === 'AboutRecord' ? item.intro : undefined}
+								slug={`/om/${item.__typename === 'AboutRecord' ? item.slug : undefined}`}
 								titleRows={1}
 							/>
 						</Card>
@@ -38,4 +39,11 @@ export default async function Abouts() {
 			</CardContainer>
 		</>
 	);
+}
+
+export async function generateMetadata({ params }: PageProps<'/om'>): Promise<Metadata> {
+	return await buildMetadata({
+		title: 'Om',
+		pathname: '/om',
+	});
 }

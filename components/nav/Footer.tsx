@@ -11,7 +11,7 @@ export type FooterProps = {
 	footer: FooterQuery['footer'];
 };
 
-export default function Footer({ footer: { instagram, about } }: FooterProps) {
+export default function Footer({}: FooterProps) {
 	const isHome = usePathname() === '/';
 
 	return (

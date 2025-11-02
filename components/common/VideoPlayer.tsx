@@ -16,7 +16,7 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 	const { width } = useWindowSize();
 
 	const setRefs = useCallback(
-		(node) => {
+		(node: HTMLVideoElement) => {
 			videoRef.current = node;
 			inViewRef(node);
 		},
@@ -24,8 +24,6 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 	);
 
 	useEffect(() => {
-		//if(process.env.NODE_ENV === 'development') return console.log('video disabled in dev')
-
 		if (!videoRef.current) return;
 		if (active) videoRef.current.play().catch((err) => {});
 		else videoRef.current.pause();
@@ -41,7 +39,7 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 	return (
 		<video
 			className={cn(styles.video, className)}
-			src={quality ? data.video['mp4high'] : undefined}
+			src={quality ? data.video.streamingUrl : undefined}
 			ref={setRefs}
 			playsInline
 			muted

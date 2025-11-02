@@ -27,7 +27,8 @@ export default function MenuMobile({ items }: MenuProps) {
 	}, [pathname, isDesktop]);
 
 	useEffect(() => {
-		const footerHeight = document.getElementById('footer').clientHeight - 1;
+		const footer = document.getElementById('footer');
+		const footerHeight = (footer?.clientHeight ?? 1) - 1;
 		const footerScrollPosition =
 			scrolledPosition + viewportHeight < documentHeight - footerHeight
 				? 0
@@ -49,27 +50,30 @@ export default function MenuMobile({ items }: MenuProps) {
 				style={{ minHeight: `calc(100vh - ${footerScrollPosition}px - 1px)` }}
 			>
 				<ul style={{ maxHeight: `calc(100vh - 1rem)` }}>
-					{items.map((item, idx) => (
-						<li
-							key={item.id}
-							data-parent={item.id}
-							className={cn(
-								(item.slug !== '/' && pathname.startsWith(item.slug)) || (pathname === '/' && item.slug === '/')
-									? s.active
-									: null
-							)}
-						>
-							<Link href={item.slug}>
-								{item.altLabel}
-								{item.label !== item.altLabel && (
-									<>
-										<br />
-										<span>{item.label}</span>
-									</>
-								)}
-							</Link>
-						</li>
-					))}
+					{items.map(
+						(item, idx) =>
+							item?.slug && (
+								<li
+									key={item.id}
+									data-parent={item.id}
+									className={cn(
+										(item.slug !== '/' && pathname.startsWith(item.slug)) || (pathname === '/' && item.slug === '/')
+											? s.active
+											: null
+									)}
+								>
+									<Link href={item.slug}>
+										{item.altLabel}
+										{item.label !== item.altLabel && (
+											<>
+												<br />
+												<span>{item.label}</span>
+											</>
+										)}
+									</Link>
+								</li>
+							)
+					)}
 				</ul>
 				<div className={s.lang}>
 					<Link href={'/om/in-english-verdde'}>EN</Link>

@@ -5,29 +5,17 @@ import { Article, BackButton, Related, Content } from '@/components';
 import { categories } from '@/lib/constant';
 import { notFound } from 'next/navigation';
 import { RelatedItem } from '@/components/common/Related';
+import { DraftMode } from 'next-dato-utils/components';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
-export default async function WhatWeDo({ params }) {
+export default async function WhatWeDo({ params }: PageProps<'/vad-vi-gor/[...slug]'>) {
 	const {
 		slug: [category, slug],
 	} = await params;
-	const { program, partner, participant } = await apiQuery(WhatWeDoDocument, {
-		variables: { slug },
-	});
 
-	if (!participant && !program && !partner) return notFound();
-
-	const post = participant || program || partner;
-	const { __typename, id, intro, content, image, _seoMetaTags } = post;
-	const title = __typename === 'ParticipantRecord' ? post.name : post.title;
-	const participants = __typename === 'ProgramRecord' ? post.partipants : [];
-	const programs =
-		__typename === 'PartnerRecord'
-			? post._allReferencingPrograms
-			: __typename === 'ParticipantRecord'
-				? post._allReferencingPrograms
-				: [];
-
-	const partners = __typename === 'ProgramRecord' ? post.partner : [];
+	const { id, post, draftUrl, title, intro, content, image, partners, participants, programs } =
+		await getPostData(slug);
 
 	return (
 		<>
@@ -44,6 +32,7 @@ export default async function WhatWeDo({ params }) {
 			{programs.length > 0 && <Related header='Aktivitet' items={programs as RelatedItem[]} />}
 			{partners.length > 0 && <Related header='Samverkan' items={partners as RelatedItem[]} />}
 			<BackButton href='/vad-vi-gor'>Visa alla</BackButton>
+			<DraftMode url={draftUrl} path={`/vad-vi-gor/${category}/${slug}`} />
 		</>
 	);
 }
@@ -56,6 +45,54 @@ export async function generateStaticParams() {
 	]);
 
 	return [...allParticipants, ...allPrograms, ...allPartners].map(({ slug, __typename }) => ({
-		slug: [categories.find((c) => c.__typename === __typename).slug, slug],
+		slug: [categories.find((c) => c.__typename === __typename)?.slug, slug],
 	}));
 }
+
+export async function generateMetadata({ params }: PageProps<'/vad-vi-gor/[...slug]'>): Promise<Metadata> {
+	const {
+		slug: [category, slug],
+	} = await params;
+
+	const { title } = await getPostData(slug);
+	return await buildMetadata({
+		title,
+		pathname: `/vad-vi-gor/${category}/${slug}`,
+	});
+}
+
+const getPostData = async (slug: string) => {
+	const { program, partner, participant, draftUrl } = await apiQuery(WhatWeDoDocument, {
+		variables: { slug },
+	});
+
+	if (!participant && !program && !partner) return notFound();
+
+	const post = participant || program || partner;
+	if (!post) return notFound();
+
+	const { __typename, id, intro, content, image } = post;
+	const title = __typename === 'ParticipantRecord' ? post.name : post.title;
+	const partners = __typename === 'ProgramRecord' ? post.partner : [];
+	const participants = __typename === 'ProgramRecord' ? post.partipants : [];
+	const programs =
+		__typename === 'PartnerRecord'
+			? post._allReferencingPrograms
+			: __typename === 'ParticipantRecord'
+				? post._allReferencingPrograms
+				: [];
+
+	return {
+		post,
+		title,
+		intro,
+		content,
+		image,
+		partners,
+		participants,
+		programs,
+		__typename,
+		id,
+		draftUrl,
+	};
+};

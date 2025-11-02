@@ -1,4 +1,0 @@
-SEO
-DraftMode
-sitemap
-manifest

@@ -23,9 +23,6 @@
 		text-transform: capitalize;
 	}
 
-	h5 {
-		margin-bottom: 1em;
-	}
 	p {
 		display: -webkit-box;
 		//-webkit-line-clamp: 4;
@@ -43,8 +40,6 @@
 	}
 
 	.intro {
-		//padding-top: 1em;
-
 		p {
 			margin-bottom: 0;
 			padding-top: 0.4em;
@@ -84,21 +79,8 @@
 		.image {
 			margin-top: calc(0.25 * var(--gutter));
 			max-width: none !important;
-			//aspect-ratio: 8 / 5;
 			transition: all 0.3s ease-in-out;
-
-			img {
-				object-fit: cover;
-				mix-blend-mode: multiply;
-			}
-
 			background-color: var(--white);
-		}
-
-		.picture {
-			overflow: hidden;
-			max-width: 100% !important;
-			transition: transform 0.2s ease-in-out;
 		}
 	}
 }

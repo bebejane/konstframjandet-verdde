@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { truncateWords } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Markdown } from 'next-dato-utils/components';
+import Balancer from 'react-wrap-balancer';
 
 export type Props = {
 	image?: FileField;
@@ -14,10 +15,10 @@ export type Props = {
 	endDate?: string;
 	title?: string;
 	intro?: string;
-	category?: string;
+	category?: string | null;
 	titleLength?: number;
 	titleRows?: number;
-	city?: string;
+	city?: string | null;
 	className?: string;
 };
 
@@ -40,8 +41,8 @@ export default function Thumbnail({
 		<>
 			{category && <div className='tag'>{category}</div>}
 			{title && (
-				<h3 className={cn(s[`rows-${titleRows}`])}>
-					<span>{titleLength ? truncateWords(title, titleLength) : title}</span>
+				<h3>
+					<Balancer>{titleLength ? truncateWords(title, titleLength) : title}</Balancer>
 				</h3>
 			)}
 			{date && !endDate && <h4>{format(new Date(date), 'dd MMM yyyy').replaceAll('.', '')}</h4>}
@@ -54,27 +55,18 @@ export default function Thumbnail({
 			{city && <h5 className='small'>{city}</h5>}
 			{image && (
 				<div className={s.imageWrap}>
-					<>
-						<SRCImage data={image.responsiveImage} imgClassName={s.picture} />
-						<div className={s.border}></div>
-					</>
+					{image?.responsiveImage && <SRCImage data={image.responsiveImage} imgClassName={s.image} />}
 				</div>
 			)}
-			<Markdown className={cn(s.intro, isTextOnly && s.text, isTextOnly && 'headline')} content={intro} />
+			{intro && <Markdown className={cn(s.intro, isTextOnly && s.text, isTextOnly && 'headline')} content={intro} />}
 		</>
 	);
 
 	return slug ? (
 		<Link href={slug} className={cn(s.thumbnail, className)}>
-			{' '}
-			{/* Merge className */}
 			{content}
 		</Link>
 	) : (
-		<div className={cn(s.thumbnail, className)}>
-			{' '}
-			{/* Merge className */}
-			{content}
-		</div>
+		<div className={cn(s.thumbnail, className)}>{content}</div>
 	);
 }

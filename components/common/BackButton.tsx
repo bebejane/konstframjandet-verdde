@@ -12,7 +12,7 @@ export type Props = {
 export default function BackButton(props: Props) {
 	const { children, href } = props;
 	const pathname = usePathname();
-	const segemnts = pathname.split('/'); // segemnts.pop()
+	const segemnts = pathname.split('/');
 
 	return (
 		<Link href={href || `/${segemnts[0]}`}>

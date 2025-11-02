@@ -1,7 +1,10 @@
-import { ContactDocument, GlobalDocument } from '@/graphql';
+import { ContactDocument, GeneralDocument, GlobalDocument } from '@/graphql';
 import { Article, PageHeader } from '@/components';
 import { apiQuery } from 'next-dato-utils/api';
-import { pageSlugs } from '@/lib/i18n';
+import { notFound } from 'next/navigation';
+import { DraftMode } from 'next-dato-utils/components';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export type Props = {
 	contact: ContactRecord;
@@ -9,15 +12,24 @@ export type Props = {
 };
 
 export default async function Contact() {
-	const { contact } = await apiQuery(ContactDocument);
-	const { general } = await apiQuery(GlobalDocument);
+	const { contact, draftUrl } = await apiQuery(ContactDocument);
+	const { general } = await apiQuery(GeneralDocument);
 
+	if (!contact) return notFound();
 	const { id, image, intro, content } = contact;
 
 	return (
 		<>
-			<PageHeader header={general.contactSv} headerSmi={general.contactSmi} content={intro} />
+			<PageHeader header={general?.contactSv} headerSmi={general?.contactSmi} content={intro} />
 			<Article key={id} image={image as FileField} imageSize='small' content={content} />
+			<DraftMode url={draftUrl} path={`/kontakt`} />
 		</>
 	);
+}
+
+export async function generateMetadata({ params }: PageProps<'/kontakt'>): Promise<Metadata> {
+	return await buildMetadata({
+		title: 'Kontakt',
+		pathname: '/kontakt',
+	});
 }

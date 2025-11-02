@@ -2,7 +2,7 @@
 
 import s from './Hamburger.module.scss';
 import cn from 'classnames';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useStore from '@/lib/store';
 import { usePathname } from 'next/navigation';
 
@@ -11,7 +11,7 @@ export default function Hamburger() {
 	const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu]);
 	const [key, setKey] = useState(Math.random());
 	const [init, setInit] = useState(false);
-	const handleClick = (e) => {
+	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		setInit(true);
 		setShowMenu(!showMenu);
 		setKey(Math.random());

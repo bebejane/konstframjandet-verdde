@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { Markdown } from 'next-dato-utils/components';
 import { Image } from 'react-datocms';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper';
+import { EffectFade } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import React, { useState, useRef, useEffect } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
@@ -19,7 +19,7 @@ export default function FullscreenGallery() {
 	const [images, imageId, setImageId] = useStore((state) => [state.images, state.imageId, state.setImageId]);
 	const swiperRef = useRef<SwiperType | null>(null);
 	const [realIndex, setRealIndex] = useState(0);
-	const [title, setTitle] = useState<string>();
+	const [title, setTitle] = useState<string | null>(null);
 	const [loaded, setLoaded] = useState<any>({});
 	const [initLoaded, setInitLoaded] = useState(false);
 	const isSingleSlide = images?.length === 1;
@@ -27,7 +27,7 @@ export default function FullscreenGallery() {
 	const index = images?.findIndex((image) => image?.id === imageId);
 
 	useEffect(() => {
-		if (images) setTitle(images[realIndex]?.title);
+		if (images) setTitle(images[realIndex]?.title ?? null);
 	}, [realIndex, images, setTitle]);
 
 	useEffect(() => {
@@ -36,7 +36,7 @@ export default function FullscreenGallery() {
 
 	useEffect(() => {
 		// handle  keys
-		const handleKeys = ({ key }) => {
+		const handleKeys = ({ key }: { key: string }) => {
 			if (isHidden) return;
 			if (key === 'ArrowRight') swiperRef?.current?.slideNext();
 			if (key === 'ArrowLeft') swiperRef?.current?.slidePrev();
@@ -69,13 +69,15 @@ export default function FullscreenGallery() {
 					>
 						{images.map((image, idx) => (
 							<SwiperSlide key={idx} className={cn(s.slide)}>
-								<Image
-									imgClassName={cn(s.image)}
-									data={image.responsiveImage}
-									usePlaceholder={false}
-									onLoad={() => setLoaded({ ...loaded, [image.id]: true })}
-									fadeInDuration={0}
-								/>
+								{image.responsiveImage && (
+									<Image
+										imgClassName={cn(s.image)}
+										data={image.responsiveImage}
+										usePlaceholder={false}
+										onLoad={() => setLoaded({ ...loaded, [image.id]: true })}
+										fadeInDuration={0}
+									/>
+								)}
 							</SwiperSlide>
 						))}
 					</Swiper>

@@ -13,13 +13,17 @@ export default async function DatoLink({ link, className, children }: Props) {
 	if (!link) return <a className={className}>{children}</a>;
 
 	const t = link.__typename;
-	const slug = t === 'ExternalLinkRecord' ? link.url : await getInteranlRoute(link);
+	const slug = t === 'ExternalLinkRecord' ? link.url : t === 'InternalLinkRecord' ? await getInteranlRoute(link) : null;
+	const record = t === 'InternalLinkRecord' && link.record ? link.record : null;
+
 	const title =
 		t === 'ExternalLinkRecord'
 			? link.title
-			: link.record.__typename === 'ParticipantRecord'
-				? link.record.name
-				: link.record.title;
+			: t === 'InternalLinkRecord' && link.record
+				? record?.__typename === 'ParticipantRecord'
+					? record.name
+					: link.title
+				: null;
 
 	if (!slug) return <a className={className}>{children}</a>;
 
@@ -35,9 +39,9 @@ export default async function DatoLink({ link, className, children }: Props) {
 }
 
 async function getInteranlRoute(link: InternalLinkRecord) {
-	const apiKey = changeCase.kebabCase(link.record.__typename.replace('Record', ''));
-	console.log(apiKey);
+	const t = link.record.__typename;
+	if (!t) return null;
+	const apiKey = changeCase.kebabCase(t.replace('Record', '')) as keyof typeof config.routes;
 	const route = await config.routes[apiKey]?.(link.record);
-	console.log(route);
 	return route?.[0];
 }

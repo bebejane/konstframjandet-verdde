@@ -3,19 +3,25 @@ import {
 	AllLearnMoreDocument,
 	AllLearnMoreCategoriesDocument,
 	AllLearnMoreShortTextsDocument,
-	GlobalDocument,
+	GeneralDocument,
 } from '@/graphql';
 import { CardContainer, Card, Thumbnail, PageHeader } from '@/components';
 import { apiQuery } from 'next-dato-utils/api';
-import { loadSearchParams } from './searchParams';
 import Link from 'next/link';
+import { createLoader, parseAsString } from 'nuqs/server';
+import { Metadata } from 'next';
+import { buildMetadata } from '@/app/layout';
 
-export default async function LearnMore({ searchParams }) {
+const filterSearchParams = { filter: parseAsString };
+const loadSearchParams = createLoader(filterSearchParams);
+
+export default async function LearnMore({ searchParams }: PageProps<'/lar-mer'>) {
 	const { filter } = await loadSearchParams(searchParams);
 	const { allLearnMoreCategories } = await apiQuery(AllLearnMoreCategoriesDocument);
 	const { allLearnMores } = await apiQuery(AllLearnMoreDocument);
 	const { allLearnMoreShortTexts } = await apiQuery(AllLearnMoreShortTextsDocument);
-	const { general } = await apiQuery(GlobalDocument);
+	const { general } = await apiQuery(GeneralDocument);
+
 	const learns = [...allLearnMores, ...allLearnMoreShortTexts]
 		.sort((a, b) => (new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1))
 		.map((item) => ({
@@ -28,7 +34,7 @@ export default async function LearnMore({ searchParams }) {
 
 	return (
 		<>
-			<PageHeader header={general.learnMoreSv} headerSmi={general.learnMoreSmi} content={general.learnMoreIntro} />
+			<PageHeader header={general?.learnMoreSv} headerSmi={general?.learnMoreSmi} content={general?.learnMoreIntro} />
 			<ul className={s.filter}>
 				{allLearnMoreCategories.map(({ id, title }) => (
 					<Link href={`/lar-mer${title !== filter ? `?filter=${title}` : ''}`} key={id}>
@@ -41,7 +47,7 @@ export default async function LearnMore({ searchParams }) {
 					<Card key={item.id}>
 						<Thumbnail
 							className={item.__typename === 'LearnMoreShortTextRecord' ? 'textBox' : ''}
-							title={item.__typename === 'LearnMoreRecord' ? item.name : null}
+							title={item.__typename === 'LearnMoreRecord' ? item.name : undefined}
 							category={item.category}
 							image={item.image as FileField}
 							slug={`/lar-mer/${item.__typename === 'LearnMoreRecord' ? item.slug : null}`}
@@ -51,4 +57,11 @@ export default async function LearnMore({ searchParams }) {
 			</CardContainer>
 		</>
 	);
+}
+
+export async function generateMetadata({ params }: PageProps<'/lar-mer'>): Promise<Metadata> {
+	return await buildMetadata({
+		title: 'Lär mer',
+		pathname: '/lar-mer',
+	});
 }

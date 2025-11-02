@@ -30,11 +30,7 @@
 			border: 0.25rem solid var(--white);
 		}
 
-		&.mainImage {
-			margin-bottom: var(--space);
-			cursor: pointer;
-		}
-
+		img,
 		picture img {
 			display: block;
 			max-width: none !important;
@@ -49,9 +45,6 @@
 		&.medium {
 			padding-left: calc(2 * var(--grid-unit));
 			padding-right: calc(2 * var(--grid-unit));
-		}
-
-		&.large {
 		}
 
 		&.portrait {

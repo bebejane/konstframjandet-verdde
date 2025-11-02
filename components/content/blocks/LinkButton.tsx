@@ -6,10 +6,17 @@ import DatoLink from '@/components/nav/DatoLink';
 export type LinkButtonBlockProps = { data: LinkButtonRecord; onClick: Function };
 
 export default async function LinkButton({ data: { link } }: LinkButtonBlockProps) {
+	const t = link.__typename;
+	const record = t === 'InternalLinkRecord' && link.record ? link.record : null;
+
 	const title =
-		link.__typename === 'ExternalLinkRecord'
+		t === 'ExternalLinkRecord'
 			? link.title
-			: link.title || (link.record.__typename === 'ParticipantRecord' ? link.record.name : link.record.title);
+			: t === 'InternalLinkRecord' && link.record
+				? record?.__typename === 'ParticipantRecord'
+					? record.name
+					: link.title
+				: null;
 
 	return (
 		<DatoLink link={link} className={s.button}>

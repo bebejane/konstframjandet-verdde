@@ -78,6 +78,7 @@ html,
 body {
 	background-size: cover;
 	background-attachment: fixed;
+	min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -119,7 +120,9 @@ a {
 		color: var(--pink) !important;
 	}
 }
-
+article {
+	min-height: 100vh !important;
+}
 article p a {
 	text-decoration: underline 1px !important;
 	text-underline-offset: 0.15em;
@@ -254,11 +257,11 @@ select {
 
 //Fulhack för jag inte fattar hur jag sätter den på komponenten
 .textBox {
-	margin: -0.75rem;
-	margin-top: -1.5rem;
+	//margin: -0.75rem;
+	//margin-top: -1.5rem;
 
 	@include mq($from: wide) {
-		margin-top: -1.75rem;
+		//margin-top: -1.75rem;
 	}
 
 	div {

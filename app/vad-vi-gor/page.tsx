@@ -5,22 +5,27 @@ import {
 	AllParticipantsDocument,
 	AllProgramsDocument,
 	AllShortTextsDocument,
-	GlobalDocument,
+	GeneralDocument,
 } from '@/graphql';
 import { CardContainer, Card, Thumbnail, PageHeader } from '@/components';
 import { apiQuery } from 'next-dato-utils/api';
 import { categories } from '@/lib/constant';
-import { loadSearchParams } from './searchParams';
 import Link from 'next/link';
+import { parseAsString, createLoader } from 'nuqs/server';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
-export default async function WhatWeDo({ searchParams }) {
+const filterSearchParams = { filter: parseAsString };
+const loadSearchParams = createLoader(filterSearchParams);
+
+export default async function WhatWeDo({ searchParams }: PageProps<'/vad-vi-gor'>) {
 	const { filter } = await loadSearchParams(searchParams);
 	const [{ allParticipants }, { allPrograms }, { allPartners }, { allShortTexts }, { general }] = await Promise.all([
 		apiQuery(AllParticipantsDocument, { all: true }),
 		apiQuery(AllProgramsDocument, { all: true }),
 		apiQuery(AllPartnersDocument, { all: true }),
 		apiQuery(AllShortTextsDocument, { all: true }),
-		apiQuery(GlobalDocument),
+		apiQuery(GeneralDocument),
 	]);
 
 	const posts = [...allParticipants, ...allPrograms, ...allPartners, ...allShortTexts]
@@ -29,10 +34,16 @@ export default async function WhatWeDo({ searchParams }) {
 
 	return (
 		<>
-			<PageHeader header={general.whatSv} headerSmi={general.whatSmi} content={general.whatIntro} />
+			<PageHeader header={general?.whatSv} headerSmi={general?.whatSmi} content={general?.whatIntro} />
 			<ul className={s.filter}>
-				{categories.map(({ id, title, slug, __typename }) => (
-					<Link href={`/vad-vi-gor${title !== filter ? `?filter=${title}` : ''}`} key={slug}>
+				{categories.map(({ title, slug }) => (
+					<Link
+						key={slug}
+						href={{
+							pathname: `/vad-vi-gor`,
+							query: { filter: title !== filter ? title : undefined },
+						}}
+					>
 						<li className={title === filter ? s.active : undefined} key={slug}>
 							{title}
 						</li>
@@ -49,7 +60,7 @@ export default async function WhatWeDo({ searchParams }) {
 									? item.name
 									: item.__typename !== 'ShortTextRecord'
 										? item.title
-										: null
+										: undefined
 							}
 							category={categories.find((c) => c.__typename === item.__typename)?.title}
 							date={item.__typename === 'ProgramRecord' ? item.startDate : null}
@@ -58,7 +69,7 @@ export default async function WhatWeDo({ searchParams }) {
 							slug={
 								item.__typename !== 'ShortTextRecord'
 									? `/vad-vi-gor/${categories.find((c) => c.__typename === item.__typename)?.slug}/${item.slug}`
-									: null
+									: undefined
 							}
 							titleRows={1}
 						/>
@@ -67,4 +78,11 @@ export default async function WhatWeDo({ searchParams }) {
 			</CardContainer>
 		</>
 	);
+}
+
+export async function generateMetadata({ params }: PageProps<'/vad-vi-gor'>): Promise<Metadata> {
+	return buildMetadata({
+		title: 'Vad vi gör',
+		pathname: '/vad-vi-gor',
+	});
 }

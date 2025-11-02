@@ -16,28 +16,7 @@ query Menu {
 	_allPartnersMeta {
 		count
 	}
-
 	general {
 		...GeneralFragment
 	}
-}
-
-fragment GeneralFragment on GeneralRecord {
-	homeSv
-	homeSmi
-	whatSv
-	whatSmi
-	whatIntro(markdown: false)
-	newsSv
-	newsSmi
-	newsIntro(markdown: false)
-	contactSv
-	contactSmi
-	contactIntro(markdown: false)
-	aboutSv
-	aboutSmi
-	aboutIntro(markdown: false)
-	learnMoreSv
-	learnMoreSmi
-	learnMoreIntro(markdown: false)
 }

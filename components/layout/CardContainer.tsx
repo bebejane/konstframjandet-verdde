@@ -1,7 +1,5 @@
 'use client';
 
-import s from './CardContainer.module.scss';
-import cn from 'classnames';
 import React from 'react';
 import dynamic from 'next/dynamic';
 
@@ -21,7 +19,7 @@ export type Props = {
 
 export default function CardContainer({ children, className }: Props) {
 	return (
-		<ResponsiveMasonry className={cn(s.masonry, className)} columnsCountBreakPoints={{ 320: 1, 980: 3 }}>
+		<ResponsiveMasonry columnsCountBreakPoints={{ 320: 1, 980: 3 }}>
 			<Masonry>{children}</Masonry>
 		</ResponsiveMasonry>
 	);

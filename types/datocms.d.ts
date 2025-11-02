@@ -5548,18 +5548,27 @@ type ImageFragment = { __typename?: 'FileField', id: any, mimeType: string, url:
 
 type ImageMediumFragment = { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null };
 
+type ImageRelatedFragment = { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null };
+
 type ImageThumbnailFragment = { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null };
 
 type SeoMetaTagsFragment = { __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string };
 
-type SiteFragment = { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null };
+type SiteFragment = { __typename?: 'Site', faviconMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null };
 
-type VideoFragment = { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, streamingUrl: string, framerate?: number | null, duration?: number | null, mp4high?: string | null, mp4med?: string | null, mp4low?: string | null } };
+type VideoFragment = { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, framerate?: number | null, duration?: number | null, streamingUrl?: string | null } };
+
+type GeneralQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GeneralQuery = { __typename?: 'Query', general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSv?: string | null, whatSmi?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, contactIntro?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null } | null };
+
+type GeneralFragment = { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSv?: string | null, whatSmi?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, contactIntro?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null };
 
 type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSv?: string | null, whatSmi?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, contactIntro?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null } | null };
+type GlobalQuery = { __typename?: 'Query', site: { __typename?: 'Site', faviconMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', facebookPageUrl?: string | null, siteName?: string | null, titleSuffix?: string | null, twitterAccount?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | null } | null } };
 
 type AllLearnMoreQueryVariables = Exact<{
   first?: InputMaybe<Scalars['IntType']['input']>;
@@ -5635,8 +5644,6 @@ type MenuQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type MenuQuery = { __typename?: 'Query', allAbouts: Array<{ __typename?: 'AboutRecord', id: any, title: string, slug: string }>, _allAboutsMeta: { __typename?: 'CollectionMetadata', count: any }, _allProgramsMeta: { __typename?: 'CollectionMetadata', count: any }, _allParticipantsMeta: { __typename?: 'CollectionMetadata', count: any }, _allPartnersMeta: { __typename?: 'CollectionMetadata', count: any }, general?: { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSv?: string | null, whatSmi?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, contactIntro?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null } | null };
-
-type GeneralFragment = { __typename?: 'GeneralRecord', homeSv?: string | null, homeSmi?: string | null, whatSv?: string | null, whatSmi?: string | null, whatIntro?: string | null, newsSv?: string | null, newsSmi?: string | null, newsIntro?: string | null, contactSv?: string | null, contactSmi?: string | null, contactIntro?: string | null, aboutSv?: string | null, aboutSmi?: string | null, aboutIntro?: string | null, learnMoreSv?: string | null, learnMoreSmi?: string | null, learnMoreIntro?: string | null };
 
 type AllNewsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['IntType']['input']>;
@@ -5828,11 +5835,19 @@ type AllLearnMoreShortTextsQueryVariables = Exact<{
 
 type AllLearnMoreShortTextsQuery = { __typename?: 'Query', allLearnMoreShortTexts: Array<{ __typename: 'LearnMoreShortTextRecord', _firstPublishedAt: any, _createdAt: any, id: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null }>, _allLearnMoreShortTextsMeta: { __typename?: 'CollectionMetadata', count: any } };
 
+type SitemapQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+}>;
+
+
+type SitemapQuery = { __typename?: 'Query', allAbouts: Array<{ __typename?: 'AboutRecord', slug: string, title: string, _updatedAt: any }>, _allAboutsMeta: { __typename?: 'CollectionMetadata', count: any }, allNews: Array<{ __typename?: 'NewsRecord', title: string, slug: string, _updatedAt: any }>, _allNewsMeta: { __typename?: 'CollectionMetadata', count: any }, allLearnMores: Array<{ __typename?: 'LearnMoreRecord', name: string, slug: string, _updatedAt: any }>, _allLearnMoresMeta: { __typename?: 'CollectionMetadata', count: any } };
+
 type StartQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type StartQuery = { __typename?: 'Query', start?: { __typename?: 'StartRecord', id: any, content: Array<
-      | { __typename: 'StartFullscreenVideoRecord', id: any, text: string, newsText?: string | null, newsLink?: string | null, video: { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, streamingUrl: string, framerate?: number | null, duration?: number | null, mp4high?: string | null, mp4med?: string | null, mp4low?: string | null } } }
+      | { __typename: 'StartFullscreenVideoRecord', id: any, text: string, newsText?: string | null, newsLink?: string | null, video: { __typename?: 'VideoFileField', id: any, alt?: string | null, basename: string, format: string, mimeType: string, size: any, title?: string | null, url: string, width: any, height: any, video: { __typename?: 'UploadVideoField', thumbnailUrl: string, framerate?: number | null, duration?: number | null, streamingUrl?: string | null } } }
       | { __typename: 'StartVideoRecord', id: any, title?: string | null, video: { __typename?: 'VideoField', provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null };
 

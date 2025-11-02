@@ -20,18 +20,21 @@ export default function Menu({ items }: MenuProps) {
 				<ul>
 					{items.slice(1).map((item, idx) => (
 						<li key={idx}>
-							<Link
-								href={item.slug}
-								className={cn(
-									(item.slug !== '/' && pathname.startsWith(item.slug)) || (pathname === '/' && item.slug === '/')
-										? s.active
-										: null
-								)}
-							>
-								<span>{item.altLabel}</span>
-								<br />
-								{item.label}
-							</Link>
+							{item.slug && (
+								<Link
+									href={item.slug}
+									prefetch={true}
+									className={cn(
+										(item.slug !== '/' && pathname.startsWith(item.slug)) || (pathname === '/' && item.slug === '/')
+											? s.active
+											: null
+									)}
+								>
+									<span>{item.altLabel}</span>
+									<br />
+									{item.label}
+								</Link>
+							)}
 						</li>
 					))}
 				</ul>

@@ -8,8 +8,8 @@ import cn from 'classnames';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Image } from 'react-datocms';
 import { Markdown } from 'next-dato-utils/components';
-import { useWindowSize } from 'rooks';
 import { useStore } from '@/lib/store';
+import { useWindowSize } from 'usehooks-ts';
 
 export type ImageGalleryBlockProps = {
 	id: string;
@@ -22,13 +22,13 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 	const swiperRef = useRef<Swiper | null>(null);
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const arrowRef = useRef<HTMLDivElement | null>(null);
+	const { width, height } = useWindowSize();
 	const [index, setIndex] = useState(0);
 	const [arrowMarginTop, setArrowMarginTop] = useState(0);
-	const { innerHeight, innerWidth } = useWindowSize();
 	const isSingleImage = images.length === 1;
 
 	const calculatePositions = useCallback(() => {
-		if (!arrowRef.current || !arrowRef.current.clientHeight) return;
+		if (!arrowRef.current || !arrowRef.current.clientHeight || !containerRef.current) return;
 
 		const images = Array.from(containerRef.current.querySelectorAll<HTMLImageElement>('picture>img'));
 		const maxImageHeight = Math.max(...images.map((img) => img.clientHeight));
@@ -37,7 +37,7 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 
 	useEffect(() => {
 		calculatePositions();
-	}, [innerHeight, innerWidth, calculatePositions]);
+	}, [height, width, calculatePositions]);
 
 	return (
 		<div className={s.gallery} ref={containerRef}>
@@ -56,14 +56,31 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 				{images.map((item, idx) => (
 					<SwiperSlide key={`${idx}`} className={cn(s.slide)}>
 						<figure id={`${id}-${item.id}`} onClick={() => setImageId(item.id)}>
-							<Image
-								data={item.responsiveImage}
-								className={s.image}
-								imgClassName={s.picture}
-								placeholderClassName={s.picture}
-								objectFit={'cover'}
-								onLoad={calculatePositions}
-							/>
+							{item.responsiveImage && (
+								<Image
+									data={item.responsiveImage}
+									className={s.image}
+									imgClassName={s.picture}
+									placeholderClassName={s.picture}
+									objectFit={'cover'}
+									onLoad={calculatePositions}
+								/>
+							)}
+							{item.title && (
+								<figcaption>
+									<Markdown allowedElements={['em', 'p']} content={item.title} />
+								</figcaption>
+							)}
+							{item.responsiveImage && (
+								<Image
+									data={item.responsiveImage}
+									className={s.image}
+									imgClassName={s.picture}
+									placeholderClassName={s.picture}
+									objectFit={'cover'}
+									onLoad={calculatePositions}
+								/>
+							)}
 							<figcaption>{item.title && <Markdown allowedElements={['em', 'p']} content={item.title} />}</figcaption>
 						</figure>
 					</SwiperSlide>

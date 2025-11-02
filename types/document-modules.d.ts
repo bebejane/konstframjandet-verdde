@@ -49,6 +49,15 @@ declare module '*/ImageMediumFragment.gql' {
 }
     
 
+declare module '*/ImageRelatedFragment.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const ImageRelatedFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/ImageThumbnailFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -85,6 +94,16 @@ declare module '*/VideoFragment.gql' {
 }
     
 
+declare module '*/general.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const General: DocumentNode;
+export const GeneralFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/global.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -110,7 +129,6 @@ declare module '*/menu.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Menu: DocumentNode;
-export const GeneralFragment: DocumentNode;
 
   export default defaultDocument;
 }
@@ -177,6 +195,15 @@ declare module '*/short-text.gql' {
   export const AllShortTexts: DocumentNode;
 export const AllAboutShortTexts: DocumentNode;
 export const AllLearnMoreShortTexts: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/sitemap.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Sitemap: DocumentNode;
 
   export default defaultDocument;
 }

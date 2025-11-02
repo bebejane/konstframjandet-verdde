@@ -6,9 +6,9 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 
 export type Props = {
-	header: string;
-	headerSmi: string;
-	content?: string;
+	header?: string | null;
+	headerSmi?: string | null;
+	content?: string | null;
 };
 
 export default function PageHeader({ header, headerSmi, content }: Props) {

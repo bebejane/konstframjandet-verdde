@@ -59,28 +59,32 @@ fragment NewsFragment on NewsRecord {
 						__typename
 						id
 						record {
-							__typename
 							... on AboutRecord {
+								__typename
 								id
 								slug
 								title
 							}
 							... on LocationRecord {
+								__typename
 								id
 								slug
 								title
 							}
 							... on NewsRecord {
+								__typename
 								id
 								slug
 								title
 							}
 							... on ParticipantRecord {
+								__typename
 								id
 								slug
 								name
 							}
 							... on ProgramRecord {
+								__typename
 								id
 								slug
 								title

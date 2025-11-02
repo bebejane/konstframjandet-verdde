@@ -8,33 +8,29 @@ import useStore from '@/lib/store';
 
 export type ArticleImageProps = {
 	image?: FileField;
-	imageSize?: 'small' | 'medium' | 'large';
+	className?: string;
 	content?: any;
 };
 
-export default function ArticleImage({ image, imageSize, content }: ArticleImageProps) {
+export default function ArticleImage({ image, className, content }: ArticleImageProps) {
 	const [setImageId, setImages] = useStore((state) => [state.setImageId, state.setImages]);
 	const captionRef = useRef<HTMLElement | null>(null);
-	const figureRef = useRef<HTMLElement | null>(null);
 
 	useEffect(() => {
 		const images = [image];
-		content?.blocks.forEach((el) => {
+		content?.blocks.forEach((el: any) => {
 			el.__typename === 'ImageRecord' && images.push(el.image);
 			el.__typename === 'ImageGalleryRecord' && images.push.apply(images, el.images);
 		});
-		setImages(images.filter((el) => el));
+
+		setImages(images.filter((el) => el) as FileField[]);
 	}, []);
 
 	return (
 		<>
 			{image?.responsiveImage && (
-				<figure
-					className={cn(s.mainImage, imageSize && s[imageSize], image.height > image.width && s.portrait)}
-					onClick={() => setImageId(image?.id)}
-					ref={figureRef}
-				>
-					<SRCImage data={image.responsiveImage} imgClassName={s.picture} />
+				<figure className={cn(s.mainImage, className)} onClick={() => setImageId(image?.id)}>
+					<SRCImage data={image.responsiveImage} pictureClassName={s.picture} />
 					<figcaption ref={captionRef}>{image.title}</figcaption>
 				</figure>
 			)}

@@ -19,7 +19,7 @@ export default function Image({ data: { image, layout } }: ImageBlockProps) {
 			className={cn(s.figure, s[layout], image.height > image.width && s.portrait)}
 			onClick={() => setImageId(image.id)}
 		>
-			<SRCImage data={image.responsiveImage} imgClassName={s.image} />
+			{image.responsiveImage && <SRCImage data={image.responsiveImage} imgClassName={s.image} />}
 			{image.title && (
 				<figcaption>
 					<Markdown allowedElements={['em', 'p']} content={image.title} />

@@ -9,7 +9,7 @@ import ArticleImage from './ArticleImage';
 export type ArticleProps = {
 	children?: React.ReactNode | React.ReactNode[] | undefined;
 	title?: string;
-	city?: string;
+	city?: string | null;
 	subtitle?: string;
 	intro?: string;
 	image?: FileField;
@@ -28,7 +28,11 @@ export default function Article({ children, title, city, content, image, imageSi
 						<Balancer>{title}</Balancer>
 					</h1>
 				)}
-				<ArticleImage image={image} imageSize={imageSize} content={content} />
+				<ArticleImage
+					image={image}
+					content={content}
+					className={cn(imageSize && s[imageSize], image?.height > image?.width && s.portrait)}
+				/>
 				<section className='intro'>
 					{date && (
 						<div className={s.date}>

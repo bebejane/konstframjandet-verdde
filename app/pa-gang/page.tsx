@@ -1,12 +1,15 @@
 import s from './page.module.scss';
-import { AllNewsDocument, GlobalDocument } from '@/graphql';
+import { AllNewsDocument, GeneralDocument } from '@/graphql';
 import { Card, CardContainer, PageHeader, Thumbnail } from '@/components';
 import { apiQuery } from 'next-dato-utils/api';
 import { isSameDay } from 'date-fns';
+import { DraftMode } from 'next-dato-utils/components';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function News() {
 	const { allNews } = await apiQuery(AllNewsDocument, { all: true });
-	const { general } = await apiQuery(GlobalDocument);
+	const { general } = await apiQuery(GeneralDocument);
 
 	const currentNews = allNews
 		.filter(({ title, date, endDate }) => {
@@ -26,7 +29,7 @@ export default async function News() {
 
 	return (
 		<>
-			<PageHeader header={general.newsSv} headerSmi={general.newsSmi} content={general.newsIntro} />
+			<PageHeader header={general?.newsSv} headerSmi={general?.newsSmi} content={general?.newsIntro} />
 			<CardContainer>
 				{currentNews.map(({ id, title, date, endDate, image, slug, city }) => (
 					<Card key={id}>
@@ -61,4 +64,11 @@ export default async function News() {
 			</CardContainer>
 		</>
 	);
+}
+
+export async function generateMetadata({ params }: PageProps<'/pa-gang'>): Promise<Metadata> {
+	return await buildMetadata({
+		title: 'På gang',
+		pathname: '/pa-gang',
+	});
 }

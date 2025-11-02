@@ -1,6 +1,6 @@
-import styles from './ReadMore.module.scss';
+import s from './ReadMore.module.scss';
 import cn from 'classnames';
-import Link from '@/components/nav/Link';
+import Link from 'next/link';
 
 type Props = {
 	message?: string;
@@ -10,11 +10,11 @@ type Props = {
 	external?: boolean;
 };
 
-export default function ReadMore({ message, link, invert = false, regional, external = false }: Props) {
+export default function ReadMore({ message, link }: Props) {
 	if (!link) return null;
 
 	return (
-		<Link href={link} className={cn(styles.more)}>
+		<Link href={link} className={s.more}>
 			{message}
 		</Link>
 	);

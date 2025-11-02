@@ -1,4 +1,4 @@
-fragment ImageThumbnailFragment on FileField {
+fragment ImageRelatedFragment on FileField {
 	id
 	mimeType
 	url

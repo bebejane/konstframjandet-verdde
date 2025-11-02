@@ -1,7 +1,7 @@
 import s from './Thumbnail.module.scss';
 import cn from 'classnames';
 import React from 'react';
-import { Image } from 'react-datocms/image';
+import { Image, SRCImage } from 'react-datocms';
 import Link from 'next/link';
 import { truncateWords } from '@/lib/utils';
 import { format } from 'date-fns';
@@ -44,11 +44,9 @@ export default function Thumbnail({
 					<span>{titleLength ? truncateWords(title, titleLength) : title}</span>
 				</h3>
 			)}
-			{date && !endDate && (
-				<h4 suppressHydrationWarning={true}>{format(new Date(date), 'dd MMM yyyy').replaceAll('.', '')}</h4>
-			)}
+			{date && !endDate && <h4>{format(new Date(date), 'dd MMM yyyy').replaceAll('.', '')}</h4>}
 			{date && endDate && (
-				<h4 suppressHydrationWarning={true}>
+				<h4>
 					{format(new Date(date), 'd MMM').replaceAll('.', '')} —{' '}
 					{format(new Date(endDate), 'dd MMM yyyy').replaceAll('.', '')}
 				</h4>
@@ -57,7 +55,7 @@ export default function Thumbnail({
 			{image && (
 				<div className={s.imageWrap}>
 					<>
-						<Image data={image.responsiveImage} className={s.image} imgClassName={s.picture} />
+						<SRCImage data={image.responsiveImage} imgClassName={s.picture} />
 						<div className={s.border}></div>
 					</>
 				</div>

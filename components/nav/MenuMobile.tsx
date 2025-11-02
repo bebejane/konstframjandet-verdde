@@ -3,8 +3,8 @@
 import s from './MenuMobile.module.scss';
 import cn from 'classnames';
 import { usePathname } from 'next/navigation';
-import { useState, useRef, useEffect } from 'react';
-import type { Menu, MenuItem } from '@/lib/menu';
+import { useState, useEffect } from 'react';
+import type { Menu } from '@/lib/menu';
 import Link from 'next/link';
 import { Hamburger } from '@/components';
 import useStore from '@/lib/store';
@@ -16,13 +16,11 @@ export type MenuProps = { items: Menu };
 
 export default function MenuMobile({ items }: MenuProps) {
 	const pathname = usePathname();
-	const menuRef = useRef<HTMLUListElement | null>(null);
 	const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu]);
-	const [selected, setSelected] = useState<MenuItem | undefined>();
 	const [footerScrollPosition, setFooterScrollPosition] = useState(0);
 	const { scrolledPosition, documentHeight, viewportHeight } = useScrollInfo();
 	const { width, height } = useWindowSize();
-	const { isDesktop, isMobile } = useDevice();
+	const { isDesktop } = useDevice();
 
 	useEffect(() => {
 		!isDesktop && setShowMenu(false);
@@ -36,26 +34,7 @@ export default function MenuMobile({ items }: MenuProps) {
 				: footerHeight - (documentHeight - (scrolledPosition + viewportHeight));
 
 		setFooterScrollPosition(footerScrollPosition);
-	}, [menuRef, selected, scrolledPosition, documentHeight, viewportHeight, width, height, isMobile]);
-
-	useEffect(() => {
-		// Find selected item from pathname recursively
-		const findSelected = (path: string, item: MenuItem): MenuItem | undefined => {
-			if (item.slug === path) return item;
-			if (item.sub?.length) {
-				for (let i = 0; i < item.sub.length; i++) {
-					const selected = findSelected(path, item.sub[i]);
-					if (selected) return selected;
-				}
-			}
-		};
-		for (let i = 0; i < items.length; i++) {
-			const selected = findSelected(pathname, items[i]);
-			if (selected) {
-				return setSelected(selected);
-			}
-		}
-	}, [pathname]);
+	}, [scrolledPosition, documentHeight, viewportHeight, width, height]);
 
 	return (
 		<>
@@ -69,7 +48,7 @@ export default function MenuMobile({ items }: MenuProps) {
 				className={cn(s.menu, !showMenu && s.hide)}
 				style={{ minHeight: `calc(100vh - ${footerScrollPosition}px - 1px)` }}
 			>
-				<ul data-level={0} ref={menuRef} style={{ maxHeight: `calc(100vh - 1rem)` }}>
+				<ul style={{ maxHeight: `calc(100vh - 1rem)` }}>
 					{items.map((item, idx) => (
 						<li
 							key={item.id}

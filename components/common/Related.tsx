@@ -1,6 +1,6 @@
 import s from './Related.module.scss';
 import React from 'react';
-import { Image } from 'react-datocms';
+import { Image, SRCImage } from 'react-datocms';
 import Link from 'next/link';
 import { recordToSlug } from '@/lib/routes';
 
@@ -12,7 +12,6 @@ export type Props = {
 };
 
 export default async function Related({ header, items }: Props) {
-	console.log(items);
 	if (!items?.length) return null;
 
 	return (
@@ -23,7 +22,7 @@ export default async function Related({ header, items }: Props) {
 					<li key={item.id}>
 						<Link href={recordToSlug(items[idx])}>
 							<figure>
-								{item.image && <Image data={item.image.responsiveImage} />}
+								{item.image && <Image data={item.image.responsiveImage} imgClassName={s.image} />}
 								<div className={s.border}></div>
 							</figure>
 							<figcaption>{item.__typename === 'ParticipantRecord' ? item.name : item.title}</figcaption>

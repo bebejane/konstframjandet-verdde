@@ -6,14 +6,13 @@ fragment ImageThumbnailFragment on FileField {
 	alt
 	height
 	width
-	responsiveImage(
-		sizes: "(max-width: 46.24em) 50vw, 25vw"
-	) {
+	responsiveImage(sizes: "(max-width: 46.24em) 50vw, 25vw") {
 		src
 		width
 		height
 		alt
 		title
 		base64
+		sizes
 	}
 }

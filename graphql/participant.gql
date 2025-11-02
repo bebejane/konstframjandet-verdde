@@ -123,7 +123,6 @@ fragment ParticipantFragmentLight on ParticipantRecord {
 	image {
 		...ImageThumbnailFragment
 	}
-
 	slug
 	__typename
 	_createdAt

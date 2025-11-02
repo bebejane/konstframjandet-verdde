@@ -3,10 +3,8 @@
 import s from './StartFullscreenVideo.module.scss';
 import cn from 'classnames';
 import React from 'react';
-import { VideoPlayer, DatoLink } from '@/components';
-import Link from 'next/link';
+import { VideoPlayer } from '@/components';
 import { useRef } from 'react';
-import { Markdown } from 'next-dato-utils/components';
 import useStore from '@/lib/store';
 
 export type Props = { data: StartFullscreenVideoRecord };

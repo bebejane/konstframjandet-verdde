@@ -3,7 +3,7 @@
 import s from './ArticleImage.module.scss';
 import cn from 'classnames';
 import React, { useEffect, useRef } from 'react';
-import { Image } from 'react-datocms';
+import { Image, SRCImage } from 'react-datocms';
 import useStore from '@/lib/store';
 
 export type ArticleImageProps = {
@@ -34,7 +34,7 @@ export default function ArticleImage({ image, imageSize, content }: ArticleImage
 					onClick={() => setImageId(image?.id)}
 					ref={figureRef}
 				>
-					<Image data={image.responsiveImage} className={s.picture} />
+					<SRCImage data={image.responsiveImage} imgClassName={s.picture} />
 					<figcaption ref={captionRef}>{image.title}</figcaption>
 				</figure>
 			)}

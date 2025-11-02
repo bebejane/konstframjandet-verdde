@@ -54,7 +54,7 @@ export default async function WhatWeDo({ searchParams }: PageProps<'/vad-vi-gor'
 				{posts.map((item) => (
 					<Card key={item.id}>
 						<Thumbnail
-							className={item.__typename === 'ShortTextRecord' ? 'textBox' : ''}
+							key={item.id}
 							title={item.__typename !== 'ShortTextRecord' ? item.title : undefined}
 							category={categories.find((c) => c.__typename === item.__typename)?.title}
 							date={item.__typename === 'ProgramRecord' ? item.startDate : null}
@@ -66,6 +66,7 @@ export default async function WhatWeDo({ searchParams }: PageProps<'/vad-vi-gor'
 									: undefined
 							}
 							titleRows={1}
+							textBlock={item.__typename === 'ShortTextRecord'}
 						/>
 					</Card>
 				))}

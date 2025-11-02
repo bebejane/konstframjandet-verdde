@@ -1,4 +1,5 @@
 import s from './Related.module.scss';
+import cn from 'classnames';
 import React from 'react';
 import { Image, SRCImage } from 'react-datocms';
 import Link from 'next/link';
@@ -19,15 +20,15 @@ export default async function Related({ header, items }: Props) {
 		<section className={s.related}>
 			<h2>{header}</h2>
 			<ul>
-				{items.map(async (item, idx) => {
+				{items.concat(items, items, items).map(async (item, idx) => {
 					const t = item.__typename;
-					if (!t) return null;
+					if (!t) throw new Error(`Unknown block type`);
 					const apiKey = changeCase.kebabCase(t.replace('Record', '')) as keyof typeof config.routes;
 					const href = (await config.routes[apiKey]?.(item))?.[0];
 					if (!href) throw new Error(`No route found for type: ${t}`);
 
 					return (
-						<li key={item.id}>
+						<li key={item.id} className={items.length === 1 ? s.single : items.length === 2 ? s.double : undefined}>
 							<Link href={href}>
 								<figure>
 									{item.image?.responsiveImage && (

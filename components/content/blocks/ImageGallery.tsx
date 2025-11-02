@@ -39,7 +39,7 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 	useEffect(() => {
 		calculatePositions();
 	}, [height, width, calculatePositions]);
-	console.log(images.length);
+
 	return (
 		<div className={s.gallery} ref={containerRef}>
 			<div className={s.fade}></div>

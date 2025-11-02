@@ -1,31 +1,31 @@
 .card {
-  position: relative;
-  display: block;
-  width: 100%;
-  break-inside: avoid;
-  page-break-inside: avoid;
+	position: relative;
+	display: block;
+	width: 100%;
+	break-inside: avoid;
+	page-break-inside: avoid;
 
-  .box {
-    border-radius: 0.5rem;
-    box-shadow: 1px 1px 10px var(--transparent-black);
-    padding: 0.75rem;
-    background-color: var(--white);
-    margin: 0;
-    overflow: hidden;
+	.box {
+		border-radius: 0.5rem;
+		box-shadow: 1px 1px 10px var(--transparent-black);
+		padding: 0.75rem;
+		background-color: var(--white);
+		margin: 0;
+		overflow: hidden;
 
-    &:hover {
-      box-shadow: 1px 1px 10px var(--pink);
-    }
-  }
+		&:hover {
+			box-shadow: 1px 1px 10px var(--pink);
+		}
+	}
 
-  padding-left: calc(0.25 * var(--gutter));
-  padding-right: calc(0.25 * var(--gutter));
-  padding-top: calc(0.25 * var(--gutter));
-  padding-bottom: calc(0.25 * var(--gutter));
+	padding-left: calc(0.25 * var(--gutter));
+	padding-right: calc(0.25 * var(--gutter));
+	padding-top: calc(0.25 * var(--gutter));
+	padding-bottom: calc(0.25 * var(--gutter));
 
-  @include mq($until: tablet) {
-    padding-left: var(--outer-margin);
-    padding-right: var(--outer-margin);
-    padding-bottom: var(--outer-margin);
-  }
+	@include mq($until: tablet) {
+		padding-left: var(--outer-margin);
+		padding-right: var(--outer-margin);
+		padding-bottom: var(--outer-margin);
+	}
 }

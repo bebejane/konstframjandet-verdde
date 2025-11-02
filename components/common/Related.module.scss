@@ -39,15 +39,21 @@
 		}
 
 		li {
-			flex: 0 0 50%;
+			flex: 0 0 33%;
 			padding-right: var(--gutter-half);
 			padding-left: var(--gutter-half);
 			padding-top: var(--space);
 
-			@include mq($from: tablet) {
-				flex: 0 0 33%;
+			@include mq($until: tablet) {
+				flex: 0 0 50%;
 			}
 
+			&.single {
+				//flex: 1 1 auto;
+			}
+			&.double {
+				//flex: 1 1 50%;
+			}
 			a {
 				background-color: var(--white);
 				display: block;

@@ -7,6 +7,7 @@ import { truncateWords } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Markdown } from 'next-dato-utils/components';
 import Balancer from 'react-wrap-balancer';
+import { text } from 'stream/consumers';
 
 export type Props = {
 	image?: FileField;
@@ -20,6 +21,7 @@ export type Props = {
 	titleRows?: number;
 	city?: string | null;
 	className?: string;
+	textBlock?: boolean;
 };
 
 export default function Thumbnail({
@@ -27,7 +29,7 @@ export default function Thumbnail({
 	slug,
 	title,
 	titleLength,
-	titleRows = 3,
+	textBlock,
 	category,
 	date,
 	endDate,
@@ -62,11 +64,12 @@ export default function Thumbnail({
 		</>
 	);
 
+	const classes = cn(s.thumbnail, className, textBlock && s.textBlock);
 	return slug ? (
-		<Link href={slug} className={cn(s.thumbnail, className)}>
+		<Link href={slug} className={classes}>
 			{content}
 		</Link>
 	) : (
-		<div className={cn(s.thumbnail, className)}>{content}</div>
+		<div className={classes}>{content}</div>
 	);
 }

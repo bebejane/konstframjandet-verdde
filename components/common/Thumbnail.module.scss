@@ -83,4 +83,12 @@
 			background-color: var(--white);
 		}
 	}
+
+	&.textBlock {
+		margin: -0.75rem;
+		margin-bottom: -0.9rem;
+		.image {
+			margin-top: 0 !important;
+		}
+	}
 }

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps<'/lar-mer/[slug]'>)
 	const { learnMore } = await apiQuery(LearnMoreDocument, { variables: { slug } });
 
 	return await buildMetadata({
-		title: learnMore?.intro,
+		title: learnMore?.name,
 		description: learnMore?.intro,
 		image: learnMore?.image as FileField,
 		pathname: `/lar-mer/${slug}`,

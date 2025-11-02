@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<'/pa-gang/[news]'>)
 	const { news } = await apiQuery(NewsDocument, { variables: { slug } });
 
 	return await buildMetadata({
-		title: news?.intro,
+		title: news?.title,
 		image: news?.image as FileField,
 		description: news?.intro,
 		pathname: `/pa-gang/${slug}`,

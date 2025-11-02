@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps<'/om/[about]'>): Pr
 	const { about } = await apiQuery(AboutDocument, { variables: { slug } });
 
 	return await buildMetadata({
-		title: about?.intro,
+		title: about?.title,
 		description: about?.intro,
 		image: about?.image as FileField,
 		pathname: `/om/${slug}`,

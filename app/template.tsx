@@ -12,11 +12,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
 	useEffect(() => {
 		// Preload background images
-		const sectionIds = ['om', 'kontakt', 'pa-gang', 'vad-vi-gor'];
-
+		const sectionIds = ['om', 'kontakt', 'pa-gang', 'vad-vi-gor', 'lar-mer'];
 		sectionIds.forEach((sectionId) => {
 			const img = new Image();
 			img.src = `${process.env.NEXT_PUBLIC_SITE_URL}/images/sections/${sectionId}.svg`;
+			img.onload = () => {};
 		});
 	}, []);
 

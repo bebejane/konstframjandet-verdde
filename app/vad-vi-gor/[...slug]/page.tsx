@@ -48,7 +48,7 @@ const getPostData = async (slug: string) => {
 	if (!post) return notFound();
 
 	const { __typename, id, intro, content, image } = post;
-	const title = __typename === 'ParticipantRecord' ? post.name : post.title;
+	const title = post.title;
 	const partners = __typename === 'ProgramRecord' ? post.partner : [];
 	const participants = __typename === 'ProgramRecord' ? post.partipants : [];
 	const programs =

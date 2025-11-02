@@ -21,17 +21,7 @@ export default async function Related({ header, items }: Props) {
 			<ul>
 				{items.map(async (item, idx) => {
 					const t = item.__typename;
-					const caption =
-						t === 'PartnerRecord'
-							? item.title
-							: t === 'ProgramRecord'
-								? item.title
-								: t === 'ParticipantRecord'
-									? item.name
-									: null;
-
 					if (!t) return null;
-
 					const apiKey = changeCase.kebabCase(t.replace('Record', '')) as keyof typeof config.routes;
 					const href = (await config.routes[apiKey]?.(item))?.[0];
 					if (!href) throw new Error(`No route found for type: ${t}`);
@@ -44,7 +34,7 @@ export default async function Related({ header, items }: Props) {
 										<SRCImage data={item.image.responsiveImage} pictureClassName={s.image} />
 									)}
 								</figure>
-								<figcaption>{caption}</figcaption>
+								<figcaption>{item.title}</figcaption>
 							</Link>
 						</li>
 					);

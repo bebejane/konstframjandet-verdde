@@ -97,7 +97,7 @@ fragment AboutFragment on AboutRecord {
 								__typename
 								id
 								slug
-								name
+								title
 							}
 							... on ProgramRecord {
 								__typename

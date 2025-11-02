@@ -55,13 +55,7 @@ export default async function WhatWeDo({ searchParams }: PageProps<'/vad-vi-gor'
 					<Card key={item.id}>
 						<Thumbnail
 							className={item.__typename === 'ShortTextRecord' ? 'textBox' : ''}
-							title={
-								item.__typename === 'ParticipantRecord'
-									? item.name
-									: item.__typename !== 'ShortTextRecord'
-										? item.title
-										: undefined
-							}
+							title={item.__typename !== 'ShortTextRecord' ? item.title : undefined}
 							category={categories.find((c) => c.__typename === item.__typename)?.title}
 							date={item.__typename === 'ProgramRecord' ? item.startDate : null}
 							image={item.image as FileField}

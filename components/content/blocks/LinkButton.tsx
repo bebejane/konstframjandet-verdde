@@ -8,16 +8,7 @@ export type LinkButtonBlockProps = { data: LinkButtonRecord; onClick: Function }
 export default async function LinkButton({ data: { link } }: LinkButtonBlockProps) {
 	const t = link.__typename;
 	const record = t === 'InternalLinkRecord' && link.record ? link.record : null;
-
-	const title =
-		t === 'ExternalLinkRecord'
-			? link.title
-			: t === 'InternalLinkRecord' && link.record
-				? record?.__typename === 'ParticipantRecord'
-					? record.name
-					: link.title
-				: null;
-
+	const title = t === 'ExternalLinkRecord' ? link.title : t === 'InternalLinkRecord' && record ? record.title : null;
 	return (
 		<DatoLink link={link} className={s.button}>
 			<Button>{title}</Button>

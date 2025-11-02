@@ -81,7 +81,7 @@ fragment NewsFragment on NewsRecord {
 								__typename
 								id
 								slug
-								name
+								title
 							}
 							... on ProgramRecord {
 								__typename

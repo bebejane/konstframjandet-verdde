@@ -91,7 +91,7 @@ fragment ProgramFragment on ProgramRecord {
 								__typename
 								id
 								slug
-								name
+								title
 							}
 							... on ProgramRecord {
 								__typename

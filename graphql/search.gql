@@ -43,7 +43,7 @@ query SiteSearch(
 	allParticipants(first: $first, skip: $skip, filter: { id: { in: $participantIds } }) {
 		__typename
 		_modelApiKey
-		title: name
+		title
 		text: intro(markdown: false)
 		slug
 	}

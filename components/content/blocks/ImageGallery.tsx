@@ -1,7 +1,8 @@
 'use client';
 
-import s from './ImageGallery.module.scss';
 import 'swiper/css';
+import s from './ImageGallery.module.scss';
+
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import type { Swiper } from 'swiper';
 import cn from 'classnames';
@@ -38,7 +39,7 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 	useEffect(() => {
 		calculatePositions();
 	}, [height, width, calculatePositions]);
-
+	console.log(images.length);
 	return (
 		<div className={s.gallery} ref={containerRef}>
 			<div className={s.fade}></div>
@@ -71,17 +72,6 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 									<Markdown allowedElements={['em', 'p']} content={item.title} />
 								</figcaption>
 							)}
-							{item.responsiveImage && (
-								<Image
-									data={item.responsiveImage}
-									className={s.image}
-									imgClassName={s.picture}
-									placeholderClassName={s.picture}
-									objectFit={'cover'}
-									onLoad={calculatePositions}
-								/>
-							)}
-							<figcaption>{item.title && <Markdown allowedElements={['em', 'p']} content={item.title} />}</figcaption>
 						</figure>
 					</SwiperSlide>
 				))}

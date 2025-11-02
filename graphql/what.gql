@@ -1,30 +1,3 @@
-query AllParters($first: IntType = 500, $skip: IntType = 0) {
-	allPartners(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
-		...PartnerFragmentLight
-	}
-	_allPartnersMeta {
-		count
-	}
-}
-
-query AllParticipants($first: IntType = 500, $skip: IntType = 0) {
-	allParticipants(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
-		...ParticipantFragmentLight
-	}
-	_allParticipantsMeta {
-		count
-	}
-}
-
-query AllPrograms($first: IntType = 500, $skip: IntType = 0) {
-	allPrograms(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
-		...ProgramFragmentLight
-	}
-	_allProgramsMeta {
-		count
-	}
-}
-
 query WhatWeDo($slug: String) {
 	program(filter: { slug: { eq: $slug } }) {
 		...ProgramFragment

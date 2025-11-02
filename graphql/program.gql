@@ -1,3 +1,12 @@
+query AllPrograms($first: IntType = 500, $skip: IntType = 0) {
+	allPrograms(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+		...ProgramFragmentLight
+	}
+	_allProgramsMeta {
+		count
+	}
+}
+
 fragment ProgramFragment on ProgramRecord {
 	__typename
 	_modelApiKey
@@ -59,6 +68,7 @@ fragment ProgramFragment on ProgramRecord {
 						__typename
 						id
 						record {
+							__typename
 							... on AboutRecord {
 								id
 								slug

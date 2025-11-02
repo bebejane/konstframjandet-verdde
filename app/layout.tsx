@@ -9,24 +9,6 @@ import { FooterDocument } from '@/graphql';
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	const menu = await buildMenu();
 	const { footer } = await apiQuery(FooterDocument);
-	/*
-	useEffect(() => {
-		// Preload background images
-		const sectionIds = ['om', 'kontakt', 'pa-gang', 'vad-vi-gor'];
-
-		sectionIds.forEach((sectionId) => {
-			const img = new Image();
-			img.src = `${process.env.NEXT_PUBLIC_SITE_URL}/images/sections/${sectionId}.svg`;
-		});
-	}, []);
-	useEffect(() => {
-		const sectionId = router.pathname.split('/')?.[1];
-		document.body.style.backgroundImage = sectionId ? `url(/images/sections/${sectionId}.svg)` : 'none';
-	}, [router.pathname]);
-	
-	const [showMenu] = useStore((state) => [state.showMenu]);
-	*/
-
 	return (
 		<html lang='en'>
 			<body>

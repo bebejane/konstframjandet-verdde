@@ -41,6 +41,7 @@ query Contact {
 							__typename
 							id
 							record {
+								__typename
 								... on AboutRecord {
 									id
 									slug

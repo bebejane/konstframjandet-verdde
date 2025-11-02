@@ -16,21 +16,24 @@ export default async function LearnMore({ searchParams }) {
 	const { allLearnMores } = await apiQuery(AllLearnMoreDocument);
 	const { allLearnMoreShortTexts } = await apiQuery(AllLearnMoreShortTextsDocument);
 	const { general } = await apiQuery(GlobalDocument);
-	const _learns = [...allLearnMores, ...allLearnMoreShortTexts];
 	const learns = [...allLearnMores, ...allLearnMoreShortTexts]
 		.sort((a, b) => (new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1))
-		.filter((item) => !filter || (item.__typename === 'LearnMoreRecord' && item.learnMoreCategory?.id === filter));
-
-	console.log(filter, learns);
+		.map((item) => ({
+			...item,
+			category:
+				allLearnMoreCategories.find((c) => item.__typename === 'LearnMoreRecord' && c.id === item.learnMoreCategory?.id)
+					?.title ?? null,
+		}))
+		.filter((item) => !filter || item.category === filter);
 
 	return (
 		<>
 			<PageHeader header={general.learnMoreSv} headerSmi={general.learnMoreSmi} content={general.learnMoreIntro} />
 			<ul className={s.filter}>
 				{allLearnMoreCategories.map(({ id, title }) => (
-					<li className={id === filter ? s.active : undefined} key={id}>
-						<Link href={`/lar-mer${id !== filter ? `?filter=${id}` : ''}`}>{title}</Link>
-					</li>
+					<Link href={`/lar-mer${title !== filter ? `?filter=${title}` : ''}`} key={id}>
+						<li className={title === filter ? s.active : undefined}>{title}</li>
+					</Link>
 				))}
 			</ul>
 			<CardContainer key={filter}>
@@ -39,11 +42,7 @@ export default async function LearnMore({ searchParams }) {
 						<Thumbnail
 							className={item.__typename === 'LearnMoreShortTextRecord' ? 'textBox' : ''}
 							title={item.__typename === 'LearnMoreRecord' ? item.name : null}
-							category={
-								item.__typename === 'LearnMoreRecord'
-									? allLearnMoreCategories.find((c) => c.id === item.learnMoreCategory?.id)?.title
-									: null
-							}
+							category={item.category}
 							image={item.image as FileField}
 							slug={`/lar-mer/${item.__typename === 'LearnMoreRecord' ? item.slug : null}`}
 						/>

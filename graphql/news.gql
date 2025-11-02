@@ -59,6 +59,7 @@ fragment NewsFragment on NewsRecord {
 						__typename
 						id
 						record {
+							__typename
 							... on AboutRecord {
 								id
 								slug

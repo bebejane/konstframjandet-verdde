@@ -1,5 +1,5 @@
-query AllPartners {
-	allPartners(first: 100) {
+query AllPartners($first: IntType = 500, $skip: IntType = 0) {
+	allPartners(first: $first, skip: $skip) {
 		...PartnerFragmentLight
 	}
 	_allPartnersMeta {
@@ -64,6 +64,7 @@ fragment PartnerFragment on PartnerRecord {
 						__typename
 						id
 						record {
+							__typename
 							... on AboutRecord {
 								id
 								slug

@@ -9,6 +9,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Image } from 'react-datocms';
 import { Markdown } from 'next-dato-utils/components';
 import { useWindowSize } from 'rooks';
+import { useStore } from '@/lib/store';
 
 export type ImageGalleryBlockProps = {
 	id: string;
@@ -17,6 +18,7 @@ export type ImageGalleryBlockProps = {
 };
 
 export default function ImageGallery({ data: { id, images }, onClick }: ImageGalleryBlockProps) {
+	const [setImageId] = useStore((state) => [state.setImageId]);
 	const swiperRef = useRef<Swiper | null>(null);
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const arrowRef = useRef<HTMLDivElement | null>(null);
@@ -53,7 +55,7 @@ export default function ImageGallery({ data: { id, images }, onClick }: ImageGal
 			>
 				{images.map((item, idx) => (
 					<SwiperSlide key={`${idx}`} className={cn(s.slide)}>
-						<figure id={`${id}-${item.id}`} onClick={() => onClick?.(item.id)}>
+						<figure id={`${id}-${item.id}`} onClick={() => setImageId(item.id)}>
 							<Image
 								data={item.responsiveImage}
 								className={s.image}

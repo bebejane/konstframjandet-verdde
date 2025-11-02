@@ -1,5 +1,5 @@
 import { apiQuery } from 'next-dato-utils/api';
-import { AllParticipantsDocument, AllPartersDocument, AllProgramsDocument, WhatWeDoDocument } from '@/graphql';
+import { AllParticipantsDocument, AllPartnersDocument, AllProgramsDocument, WhatWeDoDocument } from '@/graphql';
 import { Article, BackButton, Content, Related, Content } from '@/components';
 import { DatoSEO } from 'next-dato-utils/components';
 import { pageSlugs } from '@/lib/i18n';
@@ -56,7 +56,7 @@ export async function generateStaticParams() {
 	const [{ participants }, { programs }, { partners }] = await Promise.all([
 		apiQuery(AllParticipantsDocument),
 		apiQuery(AllProgramsDocument),
-		apiQuery(AllPartersDocument),
+		apiQuery(AllPartnersDocument),
 	]);
 	const paths = [...participants, ...programs, ...partners].map(({ slug, __typename }) => ({
 		params: { slug: [categories.find((c) => c.__typename === __typename).slug, slug] },

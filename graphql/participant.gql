@@ -1,6 +1,16 @@
+query AllParticipants($first: IntType = 500, $skip: IntType = 0) {
+	allParticipants(first: $first, skip: $skip, orderBy: [_firstPublishedAt_DESC]) {
+		...ParticipantFragmentLight
+	}
+	_allParticipantsMeta {
+		count
+	}
+}
+
 fragment ParticipantFragment on ParticipantRecord {
 	_createdAt
 	_publishedAt
+	__typename
 	id
 	name
 	intro(markdown: false)
@@ -45,6 +55,7 @@ fragment ParticipantFragment on ParticipantRecord {
 						__typename
 						id
 						record {
+							__typename
 							... on AboutRecord {
 								id
 								slug

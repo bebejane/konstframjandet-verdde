@@ -1,6 +1,6 @@
 import s from './page.module.scss';
 
-import { AllPartersDocument, AllParticipantsDocument, AllProgramsDocument, AllShortTextsDocument } from '@/graphql';
+import { AllPartnersDocument, AllParticipantsDocument, AllProgramsDocument, AllShortTextsDocument } from '@/graphql';
 import { CardContainer, Card, Thumbnail, PageHeader } from '@/components';
 import { usePathname } from 'next/navigation';
 import { DatoSEO } from 'next-dato-utils/components';
@@ -72,7 +72,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
 	const [{ participants }, { programs }, { partners }, { shortTexts }] = await Promise.all([
 		apiQuery(AllParticipantsDocument),
 		apiQuery(AllProgramsDocument),
-		apiQuery(AllPartersDocument),
+		apiQuery(AllPartnersDocument),
 		apiQuery(AllShortTextsDocument),
 	]);
 

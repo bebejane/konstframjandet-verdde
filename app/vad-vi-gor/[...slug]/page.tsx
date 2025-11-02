@@ -1,6 +1,6 @@
 import s from './page.module.scss';
 import { apiQuery } from 'next-dato-utils/api';
-import { AllParticipantsDocument, AllPartersDocument, AllProgramsDocument, WhatWeDoDocument } from '@/graphql';
+import { AllParticipantsDocument, AllPartnersDocument, AllProgramsDocument, WhatWeDoDocument } from '@/graphql';
 import { Article, BackButton, Related, Content } from '@/components';
 import { categories } from '@/lib/constant';
 import { notFound } from 'next/navigation';
@@ -52,7 +52,7 @@ export async function generateStaticParams() {
 	const [{ allParticipants }, { allPrograms }, { allPartners }] = await Promise.all([
 		apiQuery(AllParticipantsDocument, { all: true }),
 		apiQuery(AllProgramsDocument, { all: true }),
-		apiQuery(AllPartersDocument, { all: true }),
+		apiQuery(AllPartnersDocument, { all: true }),
 	]);
 
 	return [...allParticipants, ...allPrograms, ...allPartners].map(({ slug, __typename }) => ({

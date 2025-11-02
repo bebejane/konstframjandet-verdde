@@ -131,7 +131,8 @@ export const NewsFragmentLight: DocumentNode;
 declare module '*/participant.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const ParticipantFragment: DocumentNode;
+  export const AllParticipants: DocumentNode;
+export const ParticipantFragment: DocumentNode;
 export const ParticipantFragmentLight: DocumentNode;
 
   export default defaultDocument;
@@ -153,7 +154,8 @@ export const PartnerFragmentLight: DocumentNode;
 declare module '*/program.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const ProgramFragment: DocumentNode;
+  export const AllPrograms: DocumentNode;
+export const ProgramFragment: DocumentNode;
 export const ProgramFragmentLight: DocumentNode;
 
   export default defaultDocument;
@@ -193,10 +195,7 @@ export const StartData: DocumentNode;
 declare module '*/what.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const AllParters: DocumentNode;
-export const AllParticipants: DocumentNode;
-export const AllPrograms: DocumentNode;
-export const WhatWeDo: DocumentNode;
+  export const WhatWeDo: DocumentNode;
 
   export default defaultDocument;
 }

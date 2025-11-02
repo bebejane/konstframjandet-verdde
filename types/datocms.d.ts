@@ -5465,11 +5465,11 @@ type AboutQuery = { __typename?: 'Query', about?: { __typename: 'AboutRecord', _
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
@@ -5485,11 +5485,11 @@ type MainAboutQuery = { __typename?: 'Query', allAbouts: Array<{ __typename: 'Ab
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
@@ -5507,11 +5507,11 @@ type AboutFragment = { __typename: 'AboutRecord', _modelApiKey: string, _created
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any }
@@ -5529,11 +5529,11 @@ type ContactQuery = { __typename?: 'Query', contact?: { __typename?: 'ContactRec
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
@@ -5567,17 +5567,17 @@ type AllLearnMoreQueryVariables = Exact<{
 }>;
 
 
-type AllLearnMoreQuery = { __typename?: 'Query', allLearnMores: Array<{ __typename?: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
+type AllLearnMoreQuery = { __typename?: 'Query', allLearnMores: Array<{ __typename: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
         | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
         | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any, data?: any | null }
@@ -5597,34 +5597,34 @@ type LearnMoreQueryVariables = Exact<{
 }>;
 
 
-type LearnMoreQuery = { __typename?: 'Query', learnMore?: { __typename?: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
+type LearnMoreQuery = { __typename?: 'Query', learnMore?: { __typename: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
         | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
         | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null } | null };
 
-type LearnMoreFragment = { __typename?: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
+type LearnMoreFragment = { __typename: 'LearnMoreRecord', _createdAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, learnMoreCategory?: { __typename?: 'LearnMoreCategoryRecord', id: any, title: string } | null, content?: { __typename?: 'LearnMoreModelContentField', links: Array<string>, value: any, blocks: Array<
       | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
       | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any, data?: any | null }
@@ -5657,11 +5657,11 @@ type NewsQuery = { __typename?: 'Query', news?: { __typename?: 'NewsRecord', id:
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
@@ -5674,11 +5674,11 @@ type NewsFragment = { __typename?: 'NewsRecord', id: any, title: string, intro: 
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any }
@@ -5687,17 +5687,25 @@ type NewsFragment = { __typename?: 'NewsRecord', id: any, title: string, intro: 
 
 type NewsFragmentLightFragment = { __typename?: 'NewsRecord', id: any, title: string, intro: string, city?: string | null, slug: string, date?: any | null, endDate?: any | null, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
 
-type ParticipantFragment = { __typename?: 'ParticipantRecord', _createdAt: any, _publishedAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, content?: { __typename?: 'ParticipantModelContentField', value: any, blocks: Array<
+type AllParticipantsQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+}>;
+
+
+type AllParticipantsQuery = { __typename?: 'Query', allParticipants: Array<{ __typename: 'ParticipantRecord', id: any, name: string, intro: string, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allParticipantsMeta: { __typename?: 'CollectionMetadata', count: any } };
+
+type ParticipantFragment = { __typename: 'ParticipantRecord', _createdAt: any, _publishedAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, content?: { __typename?: 'ParticipantModelContentField', value: any, blocks: Array<
       | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
       | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any }
@@ -5706,7 +5714,10 @@ type ParticipantFragment = { __typename?: 'ParticipantRecord', _createdAt: any, 
 
 type ParticipantFragmentLightFragment = { __typename: 'ParticipantRecord', id: any, name: string, intro: string, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } };
 
-type AllPartnersQueryVariables = Exact<{ [key: string]: never; }>;
+type AllPartnersQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+}>;
 
 
 type AllPartnersQuery = { __typename?: 'Query', allPartners: Array<{ __typename: 'PartnerRecord', id: any, title: string, intro: string, city?: string | null, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allPartnersMeta: { __typename?: 'CollectionMetadata', count: any } };
@@ -5722,11 +5733,11 @@ type PartnerQuery = { __typename?: 'Query', partner?: { __typename: 'PartnerReco
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
@@ -5739,11 +5750,11 @@ type PartnerFragment = { __typename: 'PartnerRecord', _createdAt: any, _publishe
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any }
@@ -5752,17 +5763,25 @@ type PartnerFragment = { __typename: 'PartnerRecord', _createdAt: any, _publishe
 
 type PartnerFragmentLightFragment = { __typename: 'PartnerRecord', id: any, title: string, intro: string, city?: string | null, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } };
 
+type AllProgramsQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+}>;
+
+
+type AllProgramsQuery = { __typename?: 'Query', allPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allProgramsMeta: { __typename?: 'CollectionMetadata', count: any } };
+
 type ProgramFragment = { __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, time?: string | null, address?: string | null, intro: string, misc?: string | null, slug: string, externalLink?: string | null, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, thumb: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }, partipants: Array<{ __typename: 'ParticipantRecord', id: any, name: string, intro: string, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, partner: Array<{ __typename: 'PartnerRecord', id: any, title: string, intro: string, city?: string | null, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, content?: { __typename?: 'ProgramModelContentField', value: any, blocks: Array<
       | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
       | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
       | { __typename: 'LinkButtonRecord', id: any, link:
           | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
           | { __typename: 'InternalLinkRecord', id: any, record:
-              | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-              | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-              | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-              | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-              | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+              | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+              | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+              | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+              | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+              | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
       | { __typename: 'SoundRecord', id: any }
@@ -5826,30 +5845,6 @@ type StartDataQueryVariables = Exact<{
 
 type StartDataQuery = { __typename?: 'Query', allNews: Array<{ __typename?: 'NewsRecord', id: any, title: string, intro: string, city?: string | null, slug: string, date?: any | null, endDate?: any | null, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image?: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }>, allPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, allParticipants: Array<{ __typename: 'ParticipantRecord', id: any, name: string, intro: string, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }> };
 
-type AllPartersQueryVariables = Exact<{
-  first?: InputMaybe<Scalars['IntType']['input']>;
-  skip?: InputMaybe<Scalars['IntType']['input']>;
-}>;
-
-
-type AllPartersQuery = { __typename?: 'Query', allPartners: Array<{ __typename: 'PartnerRecord', id: any, title: string, intro: string, city?: string | null, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allPartnersMeta: { __typename?: 'CollectionMetadata', count: any } };
-
-type AllParticipantsQueryVariables = Exact<{
-  first?: InputMaybe<Scalars['IntType']['input']>;
-  skip?: InputMaybe<Scalars['IntType']['input']>;
-}>;
-
-
-type AllParticipantsQuery = { __typename?: 'Query', allParticipants: Array<{ __typename: 'ParticipantRecord', id: any, name: string, intro: string, slug: string, _createdAt: any, _publishedAt: any, _firstPublishedAt: any, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allParticipantsMeta: { __typename?: 'CollectionMetadata', count: any } };
-
-type AllProgramsQueryVariables = Exact<{
-  first?: InputMaybe<Scalars['IntType']['input']>;
-  skip?: InputMaybe<Scalars['IntType']['input']>;
-}>;
-
-
-type AllProgramsQuery = { __typename?: 'Query', allPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, _allProgramsMeta: { __typename?: 'CollectionMetadata', count: any } };
-
 type WhatWeDoQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']['input']>;
 }>;
@@ -5861,26 +5856,26 @@ type WhatWeDoQuery = { __typename?: 'Query', program?: { __typename: 'ProgramRec
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
-      > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null, participant?: { __typename?: 'ParticipantRecord', _createdAt: any, _publishedAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, content?: { __typename?: 'ParticipantModelContentField', value: any, blocks: Array<
+      > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null, participant?: { __typename: 'ParticipantRecord', _createdAt: any, _publishedAt: any, id: any, name: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null } }>, content?: { __typename?: 'ParticipantModelContentField', value: any, blocks: Array<
         | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null } | null }> }
         | { __typename: 'ImageRecord', id: any, layout: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }
@@ -5891,11 +5886,11 @@ type WhatWeDoQuery = { __typename?: 'Query', program?: { __typename: 'ProgramRec
         | { __typename: 'LinkButtonRecord', id: any, link:
             | { __typename: 'ExternalLinkRecord', id: any, title: string, url: string }
             | { __typename: 'InternalLinkRecord', id: any, record:
-                | { __typename?: 'AboutRecord', id: any, slug: string, title: string }
-                | { __typename?: 'LocationRecord', id: any, slug: string, title: string }
-                | { __typename?: 'NewsRecord', id: any, slug: string, title: string }
-                | { __typename?: 'ParticipantRecord', id: any, slug: string, name: string }
-                | { __typename?: 'ProgramRecord', id: any, slug: string, title: string }
+                | { __typename: 'AboutRecord', id: any, slug: string, title: string }
+                | { __typename: 'LocationRecord', id: any, slug: string, title: string }
+                | { __typename: 'NewsRecord', id: any, slug: string, title: string }
+                | { __typename: 'ParticipantRecord', id: any, slug: string, name: string }
+                | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
         | { __typename: 'SoundRecord', id: any }

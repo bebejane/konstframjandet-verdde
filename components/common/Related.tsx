@@ -1,7 +1,7 @@
 import s from './Related.module.scss';
 import React from 'react';
 import { Image } from 'react-datocms';
-import Link from '@/components/nav/Link';
+import Link from 'next/link';
 import { recordToSlug } from '@/lib/routes';
 
 export type RelatedItem = ParticipantRecord | PartnerRecord | ProgramRecord;
@@ -11,7 +11,8 @@ export type Props = {
 	items: RelatedItem[];
 };
 
-export default function Related({ header, items }: Props) {
+export default async function Related({ header, items }: Props) {
+	console.log(items);
 	if (!items?.length) return null;
 
 	return (

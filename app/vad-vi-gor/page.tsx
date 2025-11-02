@@ -81,8 +81,10 @@ export default async function WhatWeDo({ searchParams }: PageProps<'/vad-vi-gor'
 }
 
 export async function generateMetadata({ params }: PageProps<'/vad-vi-gor'>): Promise<Metadata> {
+	const { general } = await apiQuery(GeneralDocument);
 	return buildMetadata({
 		title: 'Vad vi gör',
+		description: general?.whatIntro,
 		pathname: '/vad-vi-gor',
 	});
 }

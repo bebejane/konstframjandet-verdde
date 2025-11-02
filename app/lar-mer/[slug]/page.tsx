@@ -33,6 +33,8 @@ export async function generateMetadata({ params }: PageProps<'/lar-mer/[slug]'>)
 
 	return await buildMetadata({
 		title: learnMore?.intro,
+		description: learnMore?.intro,
+		image: learnMore?.image as FileField,
 		pathname: `/lar-mer/${slug}`,
 	});
 }

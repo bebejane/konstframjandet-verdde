@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: PageProps<'/pa-gang/[news]'>)
 
 	return await buildMetadata({
 		title: news?.intro,
+		image: news?.image as FileField,
+		description: news?.intro,
 		pathname: `/pa-gang/${slug}`,
 	});
 }

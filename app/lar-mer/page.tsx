@@ -60,8 +60,10 @@ export default async function LearnMore({ searchParams }: PageProps<'/lar-mer'>)
 }
 
 export async function generateMetadata({ params }: PageProps<'/lar-mer'>): Promise<Metadata> {
+	const { general } = await apiQuery(GeneralDocument);
 	return await buildMetadata({
 		title: 'Lär mer',
+		description: general?.learnMoreIntro,
 		pathname: '/lar-mer',
 	});
 }

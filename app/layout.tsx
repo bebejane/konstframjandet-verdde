@@ -6,7 +6,6 @@ import { apiQuery } from 'next-dato-utils/api';
 import { FooterDocument, GlobalDocument } from '@/graphql';
 import { Metadata } from 'next';
 import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
-import { Suspense } from 'react';
 
 export default async function RootLayout({ children }: LayoutProps<'/'>) {
 	const menu = await buildMenu();
@@ -37,28 +36,20 @@ export type BuildMetadataProps = {
 };
 
 export async function buildMetadata({
-	title,
+	title: t,
 	description: desc,
+	image: img,
 	pathname,
-	image,
 }: BuildMetadataProps): Promise<Metadata> {
 	const {
 		site: { globalSeo, faviconMetaTags },
-	} = await apiQuery(GlobalDocument, {
-		revalidate: 60 * 60,
-	});
+	} = await apiQuery(GlobalDocument);
 
 	const siteName = 'Verdde';
 	const url = pathname ? `${process.env.NEXT_PUBLIC_SITE_URL}${pathname}` : process.env.NEXT_PUBLIC_SITE_URL;
-
-	const description = !desc
-		? (globalSeo?.fallbackSeo?.description ?? '')
-		: desc.length > 160
-			? `${desc.substring(0, 157)}...`
-			: (desc ?? '');
-
-	image = image ?? (globalSeo?.fallbackSeo?.image as FileField);
-	title = title ? `${siteName} — ${title}` : siteName;
+	const title = t ? `${siteName} — ${t}` : siteName;
+	const description = !desc ? (globalSeo?.fallbackSeo?.description ?? '') : desc;
+	const image = img ?? (globalSeo?.fallbackSeo?.image as FileField);
 
 	return {
 		metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),

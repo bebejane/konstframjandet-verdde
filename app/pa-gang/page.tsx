@@ -67,8 +67,10 @@ export default async function News() {
 }
 
 export async function generateMetadata({ params }: PageProps<'/pa-gang'>): Promise<Metadata> {
+	const { general } = await apiQuery(GeneralDocument);
 	return await buildMetadata({
 		title: 'På gang',
+		description: general?.newsIntro,
 		pathname: '/pa-gang',
 	});
 }

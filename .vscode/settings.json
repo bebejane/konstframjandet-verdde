@@ -1,12 +1,12 @@
 {
   "files.exclude": {
-    ".next": true,
-    "node_modules": true,
-    ".vscode": true,
-    ".vercel": true,
-    "@types": true,
-    "public": true,
-    "types": true
+    ".next": false,
+    "node_modules": false,
+    ".vscode": false,
+    ".vercel": false,
+    "@types": false,
+    "public": false,
+    "types": false
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

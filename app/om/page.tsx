@@ -42,8 +42,10 @@ export default async function Abouts() {
 }
 
 export async function generateMetadata({ params }: PageProps<'/om'>): Promise<Metadata> {
+	const { general } = await apiQuery(GeneralDocument);
 	return await buildMetadata({
 		title: 'Om',
+		description: general?.aboutIntro,
 		pathname: '/om',
 	});
 }

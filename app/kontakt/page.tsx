@@ -28,8 +28,12 @@ export default async function Contact() {
 }
 
 export async function generateMetadata({ params }: PageProps<'/kontakt'>): Promise<Metadata> {
+	const { contact } = await apiQuery(ContactDocument);
+
 	return await buildMetadata({
 		title: 'Kontakt',
+		description: contact?.intro,
+		image: contact?.image as FileField,
 		pathname: '/kontakt',
 	});
 }

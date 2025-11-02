@@ -37,30 +37,6 @@ export default async function WhatWeDo({ params }: PageProps<'/vad-vi-gor/[...sl
 	);
 }
 
-export async function generateStaticParams() {
-	const [{ allParticipants }, { allPrograms }, { allPartners }] = await Promise.all([
-		apiQuery(AllParticipantsDocument, { all: true }),
-		apiQuery(AllProgramsDocument, { all: true }),
-		apiQuery(AllPartnersDocument, { all: true }),
-	]);
-
-	return [...allParticipants, ...allPrograms, ...allPartners].map(({ slug, __typename }) => ({
-		slug: [categories.find((c) => c.__typename === __typename)?.slug, slug],
-	}));
-}
-
-export async function generateMetadata({ params }: PageProps<'/vad-vi-gor/[...slug]'>): Promise<Metadata> {
-	const {
-		slug: [category, slug],
-	} = await params;
-
-	const { title } = await getPostData(slug);
-	return await buildMetadata({
-		title,
-		pathname: `/vad-vi-gor/${category}/${slug}`,
-	});
-}
-
 const getPostData = async (slug: string) => {
 	const { program, partner, participant, draftUrl } = await apiQuery(WhatWeDoDocument, {
 		variables: { slug },
@@ -96,3 +72,29 @@ const getPostData = async (slug: string) => {
 		draftUrl,
 	};
 };
+
+export async function generateStaticParams() {
+	const [{ allParticipants }, { allPrograms }, { allPartners }] = await Promise.all([
+		apiQuery(AllParticipantsDocument, { all: true }),
+		apiQuery(AllProgramsDocument, { all: true }),
+		apiQuery(AllPartnersDocument, { all: true }),
+	]);
+
+	return [...allParticipants, ...allPrograms, ...allPartners].map(({ slug, __typename }) => ({
+		slug: [categories.find((c) => c.__typename === __typename)?.slug, slug],
+	}));
+}
+
+export async function generateMetadata({ params }: PageProps<'/vad-vi-gor/[...slug]'>): Promise<Metadata> {
+	const {
+		slug: [category, slug],
+	} = await params;
+
+	const { title, post } = await getPostData(slug);
+	return await buildMetadata({
+		title,
+		image: post?.image as FileField,
+		description: post?.intro,
+		pathname: `/vad-vi-gor/${category}/${slug}`,
+	});
+}

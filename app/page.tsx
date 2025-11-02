@@ -4,8 +4,6 @@ import { StartDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { Block } from '@/components';
 import { DraftMode } from 'next-dato-utils/components';
-import { buildMetadata } from '@/app/layout';
-import { Metadata } from 'next';
 
 export type Props = {
 	start: StartRecord;

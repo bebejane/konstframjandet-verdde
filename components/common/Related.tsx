@@ -20,7 +20,7 @@ export default async function Related({ header, items }: Props) {
 		<section className={s.related}>
 			<h2>{header}</h2>
 			<ul>
-				{items.concat(items, items, items).map(async (item, idx) => {
+				{items.map(async (item, idx) => {
 					const t = item.__typename;
 					if (!t) throw new Error(`Unknown block type`);
 					const apiKey = changeCase.kebabCase(t.replace('Record', '')) as keyof typeof config.routes;

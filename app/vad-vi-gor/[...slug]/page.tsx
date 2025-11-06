@@ -17,6 +17,7 @@ export default async function WhatWeDo({ params }: PageProps<'/vad-vi-gor/[...sl
 	const { id, post, draftUrl, title, intro, content, image, partners, participants, programs } =
 		await getPostData(slug);
 
+	console.log(participants);
 	return (
 		<>
 			<Article key={id} title={title} image={image as FileField} intro={intro} content={content}>

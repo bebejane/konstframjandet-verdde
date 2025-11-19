@@ -30,7 +30,7 @@ export default function ArticleImage({ image, className, content }: ArticleImage
 		<>
 			{image?.responsiveImage && (
 				<figure className={cn(s.mainImage, className)} onClick={() => setImageId(image?.id)}>
-					<SRCImage data={image.responsiveImage} pictureClassName={s.picture} />
+					<Image data={image.responsiveImage} pictureClassName={s.picture} />
 					<figcaption ref={captionRef}>{image.title}</figcaption>
 				</figure>
 			)}

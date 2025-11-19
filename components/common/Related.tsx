@@ -32,7 +32,7 @@ export default async function Related({ header, items }: Props) {
 							<Link href={href}>
 								<figure>
 									{item.image?.responsiveImage && (
-										<SRCImage data={item.image.responsiveImage} pictureClassName={s.image} />
+										<Image data={item.image.responsiveImage} pictureClassName={s.image} />
 									)}
 								</figure>
 								<figcaption>{item.title}</figcaption>

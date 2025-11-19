@@ -57,7 +57,7 @@ export default function Thumbnail({
 			{city && <h5 className='small'>{city}</h5>}
 			{image && (
 				<div className={s.imageWrap}>
-					{image?.responsiveImage && <SRCImage data={image.responsiveImage} imgClassName={s.image} />}
+					{image?.responsiveImage && <Image data={image.responsiveImage} imgClassName={s.image} />}
 				</div>
 			)}
 			{intro && <Markdown className={cn(s.intro, isTextOnly && s.text, isTextOnly && 'headline')} content={intro} />}

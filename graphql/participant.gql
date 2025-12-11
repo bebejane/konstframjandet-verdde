@@ -104,6 +104,11 @@ fragment ParticipantFragment on ParticipantRecord {
 					url
 				}
 			}
+			... on SoundRecord {
+				__typename
+				id
+				data
+			}
 			... on RecordInterface {
 				__typename
 				id

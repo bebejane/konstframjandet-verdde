@@ -5485,7 +5485,7 @@ type AboutQuery = { __typename?: 'Query', about?: { __typename: 'AboutRecord', _
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null };
 
@@ -5505,7 +5505,7 @@ type MainAboutQuery = { __typename?: 'Query', allAbouts: Array<{ __typename: 'Ab
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }> };
 
@@ -5527,7 +5527,7 @@ type AboutFragment = { __typename: 'AboutRecord', _modelApiKey: string, _created
               | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
-      | { __typename: 'SoundRecord', id: any }
+      | { __typename: 'SoundRecord', id: any, data?: any | null }
       | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> };
 
@@ -5684,7 +5684,7 @@ type NewsQuery = { __typename?: 'Query', news?: { __typename?: 'NewsRecord', id:
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null };
 
@@ -5701,7 +5701,7 @@ type NewsFragment = { __typename?: 'NewsRecord', id: any, title: string, intro: 
               | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
-      | { __typename: 'SoundRecord', id: any }
+      | { __typename: 'SoundRecord', id: any, data?: any | null }
       | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> };
 
@@ -5728,7 +5728,7 @@ type ParticipantFragment = { __typename: 'ParticipantRecord', _createdAt: any, _
               | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
-      | { __typename: 'SoundRecord', id: any }
+      | { __typename: 'SoundRecord', id: any, data?: any | null }
       | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null, works?: { __typename?: 'ParticipantModelWorksField', blocks: Array<string>, value: any, links: Array<string> } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> };
 
@@ -5760,7 +5760,7 @@ type PartnerQuery = { __typename?: 'Query', partner?: { __typename: 'PartnerReco
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null };
 
@@ -5777,7 +5777,7 @@ type PartnerFragment = { __typename: 'PartnerRecord', _createdAt: any, _publishe
               | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
-      | { __typename: 'SoundRecord', id: any }
+      | { __typename: 'SoundRecord', id: any, data?: any | null }
       | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> };
 
@@ -5804,7 +5804,7 @@ type ProgramFragment = { __typename: 'ProgramRecord', _modelApiKey: string, _pub
               | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
              }
          }
-      | { __typename: 'SoundRecord', id: any }
+      | { __typename: 'SoundRecord', id: any, data?: any | null }
       | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
     > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> };
 
@@ -5891,7 +5891,7 @@ type WhatWeDoQuery = { __typename?: 'Query', program?: { __typename: 'ProgramRec
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null, participant?: { __typename: 'ParticipantRecord', _createdAt: any, _publishedAt: any, id: any, title: string, intro: string, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }>, content?: { __typename?: 'ParticipantModelContentField', value: any, blocks: Array<
         | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }> }
@@ -5906,7 +5906,7 @@ type WhatWeDoQuery = { __typename?: 'Query', program?: { __typename: 'ProgramRec
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, works?: { __typename?: 'ParticipantModelWorksField', blocks: Array<string>, value: any, links: Array<string> } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null, partner?: { __typename: 'PartnerRecord', _createdAt: any, _publishedAt: any, id: any, title: string, intro: string, slug: string, address?: string | null, city?: string | null, webpage?: string | null, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }, _allReferencingPrograms: Array<{ __typename: 'ProgramRecord', _modelApiKey: string, _publishedAt: any, _firstPublishedAt: any, _createdAt: any, id: any, title: string, startDate: any, endDate?: any | null, intro: string, time?: string | null, slug: string, image: { __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } }>, content?: { __typename?: 'PartnerModelContentField', value: any, blocks: Array<
         | { __typename: 'ImageGalleryRecord', id: any, images: Array<{ __typename?: 'FileField', id: any, mimeType: string, url: string, title?: string | null, alt?: string | null, height?: any | null, width?: any | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null }> }
@@ -5921,6 +5921,6 @@ type WhatWeDoQuery = { __typename?: 'Query', program?: { __typename: 'ProgramRec
                 | { __typename: 'ProgramRecord', id: any, slug: string, title: string }
                }
            }
-        | { __typename: 'SoundRecord', id: any }
+        | { __typename: 'SoundRecord', id: any, data?: any | null }
         | { __typename: 'VideoRecord', id: any, title: string, video: { __typename?: 'VideoField', height: any, width: any, title: string, provider: string, providerUid: string, thumbnailUrl: string, url: string } }
       > } | null, _seoMetaTags: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> } | null };

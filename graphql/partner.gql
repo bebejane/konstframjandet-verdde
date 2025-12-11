@@ -113,6 +113,11 @@ fragment PartnerFragment on PartnerRecord {
 					url
 				}
 			}
+			... on SoundRecord {
+				__typename
+				id
+				data
+			}
 			... on RecordInterface {
 				__typename
 				id

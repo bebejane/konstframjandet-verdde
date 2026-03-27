@@ -27,14 +27,19 @@ export default async function LearnMore({ searchParams }: PageProps<'/lar-mer'>)
 		.map((item) => ({
 			...item,
 			category:
-				allLearnMoreCategories.find((c) => item.__typename === 'LearnMoreRecord' && c.id === item.learnMoreCategory?.id)
-					?.title ?? null,
+				allLearnMoreCategories.find(
+					(c) => item.__typename === 'LearnMoreRecord' && c.id === item.learnMoreCategory?.id,
+				)?.title ?? null,
 		}))
 		.filter((item) => !filter || item.category === filter);
 
 	return (
 		<>
-			<PageHeader header={general?.learnMoreSv} headerSmi={general?.learnMoreSmi} content={general?.learnMoreIntro} />
+			<PageHeader
+				header={general?.learnMoreSv}
+				headerSmi={general?.learnMoreSmi}
+				content={general?.learnMoreIntro}
+			/>
 			<ul className={s.filter}>
 				{allLearnMoreCategories.map(({ id, title }) => (
 					<Link href={`/lar-mer${title !== filter ? `?filter=${title}` : ''}`} key={id}>
@@ -47,6 +52,7 @@ export default async function LearnMore({ searchParams }: PageProps<'/lar-mer'>)
 					<Card key={item.id}>
 						<Thumbnail
 							className={item.__typename === 'LearnMoreShortTextRecord' ? 'textBox' : ''}
+							textBlock={item.__typename === 'LearnMoreShortTextRecord'}
 							title={item.__typename === 'LearnMoreRecord' ? item.name : undefined}
 							category={item.category}
 							image={item.image as FileField}

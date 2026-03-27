@@ -1,13 +1,13 @@
+'use client';
+
 import s from './Thumbnail.module.scss';
 import cn from 'classnames';
-import React from 'react';
 import { Image, SRCImage } from 'react-datocms';
 import Link from 'next/link';
 import { truncateWords } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Markdown } from 'next-dato-utils/components';
-import Balancer from 'react-wrap-balancer';
-import { text } from 'stream/consumers';
+import Balancer from 'react-balance-text';
 
 export type Props = {
 	image?: FileField;
@@ -43,9 +43,9 @@ export default function Thumbnail({
 		<>
 			{category && <div className='tag'>{category}</div>}
 			{title && (
-				<h3>
-					<Balancer>{titleLength ? truncateWords(title, titleLength) : title}</Balancer>
-				</h3>
+				<Balancer>
+					<h3>{titleLength ? truncateWords(title, titleLength) : title}</h3>
+				</Balancer>
 			)}
 			{date && !endDate && <h4>{format(new Date(date), 'dd MMM yyyy').replaceAll('.', '')}</h4>}
 			{date && endDate && (
@@ -60,11 +60,17 @@ export default function Thumbnail({
 					{image?.responsiveImage && <Image data={image.responsiveImage} className={s.image} />}
 				</div>
 			)}
-			{intro && <Markdown className={cn(s.intro, isTextOnly && s.text, isTextOnly && 'headline')} content={intro} />}
+			{intro && (
+				<Markdown
+					className={cn(s.intro, isTextOnly && s.text, isTextOnly && 'headline')}
+					content={intro}
+				/>
+			)}
 		</>
 	);
 
 	const classes = cn(s.thumbnail, className, textBlock && s.textBlock);
+
 	return slug ? (
 		<Link href={slug} className={classes}>
 			{content}

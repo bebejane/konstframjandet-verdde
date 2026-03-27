@@ -20,14 +20,20 @@ export default async function Abouts() {
 
 	return (
 		<>
-			<PageHeader header={general?.aboutSv} headerSmi={general?.aboutSmi} content={general?.aboutIntro} />
+			<PageHeader
+				header={general?.aboutSv}
+				headerSmi={general?.aboutSmi}
+				content={general?.aboutIntro}
+			/>
 			<CardContainer>
 				{[...allAbouts, ...allAboutShortTexts]
-					.sort((a, b) => (new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1))
+					.sort((a, b) =>
+						new Date(b._createdAt).getTime() > new Date(a._createdAt).getTime() ? 1 : -1,
+					)
 					.map((item) => (
 						<Card key={item.id} className={s.margin}>
 							<Thumbnail
-								className={item.__typename === 'AboutShortTextRecord' ? 'textBox' : ''}
+								textBlock={item.__typename === 'AboutShortTextRecord'}
 								title={item.__typename === 'AboutRecord' ? item.title : undefined}
 								image={item.image as FileField}
 								intro={item.__typename === 'AboutRecord' ? item.intro : undefined}

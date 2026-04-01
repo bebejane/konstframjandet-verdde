@@ -11,7 +11,7 @@ import Balancer from 'react-balance-text';
 
 export type Props = {
 	image?: FileField;
-	slug?: string;
+	slug?: string | null;
 	date?: string;
 	endDate?: string;
 	title?: string;
@@ -71,7 +71,7 @@ export default function Thumbnail({
 
 	const classes = cn(s.thumbnail, className, textBlock && s.textBlock);
 
-	return slug ? (
+	return slug && !textBlock ? (
 		<Link href={slug} className={classes}>
 			{content}
 		</Link>
